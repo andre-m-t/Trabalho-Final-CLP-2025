@@ -105,6 +105,31 @@ public class Interpreter {
         return isValid;
     }
     
+    public static String getMemoryType(String variable){
+        String type = "";
+        String code = "";
+        int cod = -1;
+        for(int i = 0; i < variable.length(); i++){
+            if(variable.charAt(i) > '0' && variable.charAt(i) < '9'){
+                code = code+variable.charAt(i);
+            }else{
+                type = type+variable.charAt(i);
+            }
+        }
+        
+        try{
+            cod = Integer.parseInt(code);
+        }catch (Exception E){
+            
+        }
+        
+        if(cod != -1){
+            return type;
+        }
+        
+        return "";
+    }
+    
     // Verifica se entrada é válido
     public static boolean inputIsValid(ArrayList<String> variables, Map<String, Boolean> inputs) {
         Boolean isValid = true;
@@ -244,10 +269,9 @@ public class Interpreter {
             // Para operações de carregamento (onde variável de memória são criadas)
             if(operator.equals("ST") || operator.equals("STN") || operator.equals("TON")){
                 // Se memória já existe, só atualiza no hash
+                String type = getMemoryType(variables.get(0));
                 if(memoryVariableIsValid(variables, memoryVariables)) {
                     if(operator.equals("ST")){
-                        if(variables.get(0).charAt(0) == 'T' && memoryVariables.get(variables.get(0)).currentValue == false && accumulator == true)
-                            memoryVariables.get(variables.get(0)).timer.start();
                         memoryVariables.get(variables.get(0)).currentValue = accumulator;
                     }
 
@@ -262,8 +286,6 @@ public class Interpreter {
                 } else {
                     if(operator.equals("ST")){
                         memoryVariables.put(variables.get(0), new MemoryVariable(variables.get(0)));
-                        if(variables.get(0).charAt(0) == 'T' && memoryVariables.get(variables.get(0)).currentValue == false && accumulator == true)
-                            memoryVariables.get(variables.get(0)).timer.start();
                         memoryVariables.get(variables.get(0)).currentValue = accumulator;
                     }
 

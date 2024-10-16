@@ -27,10 +27,9 @@ public class MemoryVariable {
                     counter++;
                 }
                 if(counter == maxTimer){
-                    endTimer = true;
+                    endTimer = id.charAt(1) == 'O' ? true:false;
                     timer.stop();
                 }
-                System.out.println(counter);
             }
         });
     }
@@ -41,6 +40,14 @@ public class MemoryVariable {
 
     public void setId(String id) {
         this.id = id;
+    }
+    
+    public Boolean getEndTimer(){
+        return this.endTimer;
+    }
+    
+    public Boolean getEndCounter(){
+        return this.endTimer;
     }
 
     public Boolean getCurrentValue() {
