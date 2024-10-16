@@ -24,6 +24,7 @@ public class Interpreter {
         validOperators.add("OR");
         validOperators.add("ORN");
         validOperators.add("TON");
+        validOperators.add("TOFF");
     }
     
     // Recebe linhas vindas da tela e separa operador e variável
@@ -123,8 +124,12 @@ public class Interpreter {
             
         }
         
-        if(cod != -1){
+        if(!type.equals("M") && !type.equals("TO") && !type.equals("TF")){
+            InterfaceScreen.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variable + " não existe!");
+        }else if(cod != -1){
             return type;
+        }else{
+            InterfaceScreen.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variable + " não existe!");
         }
         
         return "";
@@ -267,36 +272,55 @@ public class Interpreter {
         // Caso operador seja válido e tenhamos como variável uma memória
         } else if(operatorIsValid(operator) && !inputIsValid(variables, inputs) && !outputIsValid(variables, outputs)){
             // Para operações de carregamento (onde variável de memória são criadas)
-            if(operator.equals("ST") || operator.equals("STN") || operator.equals("TON")){
+            if(operator.equals("ST") || operator.equals("STN") || operator.equals("TON") || operator.equals("TOFF")){
                 // Se memória já existe, só atualiza no hash
                 String type = getMemoryType(variables.get(0));
-                if(memoryVariableIsValid(variables, memoryVariables)) {
-                    if(operator.equals("ST")){
-                        memoryVariables.get(variables.get(0)).currentValue = accumulator;
-                    }
+                if(!type.equals("")){
+                    if(memoryVariableIsValid(variables, memoryVariables)) {
+                        if(operator.equals("ST")){
+                            memoryVariables.get(variables.get(0)).currentValue = accumulator;
+                        }
 
-                    if(operator.equals("STN")){
-                        memoryVariables.get(variables.get(0)).currentValue = !accumulator;
-                    }
-                    
-                    if(operator.equals("TON")){
-                        memoryVariables.get(variables.get(0)).maxTimer = Integer.parseInt(variables.get(1));
-                    }
-                // Se memória não existe, ela é criada e e guardada no hash
-                } else {
-                    if(operator.equals("ST")){
-                        memoryVariables.put(variables.get(0), new MemoryVariable(variables.get(0)));
-                        memoryVariables.get(variables.get(0)).currentValue = accumulator;
-                    }
+                        if(operator.equals("STN")){
+                            memoryVariables.get(variables.get(0)).currentValue = !accumulator;
+                        }
 
-                    if(operator.equals("STN")){
-                        memoryVariables.put(variables.get(0), new MemoryVariable(variables.get(0)));
-                        memoryVariables.get(variables.get(0)).currentValue = accumulator;
-                    }
-                    
-                    if(operator.equals("TON")){
-                        memoryVariables.put(variables.get(0), new MemoryVariable(variables.get(0)));
-                        memoryVariables.get(variables.get(0)).maxTimer = Integer.parseInt(variables.get(1));
+                        if(operator.equals("TON") && type.equals("TO")){
+                            memoryVariables.get(variables.get(0)).maxTimer = Integer.parseInt(variables.get(1));
+                        }else if(operator.equals("TON")){
+                            InterfaceScreen.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variables.get(0) + " invalido!");
+                        }
+                        
+                        if(operator.equals("TOFF") && type.equals("TF")){
+                            memoryVariables.get(variables.get(0)).maxTimer = Integer.parseInt(variables.get(1));
+                        }else if(operator.equals("TOFF")){
+                            InterfaceScreen.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variables.get(0) + " invalido!");
+                        }
+                    // Se memória não existe, ela é criada e e guardada no hash
+                    } else {
+                        if(operator.equals("ST")){
+                            memoryVariables.put(variables.get(0), new MemoryVariable(variables.get(0)));
+                            memoryVariables.get(variables.get(0)).currentValue = accumulator;
+                        }
+
+                        if(operator.equals("STN")){
+                            memoryVariables.put(variables.get(0), new MemoryVariable(variables.get(0)));
+                            memoryVariables.get(variables.get(0)).currentValue = accumulator;
+                        }
+
+                        if(operator.equals("TON") && type.equals("TO")){
+                            memoryVariables.put(variables.get(0), new MemoryVariable(variables.get(0)));
+                            memoryVariables.get(variables.get(0)).maxTimer = Integer.parseInt(variables.get(1));
+                        }else if(operator.equals("TON")){
+                            InterfaceScreen.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variables.get(0) + " invalido!");
+                        }
+                        
+                         if(operator.equals("TOFF") && type.equals("TF")){
+                            memoryVariables.put(variables.get(0), new MemoryVariable(variables.get(0)));
+                            memoryVariables.get(variables.get(0)).maxTimer = Integer.parseInt(variables.get(1));
+                        }else if(operator.equals("TOFF")){
+                            InterfaceScreen.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variables.get(0) + " invalido!");
+                        }
                     }
                 }
                 System.out.println("Acumulador: " + accumulator);
@@ -336,7 +360,7 @@ public class Interpreter {
                     System.out.println(outputs); 
                     System.out.println(memoryVariables);
                 } else {
-                    InterfaceScreen.showErrorMessage("Sintaxe incorreta! Variável " + variables + " não existe!");
+                    InterfaceScreen.showErrorMessage("Sintaxe incorreta! Variável " + variables.get(0) + " não existe!");
                 }
             }
         } else {
