@@ -1,15 +1,38 @@
 package compiladorinstructionlist.memoryvariable;
 
 // Classe variável de memória
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
+
 public class MemoryVariable {
     public String id;
-    public  Boolean currentValue;
-    public  Boolean endTimer;
-    public  int counter;
-    public  int maxTimer;
+    public Boolean currentValue;
+    public Boolean endTimer;
+    public int counter;
+    public int maxTimer;
+    public Timer timer;
 
     public MemoryVariable(String id) {
         this.id = id;
+        this.counter = 0;
+        this.currentValue = false;
+        this.maxTimer = 0;
+        this.endTimer = false;
+        this.timer = new Timer(100, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                if(counter<maxTimer){
+                    counter++;
+                }
+                if(counter == maxTimer){
+                    endTimer = true;
+                    timer.stop();
+                }
+                System.out.println(counter);
+            }
+        });
     }
 
     public String getId() {

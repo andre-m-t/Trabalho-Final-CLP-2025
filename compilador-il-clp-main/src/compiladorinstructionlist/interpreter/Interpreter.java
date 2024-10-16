@@ -38,10 +38,7 @@ public class Interpreter {
         Boolean justEmptyLines = true;
         
         initializeValidOperators();
-        
-        // Limpa hash de variáveis de memória e saídas
-        memoryVariables.clear();
-        
+
         // Limpa acumulador
         accumulator = null;
         
@@ -249,6 +246,8 @@ public class Interpreter {
                 // Se memória já existe, só atualiza no hash
                 if(memoryVariableIsValid(variables, memoryVariables)) {
                     if(operator.equals("ST")){
+                        if(variables.get(0).charAt(0) == 'T' && memoryVariables.get(variables.get(0)).currentValue == false && accumulator == true)
+                            memoryVariables.get(variables.get(0)).timer.start();
                         memoryVariables.get(variables.get(0)).currentValue = accumulator;
                     }
 
@@ -263,6 +262,8 @@ public class Interpreter {
                 } else {
                     if(operator.equals("ST")){
                         memoryVariables.put(variables.get(0), new MemoryVariable(variables.get(0)));
+                        if(variables.get(0).charAt(0) == 'T' && memoryVariables.get(variables.get(0)).currentValue == false && accumulator == true)
+                            memoryVariables.get(variables.get(0)).timer.start();
                         memoryVariables.get(variables.get(0)).currentValue = accumulator;
                     }
 
