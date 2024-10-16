@@ -172,7 +172,10 @@ public class InterfaceScreen extends javax.swing.JFrame {
         String line = "";
 
         for (Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()) {
-            line = variable.getKey() + " = " + variable.getValue().currentValue + "\n";
+            if(variable.getKey().charAt(0) == 'M')
+                line = variable.getKey() + " = " + variable.getValue().currentValue + "\n";
+            else
+                line = variable.getKey() + " = " + variable.getValue().currentValue + ", " + variable.getValue().counter+ ", " + variable.getValue().maxTimer+ ", " + variable.getValue().endTimer + "\n";
             jta_memory_variables.setText(jta_memory_variables.getText() + line);
         }
     }
@@ -650,6 +653,22 @@ public class InterfaceScreen extends javax.swing.JFrame {
                     inputs = InputActions.read(inputs);
                     outputs = OutputActions.setAllFalse(outputs);
                     outputs = Interpreter.receiveLines(lineList, inputs, outputs, memoryVariables);
+                    for(Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()){
+                        if(variable.getKey().charAt(0) == 'T' && variable.getKey().charAt(1) == 'O' && variable.getValue().currentValue == true)
+                            variable.getValue().timer.start();
+                        else if(variable.getKey().charAt(0) == 'T' && variable.getKey().charAt(1) == 'O' && variable.getValue().currentValue == false){
+                            variable.getValue().timer.stop();
+                            variable.getValue().counter = 0;
+                            variable.getValue().endTimer = false;
+                        }
+                        if(variable.getKey().charAt(0) == 'T' && variable.getKey().charAt(1) == 'F' && variable.getValue().currentValue == true){
+                            variable.getValue().timer.stop();
+                            variable.getValue().counter = 0;
+                            variable.getValue().endTimer = true;
+                        }else if(variable.getKey().charAt(0) == 'T' && variable.getKey().charAt(1) == 'F' && variable.getValue().currentValue == false){
+                            variable.getValue().timer.start();
+                        }
+                    }
                     //outputs = OutputActions.dummyWrite(outputs);
                     outputs = OutputActions.write(outputs);
                     updateMode();
