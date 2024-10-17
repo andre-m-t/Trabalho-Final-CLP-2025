@@ -654,18 +654,18 @@ public class InterfaceScreen extends javax.swing.JFrame {
                     outputs = OutputActions.setAllFalse(outputs);
                     outputs = Interpreter.receiveLines(lineList, inputs, outputs, memoryVariables);
                     for(Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()){
-                        if(variable.getKey().charAt(0) == 'T' && variable.getKey().charAt(1) == 'O' && variable.getValue().currentValue == true)
+                        if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("ON") && variable.getValue().currentValue == true)
                             variable.getValue().timer.start();
-                        else if(variable.getKey().charAt(0) == 'T' && variable.getKey().charAt(1) == 'O' && variable.getValue().currentValue == false){
+                        else if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("ON") && variable.getValue().currentValue == false){
                             variable.getValue().timer.stop();
                             variable.getValue().counter = 0;
                             variable.getValue().endTimer = false;
                         }
-                        if(variable.getKey().charAt(0) == 'T' && variable.getKey().charAt(1) == 'F' && variable.getValue().currentValue == true){
+                        if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("OFF") && variable.getValue().currentValue == true){
                             variable.getValue().timer.stop();
                             variable.getValue().counter = 0;
                             variable.getValue().endTimer = true;
-                        }else if(variable.getKey().charAt(0) == 'T' && variable.getKey().charAt(1) == 'F' && variable.getValue().currentValue == false){
+                        }else if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("OFF") && variable.getValue().currentValue == false){
                             variable.getValue().timer.start();
                         }
                     }
