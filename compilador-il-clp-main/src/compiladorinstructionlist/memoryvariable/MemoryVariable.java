@@ -4,6 +4,7 @@ package compiladorinstructionlist.memoryvariable;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.Timer;
 
 public class MemoryVariable {
@@ -14,6 +15,7 @@ public class MemoryVariable {
     public int maxTimer;
     public Timer timer;
     public String timerType;
+    public String counterType;
 
     public MemoryVariable(String id) {
         this.id = id;
@@ -22,6 +24,8 @@ public class MemoryVariable {
         this.maxTimer = 0;
         this.endTimer = false;
         this.timerType = "";
+        this.counterType = "";
+
         this.timer = new Timer(100, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
@@ -50,8 +54,16 @@ public class MemoryVariable {
             }else{
                 return "Timer type error";
             }
+        }else if (id.charAt(0) == 'C'){
+            switch (counterType) {
+                case "UP":
+                    return "Counter Up: "+id+", Accum:"+counter+", Preset:"+maxTimer+", DN:"+endTimer;
+                case "DOWN":
+                    return "Counter Down: "+id+", Accum:"+counter+", Preset:"+maxTimer+", DN:"+endTimer;
+                default:
+                    return "Counter type error";
+            }
         }
-            
         return "Memory type error";
     }
 
@@ -89,6 +101,34 @@ public class MemoryVariable {
 
     public void setCurrentValue(Boolean currentValue) {
         this.currentValue = currentValue;
+    }
+    public void resetCurrentValue(){
+        this.counter = 0;
+    }
+    public void incrementCounter(){
+        this.counter++;
+        testEndTimer();
+    }
+    public void testEndTimer(){
+        
+        if(this.counterType.equals("UP")){
+            if(this.counter >= this.maxTimer){
+                endTimer = true;
+            }else{
+                endTimer = false;
+            }
+        }else if (this.counterType.equals("DOWN")){
+            if(this.counter <= this.maxTimer){
+                endTimer = true;
+            }else {
+                endTimer = false;
+            }
+        }
+            
+    }
+    public void decrementCounter(){
+        this.counter--;
+        testEndTimer();
     }
 
     @Override

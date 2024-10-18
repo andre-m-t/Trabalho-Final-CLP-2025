@@ -174,9 +174,12 @@ public class InterfaceScreen extends javax.swing.JFrame {
         for (Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()) {
             if(variable.getKey().charAt(0) == 'M')
                 line = variable.getKey() + " = " + variable.getValue().currentValue + "\n";
-            else
+            else if (variable.getKey().charAt(0) == 'T'){
                 line = variable.getKey() + " = " + variable.getValue().currentValue + ", " + variable.getValue().counter+ ", " + variable.getValue().maxTimer+ ", " + variable.getValue().endTimer + "\n";
-            jta_memory_variables.setText(jta_memory_variables.getText() + line);
+            }else if (variable.getKey().charAt(0) == 'C'){
+                line = variable.getKey() + " = " + variable.getValue().counter+ ", " + variable.getValue().maxTimer+ ", " + variable.getValue().endTimer + "\n";
+            }
+                jta_memory_variables.setText(jta_memory_variables.getText() + line);
         }
     }
 
