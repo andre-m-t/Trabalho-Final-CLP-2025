@@ -124,7 +124,7 @@ public class Interpreter {
             
         }
         
-        if(!type.equals("M") && !type.equals("TO") && !type.equals("TF")){
+        if(!type.equals("M") && !type.equals("T")){
             InterfaceScreen.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variable + " não existe!");
         }else if(cod != -1){
             return type;
@@ -285,14 +285,16 @@ public class Interpreter {
                             memoryVariables.get(variables.get(0)).currentValue = !accumulator;
                         }
 
-                        if(operator.equals("TON") && type.equals("TO")){
+                        if(operator.equals("TON") && type.equals("T")){
                             memoryVariables.get(variables.get(0)).maxTimer = Integer.parseInt(variables.get(1));
+                            memoryVariables.get(variables.get(0)).timerType = "ON";
                         }else if(operator.equals("TON")){
                             InterfaceScreen.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variables.get(0) + " invalido!");
                         }
                         
-                        if(operator.equals("TOFF") && type.equals("TF")){
+                        if(operator.equals("TOFF") && type.equals("T")){
                             memoryVariables.get(variables.get(0)).maxTimer = Integer.parseInt(variables.get(1));
+                            memoryVariables.get(variables.get(0)).timerType = "OFF";
                         }else if(operator.equals("TOFF")){
                             InterfaceScreen.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variables.get(0) + " invalido!");
                         }
@@ -308,16 +310,18 @@ public class Interpreter {
                             memoryVariables.get(variables.get(0)).currentValue = accumulator;
                         }
 
-                        if(operator.equals("TON") && type.equals("TO")){
+                        if(operator.equals("TON") && type.equals("T")){
                             memoryVariables.put(variables.get(0), new MemoryVariable(variables.get(0)));
                             memoryVariables.get(variables.get(0)).maxTimer = Integer.parseInt(variables.get(1));
+                            memoryVariables.get(variables.get(0)).timerType = "ON";
                         }else if(operator.equals("TON")){
                             InterfaceScreen.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variables.get(0) + " invalido!");
                         }
                         
-                         if(operator.equals("TOFF") && type.equals("TF")){
+                         if(operator.equals("TOFF") && type.equals("T")){
                             memoryVariables.put(variables.get(0), new MemoryVariable(variables.get(0)));
                             memoryVariables.get(variables.get(0)).maxTimer = Integer.parseInt(variables.get(1));
+                            memoryVariables.get(variables.get(0)).timerType = "OFF";
                         }else if(operator.equals("TOFF")){
                             InterfaceScreen.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variables.get(0) + " invalido!");
                         }

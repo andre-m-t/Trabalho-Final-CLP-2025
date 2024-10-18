@@ -13,6 +13,7 @@ public class MemoryVariable {
     public int counter;
     public int maxTimer;
     public Timer timer;
+    public String timerType;
 
     public MemoryVariable(String id) {
         this.id = id;
@@ -20,6 +21,7 @@ public class MemoryVariable {
         this.currentValue = false;
         this.maxTimer = 0;
         this.endTimer = false;
+        this.timerType = "";
         this.timer = new Timer(100, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
@@ -27,14 +29,37 @@ public class MemoryVariable {
                     counter++;
                 }
                 if(counter == maxTimer){
-                    endTimer = id.charAt(1) == 'O' ? true:false;
+                    if(timerType.equals("ON"))
+                        endTimer = true;
+                    else if(timerType.equals("OFF"))
+                        endTimer = false;
                     timer.stop();
                 }
             }
         });
     }
+    
+    public String getMemory(){
+        if(id.charAt(0) == 'M'){
+            return "Boolean memory: "+id+", State:"+currentValue;
+        }else if(id.charAt(0) == 'T'){
+            if(timerType.equals("ON")){
+                return "Timer On memory: "+id+", State:"+currentValue+", Accum:"+counter+", Preset:"+maxTimer+", DN:"+endTimer;
+            }else if(timerType.equals("OFF")){
+                return "Timer Off memory: "+id+", State:"+currentValue+", Accum:"+counter+", Preset:"+maxTimer+", DN:"+endTimer;
+            }else{
+                return "Timer type error";
+            }
+        }
+            
+        return "Memory type error";
+    }
 
-    public String getId() {
+    public String getTimerType(){
+        return timerType;
+    }
+    
+    public String getTimer() {
         return id;
     }
 
@@ -42,8 +67,20 @@ public class MemoryVariable {
         this.id = id;
     }
     
-    public Boolean getEndTimer(){
+    public Boolean getDN(){
         return this.endTimer;
+    }
+    
+    public Boolean getEN(){
+        return this.currentValue;
+    }
+    
+    public int getAccum(){
+        return this.counter;
+    }
+    
+    public int getPreset(){
+        return this.maxTimer;
     }
     
     public Boolean getEndCounter(){
