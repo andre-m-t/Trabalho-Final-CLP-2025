@@ -264,6 +264,7 @@ public class InterfaceScreen extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(100, 100, 0));
         jLabel1.setText("Compilador: Lista de Instrução - CLP");
 
         jb_stop.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
@@ -715,6 +716,12 @@ public class InterfaceScreen extends javax.swing.JFrame {
     private void jb_stopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_stopActionPerformed
         System.out.println("\nBotão stop clicado!");
         mode = 2;
+        for (Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()) {
+            if(variable.getKey().charAt(0) == 'T'){
+                variable.getValue().timer.stop();
+            }
+        }
+        updateMemoryVariables();
         updateMode();
     }//GEN-LAST:event_jb_stopActionPerformed
 
@@ -730,6 +737,13 @@ public class InterfaceScreen extends javax.swing.JFrame {
     private void jb_programActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_programActionPerformed
         System.out.println("\nBotão program clicado!");
         mode = 1;
+        for (Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()) {
+            if(variable.getKey().charAt(0) == 'T'){
+                variable.getValue().counter = 0;
+                variable.getValue().timer.stop();
+            }
+        }
+        updateMemoryVariables();
         updateMode();
     }//GEN-LAST:event_jb_programActionPerformed
 

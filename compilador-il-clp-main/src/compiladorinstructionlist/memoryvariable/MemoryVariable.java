@@ -55,6 +55,10 @@ public class MemoryVariable {
         return "Memory type error";
     }
 
+    public String getTimerType(){
+        return timerType;
+    }
+    
     public String getTimer() {
         return id;
     }
