@@ -1,7 +1,7 @@
 package compiladorinstructionlist.input;
 
 import java.util.Map;
-import com.intelligt.modbus.jlibmodbus.Modbus;
+/*import com.intelligt.modbus.jlibmodbus.Modbus;
 import com.intelligt.modbus.jlibmodbus.master.ModbusMaster;
 import com.intelligt.modbus.jlibmodbus.master.ModbusMasterFactory;
 import com.intelligt.modbus.jlibmodbus.exception.ModbusIOException;
@@ -10,7 +10,7 @@ import com.intelligt.modbus.jlibmodbus.serial.SerialPort;
 import com.intelligt.modbus.jlibmodbus.serial.SerialPortFactoryJSSC;
 import com.intelligt.modbus.jlibmodbus.serial.SerialPortFactoryPJC;
 import com.intelligt.modbus.jlibmodbus.serial.SerialPortFactoryRXTX;
-import com.intelligt.modbus.jlibmodbus.serial.SerialUtils;
+import com.intelligt.modbus.jlibmodbus.serial.SerialUtils;*/
 
 // Classe para as ações relacionadas com as entradas
 public class InputActions {
@@ -19,7 +19,7 @@ public class InputActions {
     
     public static Map create(Map inputs) {
         // Cria as 8 entradas
-        Input I1 = new Input("I1", false);
+        Input I1 = new Input("I1", true);
         Input I2 = new Input("I2", true);
         Input I3 = new Input("I3", false);
         Input I4 = new Input("I4", false);
