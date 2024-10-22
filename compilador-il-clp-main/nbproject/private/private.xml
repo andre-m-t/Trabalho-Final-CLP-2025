@@ -5,7 +5,7 @@
             <url>src/compiladorinstructionlist/screen/InterfaceScreen.java</url>
             <bookmark id="1">
                 <name/>
-                <line>643</line>
+                <line>644</line>
                 <key/>
             </bookmark>
         </file>
@@ -14,6 +14,7 @@
         <group>
             <file>file:/D:/Facul-Git/Trabalho-Final-CLP/compilador-il-clp-main/src/compiladorinstructionlist/interpreter/Interpreter.java</file>
             <file>file:/D:/Facul-Git/Trabalho-Final-CLP/compilador-il-clp-main/src/compiladorinstructionlist/screen/InterfaceScreen.java</file>
+            <file>file:/D:/Facul-Git/Trabalho-Final-CLP/compilador-il-clp-main/src/compiladorinstructionlist/CompiladorInstructionList.java</file>
             <file>file:/D:/Facul-Git/Trabalho-Final-CLP/compilador-il-clp-main/src/compiladorinstructionlist/memoryvariable/MemoryVariable.java</file>
         </group>
     </open-files>

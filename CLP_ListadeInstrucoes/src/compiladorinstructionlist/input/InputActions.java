@@ -20,7 +20,7 @@ public class InputActions {
     public static Map create(Map inputs) {
         // Cria as 8 entradas
         Input I1 = new Input("I1", false);
-        Input I2 = new Input("I2", true);
+        Input I2 = new Input("I2", false);
         Input I3 = new Input("I3", false);
         Input I4 = new Input("I4", false);
         Input I5 = new Input("I5", false);

@@ -6,20 +6,44 @@ public class Language {
     
     private static String lingua = "PT-BR";
     
-    public static void setLingua(String lingua){
-        Language.lingua = lingua;
+    public static void setLingua(){
+        if(null == lingua){
+            lingua = "PT-BR";
+        }else lingua = switch (lingua) {
+            case "PT-BR" -> "EN";
+            case "EN" -> "JA";
+            case "JA" -> "DE";
+            case "DE" -> "PT-BR";
+            default -> "PT-BR";
+        };
+    }
+    
+    public static String getLingua(){
+        return lingua;
     }
     
     public static JComboBox getArquivar(){
         JComboBox<String> jComboBox = new JComboBox();
         if(lingua.equals("EN")){
             jComboBox.addItem("File");
+            jComboBox.addItem("Salvar");
+            jComboBox.addItem("Item 3");
+            jComboBox.addItem("Item 4");
         }else if(lingua.equals("JA")){
             jComboBox.addItem("ファイル");
+            jComboBox.addItem("Salvar");
+            jComboBox.addItem("Item 3");
+            jComboBox.addItem("Item 4");
         }else if(lingua.equals("DE")){
             jComboBox.addItem("Datei");
+            jComboBox.addItem("Salvar");
+            jComboBox.addItem("Item 3");
+            jComboBox.addItem("Item 4");
         }else{
             jComboBox.addItem("Arquivo");
+            jComboBox.addItem("Salvar");
+            jComboBox.addItem("Item 3");
+            jComboBox.addItem("Item 4");
         }
         return jComboBox;
     }
@@ -28,54 +52,70 @@ public class Language {
         JComboBox<String> jComboBox = new JComboBox();
         if(lingua.equals("EN")){
             jComboBox.addItem("Edit");
+            jComboBox.addItem("Tema");
+            jComboBox.addItem("Idioma");
         }else if(lingua.equals("JA")){
             jComboBox.addItem("編集");
+            jComboBox.addItem("Tema");
+            jComboBox.addItem("Idioma");
         }else if(lingua.equals("DE")){
             jComboBox.addItem("Bearbeiten");
+            jComboBox.addItem("Tema");
+            jComboBox.addItem("Idioma");
         }else{
             jComboBox.addItem("Editar");
+            jComboBox.addItem("Tema");
+            jComboBox.addItem("Idioma");
         }
         return jComboBox;
     }
     
-    public static JComboBox getAjudar(){
-        JComboBox<String> jComboBox = new JComboBox();
+    public static String getAjudar(){
         if(lingua.equals("EN")){
-            jComboBox.addItem("Help");
+            return "Help";
         }else if(lingua.equals("JA")){
-            jComboBox.addItem("ヘルプ");
+            return "ヘルプ";
         }else if(lingua.equals("DE")){
-            jComboBox.addItem("Helfen");
+            return "Helfen";
         }else{
-            jComboBox.addItem("Ajuda");
+            return "Ajuda";
         }
-        return jComboBox;
     }
     
-    public static JComboBox getSobre(){
-        JComboBox<String> jComboBox = new JComboBox();
+    public static String getSobre(){
         if(lingua.equals("EN")){
-            jComboBox.addItem("About");
+            return "About";
         }else if(lingua.equals("JA")){
-            jComboBox.addItem("について");
+            return "について";
         }else if(lingua.equals("DE")){
-            jComboBox.addItem("Um");
+            return "Um";
         }else{
-            jComboBox.addItem("Sobre");
+            return "Sobre";
         }
-        return jComboBox;
     }
     
     public static JComboBox getSimulação(){
         JComboBox<String> jComboBox = new JComboBox();
         if(lingua.equals("EN")){
             jComboBox.addItem("simulation");
+            jComboBox.addItem("Simulação 1");
+            jComboBox.addItem("Simulação 2");
+            jComboBox.addItem("Simulação 3");
         }else if(lingua.equals("JA")){
             jComboBox.addItem("シミュレーション");
+            jComboBox.addItem("Simulação 1");
+            jComboBox.addItem("Simulação 2");
+            jComboBox.addItem("Simulação 3");
         }else if(lingua.equals("DE")){
             jComboBox.addItem("Simulation");
+            jComboBox.addItem("Simulação 1");
+            jComboBox.addItem("Simulação 2");
+            jComboBox.addItem("Simulação 3");
         }else{
-            jComboBox.addItem("Simulação");
+            jComboBox.addItem("Painel");
+            jComboBox.addItem("Simulação 1");
+            jComboBox.addItem("Simulação 2");
+            jComboBox.addItem("Simulação 3");
         }
         return jComboBox;
     }

@@ -4,23 +4,30 @@
  */
 package Telas;
 
-import compiladorinstructionlist.input.InputActions;
+import compiladorinstructionlist.edit.Colors;
+import compiladorinstructionlist.edit.Language;
+import javax.swing.ImageIcon;
 import compiladorinstructionlist.interpreter.Interpreter;
-import compiladorinstructionlist.memoryvariable.MemoryVariable;
 import compiladorinstructionlist.output.OutputActions;
+import compiladorinstructionlist.input.InputActions;
+import compiladorinstructionlist.memoryvariable.MemoryVariable;
+import compiladorinstructionlist.uppercasedocumentfilter.UpperCaseDocumentFilter;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import javax.swing.text.AbstractDocument;
 import javax.swing.text.BadLocationException;
 
 /**
@@ -29,11 +36,15 @@ import javax.swing.text.BadLocationException;
  */
 public class Home_Pg extends javax.swing.JFrame {
 
-        // Cria variáveis
+    /**
+     * Creates new form Home_Pg
+     */
     static Map<String, Boolean> inputs;
     static Map<String, Boolean> outputs;
     static Map<String, MemoryVariable> memoryVariables = new HashMap<String, MemoryVariable>();
     static Integer mode = 1;
+    static Integer color = 1;
+    static String lingua = "PT-BR";
             
     public Home_Pg() {
         initComponents();
@@ -48,6 +59,16 @@ public class Home_Pg extends javax.swing.JFrame {
         Saida_6.setIcon(icon);
         Saida_7.setIcon(icon);
         Saida_8.setIcon(icon);
+        ImageIcon icon1 = new ImageIcon("src/Assets/chave_aberta.png");
+        icon1.setImage( icon1.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
+        Entrada_1.setIcon(icon1);
+        Entrada_2.setIcon(icon1);
+        Entrada_3.setIcon(icon1);
+        Entrada_4.setIcon(icon1);
+        Entrada_5.setIcon(icon1);
+        Entrada_6.setIcon(icon1);
+        Entrada_7.setIcon(icon1);
+        Entrada_8.setIcon(icon1);
         ImageIcon iconplay = new ImageIcon("src/Assets/start.png");
         iconplay.setImage( iconplay.getImage().getScaledInstance(Run_BT.getWidth(), Run_BT.getHeight(),1));
         Run_BT.setIcon(iconplay);
@@ -55,6 +76,8 @@ public class Home_Pg extends javax.swing.JFrame {
         iconpause.setImage( iconpause.getImage().getScaledInstance(Pause_BT.getWidth(), Pause_BT.getHeight(),1));
         Pause_BT.setIcon(iconpause);
         
+        AbstractDocument doc = (AbstractDocument) Codigo_Camp.getDocument();
+        doc.setDocumentFilter(new UpperCaseDocumentFilter());
         //setando textos para linguagem
         //Simulacoes.setModel();
         //Arquivar_BT.setModel();
@@ -65,7 +88,7 @@ public class Home_Pg extends javax.swing.JFrame {
         Label_Saidas.setText("Saidas");
         Label_Entradas.setText("Entradas");
         
-        
+        //Inicializa entradas e saídas
         inputs = new HashMap<>();
         outputs = new HashMap<>();
 
@@ -77,6 +100,7 @@ public class Home_Pg extends javax.swing.JFrame {
 
         // Atualiza entradas e saídas na tela
         updateScreen();
+        
     }
     
     public void setColor(Boolean value, JLabel label) {
@@ -89,71 +113,53 @@ public class Home_Pg extends javax.swing.JFrame {
 
     // Atualiza entradas e saídas na tela
     public void updateScreen() {
-        /*jl_input1_value.setText(inputs.get("I1").toString());
-        setColor(inputs.get("I1"), jl_input1_value);
-
-        jl_input2_value.setText(inputs.get("I2").toString());
-        setColor(inputs.get("I2"), jl_input2_value);
-
-        jl_input3_value.setText(inputs.get("I3").toString());
-        setColor(inputs.get("I3"), jl_input3_value);
-
-        jl_input4_value.setText(inputs.get("I4").toString());
-        setColor(inputs.get("I4"), jl_input4_value);
-
-        jl_input5_value.setText(inputs.get("I5").toString());
-        setColor(inputs.get("I5"), jl_input5_value);
-
-        jl_input6_value.setText(inputs.get("I6").toString());
-        setColor(inputs.get("I6"), jl_input6_value);
-
-        jl_input7_value.setText(inputs.get("I7").toString());
-        setColor(inputs.get("I7"), jl_input7_value);
-
-        jl_input8_value.setText(inputs.get("I8").toString());
-        setColor(inputs.get("I8"), jl_input8_value);
-
-        jl_output1_value.setText(outputs.get("Q1").toString());
-        setColor(outputs.get("Q1"), jl_output1_value);
-
-        jl_output2_value.setText(outputs.get("Q2").toString());
-        setColor(outputs.get("Q2"), jl_output2_value);
-
-        jl_output3_value.setText(outputs.get("Q3").toString());
-        setColor(outputs.get("Q3"), jl_output3_value);
-
-        jl_output4_value.setText(outputs.get("Q4").toString());
-        setColor(outputs.get("Q4"), jl_output4_value);
-
-        jl_output5_value.setText(outputs.get("Q5").toString());
-        setColor(outputs.get("Q5"), jl_output5_value);
-
-        jl_output6_value.setText(outputs.get("Q6").toString());
-        setColor(outputs.get("Q6"), jl_output6_value);
-
-        jl_output7_value.setText(outputs.get("Q7").toString());
-        setColor(outputs.get("Q7"), jl_output7_value);
-
-        jl_output8_value.setText(outputs.get("Q8").toString());
-        setColor(outputs.get("Q8"), jl_output8_value);*/
+        ImageIcon icon1 = new ImageIcon("src/Assets/chave_aberta.png");
+        icon1.setImage( icon1.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
+        ImageIcon icon2 = new ImageIcon("src/Assets/chave_fechada.png");
+        icon2.setImage( icon2.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
+        Entrada_1.setIcon(inputs.get("I1")?icon2:icon1);
+        Entrada_2.setIcon(inputs.get("I2")?icon2:icon1);
+        Entrada_3.setIcon(inputs.get("I3")?icon2:icon1);
+        Entrada_4.setIcon(inputs.get("I4")?icon2:icon1);
+        Entrada_5.setIcon(inputs.get("I5")?icon2:icon1);
+        Entrada_6.setIcon(inputs.get("I6")?icon2:icon1);
+        Entrada_7.setIcon(inputs.get("I7")?icon2:icon1);
+        Entrada_8.setIcon(inputs.get("I8")?icon2:icon1);
+        
+        ImageIcon icon3 = new ImageIcon("src/Assets/led_desligado.png");
+        icon3.setImage( icon3.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
+        ImageIcon icon4 = new ImageIcon("src/Assets/led_ligado.png");
+        icon4.setImage( icon4.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
+        Saida_1.setIcon(outputs.get("Q1")?icon4:icon3);
+        Saida_2.setIcon(outputs.get("Q2")?icon4:icon3);
+        Saida_3.setIcon(outputs.get("Q3")?icon4:icon3);
+        Saida_4.setIcon(outputs.get("Q4")?icon4:icon3);
+        Saida_5.setIcon(outputs.get("Q5")?icon4:icon3);
+        Saida_6.setIcon(outputs.get("Q6")?icon4:icon3);
+        Saida_7.setIcon(outputs.get("Q7")?icon4:icon3);
+        Saida_8.setIcon(outputs.get("Q8")?icon4:icon3);
     }
 
     // Atualiza o modo atual na tela
     public void updateMode() {
         System.out.println("Modo atual: " + mode);
-        /*if (mode == 1) {
-            jl_mode_value.setText("Program");
-            jta_writeInstructions.setEditable(true);
-            jt_time.setEditable(true);
+        if (mode == 1) {
+            Codigo_Camp.setEditable(true);
+            ImageIcon icon1 = new ImageIcon("src/Assets/start.png");
+            icon1.setImage( icon1.getImage().getScaledInstance(Run_BT.getWidth(), Run_BT.getHeight(),1));
+            Run_BT.setIcon(icon1);
+            //jSpinner1.setEditable(true);
         } else if (mode == 2) {
-            jl_mode_value.setText("Stop");
-            jta_writeInstructions.setEditable(false);
-            jt_time.setEditable(false);
+            Codigo_Camp.setEditable(false);
+            ImageIcon icon1 = new ImageIcon("src/Assets/start.png");
+            icon1.setImage( icon1.getImage().getScaledInstance(Run_BT.getWidth(), Run_BT.getHeight(),1));
+            Run_BT.setIcon(icon1);
         } else {
-            jl_mode_value.setText("Run");
-            jta_writeInstructions.setEditable(false);
-            jt_time.setEditable(false);
-        }*/
+            Codigo_Camp.setEditable(false);
+            ImageIcon icon1 = new ImageIcon("src/Assets/start_verde.png");
+            icon1.setImage( icon1.getImage().getScaledInstance(Run_BT.getWidth(), Run_BT.getHeight(),1));
+            Run_BT.setIcon(icon1);
+        }
     }
 
     // Atualiza as variáveis de memória na tela
@@ -170,58 +176,13 @@ public class Home_Pg extends javax.swing.JFrame {
             jta_memory_variables.setText(jta_memory_variables.getText() + line);
         }*/
     }
-    
+
+    // Mostra mensagem de erro na tela
     public static void showErrorMessage(String message) {
         mode = 1;
         JOptionPane.showMessageDialog(null, message);
     }
     
-    private void Troca_Led_Saida(javax.swing.JLabel Saida){
-        ImageIcon icon = new ImageIcon("src/Assets/led_desligado.png");
-        icon.setImage(icon.getImage().getScaledInstance(Saida.getWidth(), Saida.getHeight(),1));
-        ImageIcon icon2 = new ImageIcon("src/Assets/led_ligado.png");
-        icon2.setImage(icon2.getImage().getScaledInstance(Saida.getWidth(), Saida.getHeight(),1));
-        
-        if (Saida.getIcon().toString()== icon.toString())
-        {
-            Saida.setIcon(icon2);
-        }else{
-            Saida.setIcon(icon);
-        }
-        
-    }
-    
-    private List<String> saveLines(List<String> lineList) {
-        /*int quant = jta_writeInstructions.getLineCount();
-
-        for (int i = 0; i < quant; i++) {
-            try {
-                Integer start = jta_writeInstructions.getLineStartOffset(i);
-                Integer end = jta_writeInstructions.getLineEndOffset(i);
-                String line = jta_writeInstructions.getText(start, end - start);
-                lineList.add(line);
-            } catch (BadLocationException ex) {
-                Logger.getLogger(InterfaceScreen.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-
-        System.out.println("Lista de linhas: " + lineList);*/
-        return lineList;
-    }
-    
-    public Map setaBit(Map<String,Boolean> inputs){
-        Boolean input = inputs.get("I1");
-        inputs.clear();
-        inputs.put("I1", !input);
-        inputs.put("I2", !input);
-        inputs.put("I3", !input);
-        inputs.put("I4", !input);
-        inputs.put("I5", !input);
-        inputs.put("I6", !input);
-        inputs.put("I7", !input);
-        inputs.put("I8", !input);
-        return inputs;
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -254,13 +215,19 @@ public class Home_Pg extends javax.swing.JFrame {
         Saida_8 = new javax.swing.JLabel();
         Label_Entradas = new javax.swing.JLabel();
         Label_Saidas = new javax.swing.JLabel();
+        Entrada_5 = new javax.swing.JLabel();
         Entrada_1 = new javax.swing.JLabel();
+        Entrada_6 = new javax.swing.JLabel();
+        Entrada_2 = new javax.swing.JLabel();
+        Entrada_8 = new javax.swing.JLabel();
+        Entrada_4 = new javax.swing.JLabel();
+        Entrada_7 = new javax.swing.JLabel();
+        Entrada_3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Simulacoes.setBackground(new java.awt.Color(8, 94, 131));
-        Simulacoes.setForeground(new java.awt.Color(0, 0, 0));
         Simulacoes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Painel", "Simulação 1", "Simulação 2", "Simulação 3" }));
         Simulacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -284,16 +251,17 @@ public class Home_Pg extends javax.swing.JFrame {
             }
         });
 
-        Arquivar_BT.setForeground(new java.awt.Color(0, 0, 0));
         Arquivar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arquivar", "Salvar", "Item 3", "Item 4" }));
 
-        Editar_BT.setForeground(new java.awt.Color(0, 0, 0));
         Editar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Editar", "Tema", "Idioma" }));
+        Editar_BT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Editar_BTActionPerformed(evt);
+            }
+        });
 
-        Help_BT.setForeground(new java.awt.Color(0, 0, 0));
         Help_BT.setText("Help");
 
-        Sobre_BT.setForeground(new java.awt.Color(0, 0, 0));
         Sobre_BT.setText("Sobre");
         Sobre_BT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -315,7 +283,6 @@ public class Home_Pg extends javax.swing.JFrame {
 
         jSpinner1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        Label_Delay.setForeground(new java.awt.Color(0, 0, 0));
         Label_Delay.setText("Tempo de Delay em ms:");
 
         jPanel1.setBackground(new java.awt.Color(142, 177, 199));
@@ -337,23 +304,94 @@ public class Home_Pg extends javax.swing.JFrame {
         Saida_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/led_desligado.png"))); // NOI18N
 
         Label_Entradas.setFont(new java.awt.Font("Segoe UI Black", 2, 24)); // NOI18N
-        Label_Entradas.setForeground(new java.awt.Color(0, 0, 0));
         Label_Entradas.setText("Entradas");
 
         Label_Saidas.setFont(new java.awt.Font("Segoe UI Black", 2, 24)); // NOI18N
-        Label_Saidas.setForeground(new java.awt.Color(0, 0, 0));
         Label_Saidas.setText("Saidas");
 
+        Entrada_5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_5MousePressed(evt);
+            }
+        });
+
         Entrada_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_1MouseReleased(evt);
+            }
+        });
+
+        Entrada_6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_6MousePressed(evt);
+            }
+        });
+
+        Entrada_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_2MousePressed(evt);
+            }
+        });
+
+        Entrada_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_8MousePressed(evt);
+            }
+        });
+
+        Entrada_4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_4MousePressed(evt);
+            }
+        });
+
+        Entrada_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_7MousePressed(evt);
+            }
+        });
+
+        Entrada_3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_3MousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(Entrada_1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 290, Short.MAX_VALUE)
+                .addGap(44, 44, 44)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Entrada_1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(Entrada_5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Entrada_2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(Entrada_6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Entrada_3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(Entrada_7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Entrada_4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(Entrada_8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Saida_4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Saida_3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -372,7 +410,7 @@ public class Home_Pg extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(403, Short.MAX_VALUE)
+                    .addContainerGap(454, Short.MAX_VALUE)
                     .addComponent(Label_Saidas, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(78, 78, 78)))
         );
@@ -382,25 +420,41 @@ public class Home_Pg extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(Label_Entradas, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(Saida_5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Saida_6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Saida_7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Saida_8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Saida_1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Entrada_5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Entrada_1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33)
-                        .addComponent(Saida_2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Saida_3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Saida_4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Entrada_6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Entrada_2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(29, 29, 29)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Entrada_7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Entrada_3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(26, 26, 26)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Entrada_8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Entrada_4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(Saida_6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Saida_2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Saida_3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Saida_7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(21, 21, 21)
+                                .addComponent(Saida_4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(49, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -415,7 +469,7 @@ public class Home_Pg extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 573, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -430,74 +484,66 @@ public class Home_Pg extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(354, 354, 354)
-                        .addComponent(Label_Delay)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Simulacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(Run_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(Pause_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Label_Delay)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Arquivar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Editar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Help_BT)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Sobre_BT)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Variaveis_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(Arquivar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Editar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Help_BT)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Sobre_BT)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 36, Short.MAX_VALUE)
-                    .addComponent(Simulacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(7, 7, 7)
-                    .addComponent(Run_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(6, 6, 6)
-                    .addComponent(Pause_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 522, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Sobre_BT)
-                    .addComponent(Help_BT)
-                    .addComponent(Editar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Arquivar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Variaveis_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1)))
+                        .addGap(35, 35, 35)
+                        .addComponent(Variaveis_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Label_Delay)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Sobre_BT)
+                            .addComponent(Help_BT)
+                            .addComponent(Editar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Arquivar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Simulacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Run_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Pause_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Label_Delay)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 49, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Simulacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Run_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Pause_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(22, 22, 22)
-                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(661, 661, 661)))
         );
 
         pack();
@@ -507,73 +553,86 @@ public class Home_Pg extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SimulacoesActionPerformed
     private void Run_BTBT_Run_Pressionado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Run_BTBT_Run_Pressionado
-        System.out.println("\nBotão run clicado!");
-        mode = 3;
-        // Verificando tempo de delay
-        String stringTime = jSpinner1.getValue().toString();
-        Integer time = 0;
+        if(mode != 3){
+            System.out.println("\nBotão run clicado!");
+            mode = 3;
+            // Verificando tempo de delay
+            String stringTime = jSpinner1.getValue().toString();
+            Integer time = 0;
 
-        if (!stringTime.equals("")) {
-            try {
-                time = Integer.parseInt(stringTime);
-            } catch (NumberFormatException e) {
-                mode = 1;
-                updateMode();
-                showErrorMessage("Tempo de delay inválido! Insira um número inteiro.");
+            if (!stringTime.equals("")) {
+                try {
+                    time = Integer.parseInt(stringTime);
+                } catch (NumberFormatException e) {
+                    mode = 1;
+                    updateMode();
+                    showErrorMessage("Tempo de delay inválido! Insira um número inteiro.");
+                }
+
+                System.out.println("Tempo de delay: " + time + "\n");
             }
 
-            System.out.println("Tempo de delay: " + time + "\n");
-        }
+            // Executa o laço corretamente sem travar a tela 
+            Timer timer = new Timer(time, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent evt) {
+                    // Salva linhas da área de texto
+                    List<String> lineList = new ArrayList<String>();
+                    lineList = saveLines(lineList);
 
-        // Executa o laço corretamente sem travar a tela 
-        Timer timer = new Timer(time, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                // Salva linhas da área de texto
-                List<String> lineList = new ArrayList<String>();
-                lineList = saveLines(lineList);
-
-                if (mode == 3) {
-                    //inputs = InputActions.dummyRead(inputs);
-                    inputs = InputActions.read(inputs);
-                    outputs = OutputActions.setAllFalse(outputs);
-                    outputs = Interpreter.receiveLines(lineList, inputs, outputs, memoryVariables);
-                    for(Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()){
-                        if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("ON") && variable.getValue().currentValue == true)
-                            variable.getValue().timer.start();
-                        else if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("ON") && variable.getValue().currentValue == false){
-                            variable.getValue().timer.stop();
-                            variable.getValue().counter = 0;
-                            variable.getValue().endTimer = false;
+                    if (mode == 3) {
+                        //inputs = InputActions.dummyRead(inputs);
+                        inputs = InputActions.read(inputs);
+                        outputs = OutputActions.setAllFalse(outputs);
+                        outputs = Interpreter.receiveLines(lineList, inputs, outputs, memoryVariables);
+                        for(Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()){
+                            if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("ON") && variable.getValue().currentValue == true)
+                                variable.getValue().timer.start();
+                            else if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("ON") && variable.getValue().currentValue == false){
+                                variable.getValue().timer.stop();
+                                variable.getValue().counter = 0;
+                                variable.getValue().endTimer = false;
+                            }
+                            if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("OFF") && variable.getValue().currentValue == true){
+                                variable.getValue().timer.stop();
+                                variable.getValue().counter = 0;
+                                variable.getValue().endTimer = true;
+                            }else if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("OFF") && variable.getValue().currentValue == false){
+                                variable.getValue().timer.start();
+                            }
                         }
-                        if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("OFF") && variable.getValue().currentValue == true){
-                            variable.getValue().timer.stop();
-                            variable.getValue().counter = 0;
-                            variable.getValue().endTimer = true;
-                        }else if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("OFF") && variable.getValue().currentValue == false){
-                            variable.getValue().timer.start();
-                        }
+                        //outputs = OutputActions.dummyWrite(outputs);
+                        outputs = OutputActions.write(outputs);
+                        updateMode();
+                        updateScreen();
+                        updateMemoryVariables();
+                    } else {
+                        ((Timer) evt.getSource()).stop();
                     }
-                    //outputs = OutputActions.dummyWrite(outputs);
-                    outputs = OutputActions.write(outputs);
-                    updateMode();
-                    updateScreen();
-                    updateMemoryVariables();
-                } else {
-                    ((Timer) evt.getSource()).stop();
+                }
+            });
+
+            timer.setInitialDelay(0); // começa sem atraso
+            timer.start();
+        }else{
+            System.out.println("\nBotão stop clicado!");
+            mode = 2;
+            for (Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()) {
+                if(variable.getKey().charAt(0) == 'T'){
+                    variable.getValue().timer.stop();
                 }
             }
-        });
-
-        timer.setInitialDelay(0); // começa sem atraso
-        timer.start();
+            updateMemoryVariables();
+            updateMode();
+        }
     }//GEN-LAST:event_Run_BTBT_Run_Pressionado
 
     private void Pause_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pause_BTActionPerformed
-        System.out.println("\nBotão stop clicado!");
-        mode = 2;
+        System.out.println("\nBotão program clicado!");
+        mode = 1;
         for (Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()) {
             if(variable.getKey().charAt(0) == 'T'){
+                variable.getValue().counter = 0;
                 variable.getValue().timer.stop();
             }
         }
@@ -585,6 +644,146 @@ public class Home_Pg extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Sobre_BTActionPerformed
 
+    private void Entrada_1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_1MousePressed
+        if(evt.getButton() == 1){
+            inputs.put("I1", !inputs.get("I1"));
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_1MousePressed
+
+    private void Entrada_2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_2MousePressed
+        if(evt.getButton() == 1){
+            inputs.put("I2", !inputs.get("I2"));
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_2MousePressed
+
+    private void Entrada_3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_3MousePressed
+        if(evt.getButton() == 1){
+            inputs.put("I3", !inputs.get("I3"));
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_3MousePressed
+
+    private void Entrada_4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_4MousePressed
+        if(evt.getButton() == 1){
+            inputs.put("I4", !inputs.get("I4"));
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_4MousePressed
+
+    private void Entrada_5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_5MousePressed
+        if(evt.getButton() == 1){
+            inputs.put("I5", !inputs.get("I5"));
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_5MousePressed
+
+    private void Entrada_6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_6MousePressed
+        if(evt.getButton() == 1){
+            inputs.put("I6", !inputs.get("I6"));
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_6MousePressed
+
+    private void Entrada_7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_7MousePressed
+        if(evt.getButton() == 1){
+            inputs.put("I7", !inputs.get("I7"));
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_7MousePressed
+
+    private void Entrada_8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_8MousePressed
+        if(evt.getButton() == 1){
+            inputs.put("I8", !inputs.get("I8"));
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_8MousePressed
+
+    private void Editar_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Editar_BTActionPerformed
+        if("Tema".equals(Editar_BT.getSelectedItem().toString())){
+            Editar_BT.setSelectedIndex(0);
+            color++;
+            if(color >= 5){
+                color = 1;
+            }
+            setaCores();
+        }
+        if("Idioma".equals(Editar_BT.getSelectedItem().toString())){
+            Editar_BT.setSelectedIndex(0);
+            Language.setLingua();
+            setaLanguage();
+        }
+    }//GEN-LAST:event_Editar_BTActionPerformed
+
+    private void Entrada_1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_1MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Entrada_1MouseReleased
+    
+    private void setaCores(){
+        Simulacoes.setBackground(Colors.firstColor(color));
+        jPanel2.setBackground(Colors.firstColor(color));
+        jPanel1.setBackground(Colors.secondColor(color));
+        Codigo_Camp.setBackground(Colors.thirdColor(color));
+    }
+    
+    private void setaLanguage(){
+        JComboBox aux = Language.getArquivar();
+        Arquivar_BT.removeItemAt(0);
+        Arquivar_BT.removeItemAt(0);
+        Arquivar_BT.removeItemAt(0);
+        Arquivar_BT.removeItemAt(0);
+        Arquivar_BT.insertItemAt(aux.getItemAt(0).toString(), 0);
+        Arquivar_BT.insertItemAt(aux.getItemAt(1).toString(), 1);
+        Arquivar_BT.insertItemAt(aux.getItemAt(2).toString(), 2);
+        Arquivar_BT.insertItemAt(aux.getItemAt(3).toString(), 3);
+        Arquivar_BT.setSelectedIndex(0);
+        
+        aux = Language.getEditar();
+        Editar_BT.removeItemAt(0);
+        Editar_BT.removeItemAt(0);
+        Editar_BT.removeItemAt(0);
+        Editar_BT.insertItemAt(aux.getItemAt(0).toString(), 0);
+        Editar_BT.insertItemAt(aux.getItemAt(1).toString(), 1);
+        Editar_BT.insertItemAt(aux.getItemAt(2).toString(), 2);
+        Editar_BT.setSelectedIndex(0);
+        
+        aux = Language.getSimulação();
+        Simulacoes.removeItemAt(0);
+        Simulacoes.removeItemAt(0);
+        Simulacoes.removeItemAt(0);
+        Simulacoes.removeItemAt(0);
+        Simulacoes.insertItemAt(aux.getItemAt(0).toString(), 0);
+        Simulacoes.insertItemAt(aux.getItemAt(1).toString(), 1);
+        Simulacoes.insertItemAt(aux.getItemAt(2).toString(), 2);
+        Simulacoes.insertItemAt(aux.getItemAt(3).toString(), 3);
+        Simulacoes.setSelectedIndex(0);
+        
+        Help_BT.setText(Language.getAjudar());
+        Sobre_BT.setText(Language.getSobre());
+        Label_Entradas.setText(Language.getEntradas());
+        Label_Saidas.setText(Language.getSaidas());
+        Label_Delay.setText(Language.getDelay());
+    }
+    
+    private List<String> saveLines(List<String> lineList) {
+        int quant = Codigo_Camp.getLineCount();
+
+        for (int i = 0; i < quant; i++) {
+            try {
+                Integer start = Codigo_Camp.getLineStartOffset(i);
+                Integer end = Codigo_Camp.getLineEndOffset(i);
+                String line = Codigo_Camp.getText(start, end - start);
+                lineList.add(line);
+            } catch (BadLocationException ex) {
+                Logger.getLogger(Home_Pg.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        System.out.println("Lista de linhas: " + lineList);
+        return lineList;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -625,6 +824,13 @@ public class Home_Pg extends javax.swing.JFrame {
     private javax.swing.JTextArea Codigo_Camp;
     private javax.swing.JComboBox<String> Editar_BT;
     private javax.swing.JLabel Entrada_1;
+    private javax.swing.JLabel Entrada_2;
+    private javax.swing.JLabel Entrada_3;
+    private javax.swing.JLabel Entrada_4;
+    private javax.swing.JLabel Entrada_5;
+    private javax.swing.JLabel Entrada_6;
+    private javax.swing.JLabel Entrada_7;
+    private javax.swing.JLabel Entrada_8;
     private javax.swing.JButton Help_BT;
     private javax.swing.JLabel Label_Delay;
     private javax.swing.JLabel Label_Entradas;
