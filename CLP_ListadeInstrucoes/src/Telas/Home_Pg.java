@@ -77,32 +77,23 @@ public class Home_Pg extends javax.swing.JFrame {
         ImageIcon iconpause = new ImageIcon("src/Assets/pause.png");
         iconpause.setImage( iconpause.getImage().getScaledInstance(Pause_BT.getWidth(), Pause_BT.getHeight(),1));
         Pause_BT.setIcon(iconpause);
+        ImageIcon iconBarra = new ImageIcon("src/Assets/Barra_Lateral.png");
+        iconBarra.setImage( iconBarra.getImage().getScaledInstance(Variaveis_BT.getWidth(),Variaveis_BT.getHeight(),1));
+        Variaveis_BT.setIcon(iconBarra);
+        ImageIcon iconCampo = new ImageIcon("src/Assets/bloco_notas.png");
+        iconCampo.setImage( iconCampo.getImage().getScaledInstance(Codigo_Camp.getWidth(),Codigo_Camp.getHeight(),1));
+        //Codigo_Camp.setIcon(iconCampo);
         
         AbstractDocument doc = (AbstractDocument) Codigo_Camp.getDocument();
         doc.setDocumentFilter(new UpperCaseDocumentFilter());
-        //setando textos para linguagem
-        //Simulacoes.setModel();
-        //Arquivar_BT.setModel();
-        //Editar_BT.setModel();
-        Help_BT.setText("Ajuda");
-        Sobre_BT.setText("Sobre");
-        Label_Delay.setText("Tempo de Delay em ms:");
-        Label_Saidas.setText("Saidas");
-        Label_Entradas.setText("Entradas");
-        
-
         //Inicializa entradas e saídas
         inputs = new HashMap<>();
-
         outputs = new HashMap<>();
-
         inputs = InputActions.create(inputs);
         System.out.println("HashMap de entradas criado:" + inputs);
-
         outputs = OutputActions.create(outputs);
         System.out.println("assaa");
         System.out.println("HashMap de saídas criado:" + outputs);
-        
         // Atualiza entradas e saídas na tela
         updateScreen();
         
@@ -237,8 +228,6 @@ public class Home_Pg extends javax.swing.JFrame {
         Help_BT = new javax.swing.JButton();
         Sobre_BT = new javax.swing.JButton();
         Pause_BT = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Codigo_Camp = new javax.swing.JTextArea();
         Variaveis_BT = new javax.swing.JButton();
         jSpinner1 = new javax.swing.JSpinner();
         Label_Delay = new javax.swing.JLabel();
@@ -262,6 +251,10 @@ public class Home_Pg extends javax.swing.JFrame {
         Entrada_7 = new javax.swing.JLabel();
         Entrada_3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        Color_Camp = new javax.swing.JPanel();
+        Image_Camp = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Codigo_Camp = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -292,11 +285,6 @@ public class Home_Pg extends javax.swing.JFrame {
         Arquivar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arquivar", "Salvar", "Item 3", "Item 4" }));
 
         Editar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Editar", "Tema", "Idioma" }));
-        Editar_BT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Editar_BTActionPerformed(evt);
-            }
-        });
 
         Help_BT.setText("Help");
 
@@ -314,10 +302,11 @@ public class Home_Pg extends javax.swing.JFrame {
             }
         });
 
-        Codigo_Camp.setBackground(new java.awt.Color(131, 177, 246));
-        Codigo_Camp.setColumns(20);
-        Codigo_Camp.setRows(5);
-        jScrollPane1.setViewportView(Codigo_Camp);
+        Variaveis_BT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                //Variaveis_BTActionPerformed(evt);
+            }
+        });
 
         jSpinner1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -348,7 +337,6 @@ public class Home_Pg extends javax.swing.JFrame {
         Label_Saidas.setText("Saidas");
 
         Entrada_5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
-
         Entrada_5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_5MousePressed(evt);
@@ -359,9 +347,6 @@ public class Home_Pg extends javax.swing.JFrame {
         Entrada_1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_1MousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Entrada_1MouseReleased(evt);
             }
         });
 
@@ -406,18 +391,6 @@ public class Home_Pg extends javax.swing.JFrame {
                 Entrada_3MousePressed(evt);
             }
         });
-
-        Entrada_6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
-
-        Entrada_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
-
-        Entrada_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
-
-        Entrada_4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
-
-        Entrada_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
-
-        Entrada_3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -527,6 +500,32 @@ public class Home_Pg extends javax.swing.JFrame {
             .addGap(0, 221, Short.MAX_VALUE)
         );
 
+        Codigo_Camp.setColumns(20);
+        Codigo_Camp.setRows(5);
+        jScrollPane1.setViewportView(Codigo_Camp);
+
+        javax.swing.GroupLayout Image_CampLayout = new javax.swing.GroupLayout(Image_Camp);
+        Image_Camp.setLayout(Image_CampLayout);
+        Image_CampLayout.setHorizontalGroup(
+            Image_CampLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
+        );
+        Image_CampLayout.setVerticalGroup(
+            Image_CampLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+        );
+
+        javax.swing.GroupLayout Color_CampLayout = new javax.swing.GroupLayout(Color_Camp);
+        Color_Camp.setLayout(Color_CampLayout);
+        Color_CampLayout.setHorizontalGroup(
+            Color_CampLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Image_Camp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        Color_CampLayout.setVerticalGroup(
+            Color_CampLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Image_Camp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -538,41 +537,37 @@ public class Home_Pg extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Color_Camp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(Arquivar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Editar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Help_BT)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Sobre_BT)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Simulacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(Run_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(Pause_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Simulacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7)
-                                .addComponent(Run_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(Pause_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Label_Delay)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Arquivar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Editar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Help_BT)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Sobre_BT)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Label_Delay))
+                        .addGap(503, 503, 503)
                         .addComponent(Variaveis_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addGap(16, 16, 16))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(Variaveis_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Sobre_BT)
                             .addComponent(Help_BT)
@@ -586,14 +581,17 @@ public class Home_Pg extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Label_Delay)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Variaveis_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1))
+                    .addComponent(Color_Camp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -855,6 +853,7 @@ public class Home_Pg extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Arquivar_BT;
     private javax.swing.JTextArea Codigo_Camp;
+    private javax.swing.JPanel Color_Camp;
     private javax.swing.JComboBox<String> Editar_BT;
     private javax.swing.JLabel Entrada_1;
     private javax.swing.JLabel Entrada_2;
@@ -865,6 +864,7 @@ public class Home_Pg extends javax.swing.JFrame {
     private javax.swing.JLabel Entrada_7;
     private javax.swing.JLabel Entrada_8;
     private javax.swing.JButton Help_BT;
+    private javax.swing.JPanel Image_Camp;
     private javax.swing.JLabel Label_Delay;
     private javax.swing.JLabel Label_Entradas;
     private javax.swing.JLabel Label_Saidas;
