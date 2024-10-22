@@ -8,9 +8,9 @@ import compiladorinstructionlist.edit.Colors;
 import compiladorinstructionlist.edit.Language;
 import javax.swing.ImageIcon;
 import compiladorinstructionlist.interpreter.Interpreter;
-import compiladorinstructionlist.output.OutputActions;
 import compiladorinstructionlist.input.InputActions;
 import compiladorinstructionlist.memoryvariable.MemoryVariable;
+import compiladorinstructionlist.output.OutputActions;
 import compiladorinstructionlist.uppercasedocumentfilter.UpperCaseDocumentFilter;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -39,13 +39,15 @@ public class Home_Pg extends javax.swing.JFrame {
     /**
      * Creates new form Home_Pg
      */
+
+     // Cria variáveis
     static Map<String, Boolean> inputs;
     static Map<String, Boolean> outputs;
     static Map<String, MemoryVariable> memoryVariables = new HashMap<String, MemoryVariable>();
     static Integer mode = 1;
     static Integer color = 1;
     static String lingua = "PT-BR";
-            
+    
     public Home_Pg() {
         initComponents();
         //setando informaçoes iniciais
@@ -88,16 +90,19 @@ public class Home_Pg extends javax.swing.JFrame {
         Label_Saidas.setText("Saidas");
         Label_Entradas.setText("Entradas");
         
+
         //Inicializa entradas e saídas
         inputs = new HashMap<>();
+
         outputs = new HashMap<>();
 
         inputs = InputActions.create(inputs);
         System.out.println("HashMap de entradas criado:" + inputs);
 
         outputs = OutputActions.create(outputs);
+        System.out.println("assaa");
         System.out.println("HashMap de saídas criado:" + outputs);
-
+        
         // Atualiza entradas e saídas na tela
         updateScreen();
         
@@ -183,6 +188,39 @@ public class Home_Pg extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, message);
     }
     
+    
+    private List<String> saveLines(List<String> lineList) {
+        int quant = Codigo_Camp.getLineCount();
+
+        for (int i = 0; i < quant; i++) {
+            try {
+                Integer start = Codigo_Camp.getLineStartOffset(i);
+                Integer end = Codigo_Camp.getLineEndOffset(i);
+                String line = Codigo_Camp.getText(start, end - start);
+                lineList.add(line);
+            } catch (BadLocationException ex) {
+                Logger.getLogger(Home_Pg.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        System.out.println("Lista de linhas: " + lineList);
+        return lineList;
+    }
+    
+    public Map setaBit(Map<String,Boolean> inputs){
+        Boolean input = inputs.get("I1");
+        inputs.clear();
+        inputs.put("I1", !input);
+        inputs.put("I2", !input);
+        inputs.put("I3", !input);
+        inputs.put("I4", !input);
+        inputs.put("I5", !input);
+        inputs.put("I6", !input);
+        inputs.put("I7", !input);
+        inputs.put("I8", !input);
+        return inputs;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -310,6 +348,7 @@ public class Home_Pg extends javax.swing.JFrame {
         Label_Saidas.setText("Saidas");
 
         Entrada_5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+
         Entrada_5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_5MousePressed(evt);
@@ -367,6 +406,18 @@ public class Home_Pg extends javax.swing.JFrame {
                 Entrada_3MousePressed(evt);
             }
         });
+
+        Entrada_6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+
+        Entrada_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+
+        Entrada_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+
+        Entrada_4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+
+        Entrada_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+
+        Entrada_3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -764,24 +815,6 @@ public class Home_Pg extends javax.swing.JFrame {
         Label_Entradas.setText(Language.getEntradas());
         Label_Saidas.setText(Language.getSaidas());
         Label_Delay.setText(Language.getDelay());
-    }
-    
-    private List<String> saveLines(List<String> lineList) {
-        int quant = Codigo_Camp.getLineCount();
-
-        for (int i = 0; i < quant; i++) {
-            try {
-                Integer start = Codigo_Camp.getLineStartOffset(i);
-                Integer end = Codigo_Camp.getLineEndOffset(i);
-                String line = Codigo_Camp.getText(start, end - start);
-                lineList.add(line);
-            } catch (BadLocationException ex) {
-                Logger.getLogger(Home_Pg.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-
-        System.out.println("Lista de linhas: " + lineList);
-        return lineList;
     }
     
     /**

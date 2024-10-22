@@ -1,7 +1,7 @@
 package compiladorinstructionlist.input;
 
 import java.util.Map;
-import com.intelligt.modbus.jlibmodbus.Modbus;
+/*import com.intelligt.modbus.jlibmodbus.Modbus;
 import com.intelligt.modbus.jlibmodbus.master.ModbusMaster;
 import com.intelligt.modbus.jlibmodbus.master.ModbusMasterFactory;
 import com.intelligt.modbus.jlibmodbus.exception.ModbusIOException;
@@ -10,7 +10,7 @@ import com.intelligt.modbus.jlibmodbus.serial.SerialPort;
 import com.intelligt.modbus.jlibmodbus.serial.SerialPortFactoryJSSC;
 import com.intelligt.modbus.jlibmodbus.serial.SerialPortFactoryPJC;
 import com.intelligt.modbus.jlibmodbus.serial.SerialPortFactoryRXTX;
-import com.intelligt.modbus.jlibmodbus.serial.SerialUtils;
+import com.intelligt.modbus.jlibmodbus.serial.SerialUtils;*/
 
 // Classe para as ações relacionadas com as entradas
 public class InputActions {
