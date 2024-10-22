@@ -11,20 +11,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-<<<<<<< HEAD
-            <file>file:/D:/Facul-Git/Trabalho-Final-CLP/compilador-il-clp-main/src/compiladorinstructionlist/interpreter/Interpreter.java</file>
-            <file>file:/D:/Facul-Git/Trabalho-Final-CLP/compilador-il-clp-main/src/compiladorinstructionlist/screen/InterfaceScreen.java</file>
-            <file>file:/D:/Facul-Git/Trabalho-Final-CLP/compilador-il-clp-main/src/compiladorinstructionlist/CompiladorInstructionList.java</file>
-            <file>file:/D:/Facul-Git/Trabalho-Final-CLP/compilador-il-clp-main/src/compiladorinstructionlist/memoryvariable/MemoryVariable.java</file>
-=======
-            <file>file:/C:/Users/BugWare_/Documents/Igor/Trabalho-Final-CLP/compilador-il-clp-main/src/compiladorinstructionlist/interpreter/Interpreter.java</file>
-            <file>file:/C:/Users/BugWare_/Documents/Igor/Trabalho-Final-CLP/compilador-il-clp-main/src/compiladorinstructionlist/edit/Colors.java</file>
-            <file>file:/C:/Users/BugWare_/Documents/Igor/Trabalho-Final-CLP/compilador-il-clp-main/src/compiladorinstructionlist/screen/InterfaceScreen.java</file>
-            <file>file:/C:/Users/BugWare_/Documents/Igor/Trabalho-Final-CLP/compilador-il-clp-main/src/compiladorinstructionlist/input/Input.java</file>
-            <file>file:/C:/Users/BugWare_/Documents/Igor/Trabalho-Final-CLP/compilador-il-clp-main/src/compiladorinstructionlist/memoryvariable/MemoryVariable.java</file>
-            <file>file:/C:/Users/BugWare_/Documents/Igor/Trabalho-Final-CLP/compilador-il-clp-main/src/compiladorinstructionlist/CompiladorInstructionList.java</file>
->>>>>>> 77767f85c0edacfde511afcc71af774345d32aea
-        </group>
+
     </open-files>
 </project-private>
