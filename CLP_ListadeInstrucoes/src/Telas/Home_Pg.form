@@ -112,9 +112,6 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="83" green="5e" red="8" type="rgb"/>
         </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
             <StringItem index="0" value="Painel"/>
@@ -162,9 +159,6 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="Arquivar_BT">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
             <StringItem index="0" value="Arquivar"/>
@@ -180,9 +174,6 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="Editar_BT">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
             <StringItem index="0" value="Editar"/>
@@ -197,17 +188,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="Help_BT">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Help"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="Sobre_BT">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Sobre"/>
       </Properties>
       <Events>
@@ -238,9 +223,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="Label_Delay">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Tempo de Delay em ms:"/>
       </Properties>
     </Component>
@@ -435,9 +417,6 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Black" size="24" style="2"/>
             </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Entradas"/>
           </Properties>
         </Component>
@@ -445,9 +424,6 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Black" size="24" style="2"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Saidas"/>
           </Properties>
@@ -458,6 +434,9 @@
               <Image iconType="3" name="/Assets/chave_aberta.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Entrada_5MousePressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Entrada_1">
           <Properties>
@@ -465,6 +444,9 @@
               <Image iconType="3" name="/Assets/chave_aberta.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Entrada_1MousePressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Entrada_6">
           <Properties>
@@ -472,6 +454,9 @@
               <Image iconType="3" name="/Assets/chave_aberta.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Entrada_6MousePressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Entrada_2">
           <Properties>
@@ -479,6 +464,9 @@
               <Image iconType="3" name="/Assets/chave_aberta.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Entrada_2MousePressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Entrada_8">
           <Properties>
@@ -486,6 +474,9 @@
               <Image iconType="3" name="/Assets/chave_aberta.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Entrada_8MousePressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Entrada_4">
           <Properties>
@@ -493,6 +484,9 @@
               <Image iconType="3" name="/Assets/chave_aberta.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Entrada_4MousePressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Entrada_7">
           <Properties>
@@ -500,6 +494,9 @@
               <Image iconType="3" name="/Assets/chave_aberta.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Entrada_7MousePressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Entrada_3">
           <Properties>
@@ -507,6 +504,9 @@
               <Image iconType="3" name="/Assets/chave_aberta.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Entrada_3MousePressed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

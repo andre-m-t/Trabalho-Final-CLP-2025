@@ -259,7 +259,6 @@ public class Home_Pg extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Simulacoes.setBackground(new java.awt.Color(8, 94, 131));
-        Simulacoes.setForeground(new java.awt.Color(0, 0, 0));
         Simulacoes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Painel", "Simulação 1", "Simulação 2", "Simulação 3" }));
         Simulacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -283,16 +282,12 @@ public class Home_Pg extends javax.swing.JFrame {
             }
         });
 
-        Arquivar_BT.setForeground(new java.awt.Color(0, 0, 0));
         Arquivar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arquivar", "Salvar", "Item 3", "Item 4" }));
 
-        Editar_BT.setForeground(new java.awt.Color(0, 0, 0));
         Editar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Editar", "Tema", "Idioma" }));
 
-        Help_BT.setForeground(new java.awt.Color(0, 0, 0));
         Help_BT.setText("Help");
 
-        Sobre_BT.setForeground(new java.awt.Color(0, 0, 0));
         Sobre_BT.setText("Sobre");
         Sobre_BT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -309,13 +304,12 @@ public class Home_Pg extends javax.swing.JFrame {
 
         Variaveis_BT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Variaveis_BTActionPerformed(evt);
+                //Variaveis_BTActionPerformed(evt);
             }
         });
 
         jSpinner1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        Label_Delay.setForeground(new java.awt.Color(0, 0, 0));
         Label_Delay.setText("Tempo de Delay em ms:");
 
         jPanel1.setBackground(new java.awt.Color(142, 177, 199));
@@ -337,28 +331,66 @@ public class Home_Pg extends javax.swing.JFrame {
         Saida_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/led_desligado.png"))); // NOI18N
 
         Label_Entradas.setFont(new java.awt.Font("Segoe UI Black", 2, 24)); // NOI18N
-        Label_Entradas.setForeground(new java.awt.Color(0, 0, 0));
         Label_Entradas.setText("Entradas");
 
         Label_Saidas.setFont(new java.awt.Font("Segoe UI Black", 2, 24)); // NOI18N
-        Label_Saidas.setForeground(new java.awt.Color(0, 0, 0));
         Label_Saidas.setText("Saidas");
 
         Entrada_5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_5MousePressed(evt);
+            }
+        });
 
         Entrada_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_1MousePressed(evt);
+            }
+        });
 
         Entrada_6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_6MousePressed(evt);
+            }
+        });
 
         Entrada_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_2MousePressed(evt);
+            }
+        });
 
         Entrada_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_8MousePressed(evt);
+            }
+        });
 
         Entrada_4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_4MousePressed(evt);
+            }
+        });
 
         Entrada_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_7MousePressed(evt);
+            }
+        });
 
         Entrada_3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_3MousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
