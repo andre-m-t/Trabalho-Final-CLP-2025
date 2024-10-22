@@ -41,6 +41,7 @@ public class Home_Pg extends javax.swing.JFrame {
      */
 
      // Cria variáveis
+    static Map<String, Integer> inputsType;
     static Map<String, Boolean> inputs;
     static Map<String, Boolean> outputs;
     static Map<String, MemoryVariable> memoryVariables = new HashMap<String, MemoryVariable>();
@@ -87,8 +88,10 @@ public class Home_Pg extends javax.swing.JFrame {
         AbstractDocument doc = (AbstractDocument) Codigo_Camp.getDocument();
         doc.setDocumentFilter(new UpperCaseDocumentFilter());
         //Inicializa entradas e saídas
+        inputsType = new HashMap<>();
         inputs = new HashMap<>();
         outputs = new HashMap<>();
+        inputsType = InputActions.createType(inputsType);
         inputs = InputActions.create(inputs);
         System.out.println("HashMap de entradas criado:" + inputs);
         outputs = OutputActions.create(outputs);
@@ -113,18 +116,22 @@ public class Home_Pg extends javax.swing.JFrame {
         icon1.setImage( icon1.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
         ImageIcon icon2 = new ImageIcon("src/Assets/chave_fechada.png");
         icon2.setImage( icon2.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-        Entrada_1.setIcon(inputs.get("I1")?icon2:icon1);
-        Entrada_2.setIcon(inputs.get("I2")?icon2:icon1);
-        Entrada_3.setIcon(inputs.get("I3")?icon2:icon1);
-        Entrada_4.setIcon(inputs.get("I4")?icon2:icon1);
-        Entrada_5.setIcon(inputs.get("I5")?icon2:icon1);
-        Entrada_6.setIcon(inputs.get("I6")?icon2:icon1);
-        Entrada_7.setIcon(inputs.get("I7")?icon2:icon1);
-        Entrada_8.setIcon(inputs.get("I8")?icon2:icon1);
-        
-        ImageIcon icon3 = new ImageIcon("src/Assets/led_desligado.png");
+        ImageIcon icon3 = new ImageIcon("src/Assets/buttom.png");
         icon3.setImage( icon3.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-        ImageIcon icon4 = new ImageIcon("src/Assets/led_ligado.png");
+        ImageIcon icon4 = new ImageIcon("src/Assets/buttom_pi.png");
+        icon4.setImage( icon4.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
+        Entrada_1.setIcon(inputsType.get("I1") == 0?inputs.get("I1")?icon2:icon1:inputsType.get("I1") == 1?icon3:icon4);
+        Entrada_2.setIcon(inputsType.get("I2") == 0?inputs.get("I2")?icon2:icon1:inputsType.get("I2") == 1?icon3:icon4);
+        Entrada_3.setIcon(inputsType.get("I3") == 0?inputs.get("I3")?icon2:icon1:inputsType.get("I3") == 1?icon3:icon4);
+        Entrada_4.setIcon(inputsType.get("I4") == 0?inputs.get("I4")?icon2:icon1:inputsType.get("I4") == 1?icon3:icon4);
+        Entrada_5.setIcon(inputsType.get("I5") == 0?inputs.get("I5")?icon2:icon1:inputsType.get("I5") == 1?icon3:icon4);
+        Entrada_6.setIcon(inputsType.get("I6") == 0?inputs.get("I6")?icon2:icon1:inputsType.get("I6") == 1?icon3:icon4);
+        Entrada_7.setIcon(inputsType.get("I7") == 0?inputs.get("I7")?icon2:icon1:inputsType.get("I7") == 1?icon3:icon4);
+        Entrada_8.setIcon(inputsType.get("I8") == 0?inputs.get("I8")?icon2:icon1:inputsType.get("I8") == 1?icon3:icon4);
+        
+        icon3 = new ImageIcon("src/Assets/led_desligado.png");
+        icon3.setImage( icon3.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
+        icon4 = new ImageIcon("src/Assets/led_ligado.png");
         icon4.setImage( icon4.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
         Saida_1.setIcon(outputs.get("Q1")?icon4:icon3);
         Saida_2.setIcon(outputs.get("Q2")?icon4:icon3);
@@ -304,7 +311,7 @@ public class Home_Pg extends javax.swing.JFrame {
 
         Variaveis_BT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //Variaveis_BTActionPerformed(evt);
+                Variaveis_BTActionPerformed(evt);
             }
         });
 
@@ -347,6 +354,9 @@ public class Home_Pg extends javax.swing.JFrame {
         Entrada_1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_1MouseReleased(evt);
             }
         });
 
@@ -695,56 +705,200 @@ public class Home_Pg extends javax.swing.JFrame {
 
     private void Entrada_1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_1MousePressed
         if(evt.getButton() == 1){
-            inputs.put("I1", !inputs.get("I1"));
+            if(inputsType.get("I1") == 0)
+                inputs.put("I1", !inputs.get("I1"));
+            if(inputsType.get("I1") == 1)
+                inputs.put("I1", true);
+            if(inputsType.get("I1") == 2)
+                inputs.put("I1", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I1");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I1", val);
+            if(val == 0 || val == 1){
+                inputs.put("I1", false);
+            }else{
+                inputs.put("I1", true);
+            }
             updateScreen();
         }
     }//GEN-LAST:event_Entrada_1MousePressed
 
     private void Entrada_2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_2MousePressed
         if(evt.getButton() == 1){
-            inputs.put("I2", !inputs.get("I2"));
+            if(inputsType.get("I2") == 0)
+                inputs.put("I2", !inputs.get("I2"));
+            if(inputsType.get("I2") == 1)
+                inputs.put("I2", true);
+            if(inputsType.get("I2") == 2)
+                inputs.put("I2", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I2");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I2", val);
+            if(val == 0 || val == 1){
+                inputs.put("I2", false);
+            }else{
+                inputs.put("I2", true);
+            }
             updateScreen();
         }
     }//GEN-LAST:event_Entrada_2MousePressed
 
     private void Entrada_3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_3MousePressed
         if(evt.getButton() == 1){
-            inputs.put("I3", !inputs.get("I3"));
+            if(inputsType.get("I3") == 0)
+                inputs.put("I3", !inputs.get("I3"));
+            if(inputsType.get("I3") == 1)
+                inputs.put("I3", true);
+            if(inputsType.get("I3") == 2)
+                inputs.put("I3", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I3");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I3", val);
+            if(val == 0 || val == 1){
+                inputs.put("I3", false);
+            }else{
+                inputs.put("I3", true);
+            }
             updateScreen();
         }
     }//GEN-LAST:event_Entrada_3MousePressed
 
     private void Entrada_4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_4MousePressed
         if(evt.getButton() == 1){
-            inputs.put("I4", !inputs.get("I4"));
+            if(inputsType.get("I4") == 0)
+                inputs.put("I4", !inputs.get("I4"));
+            if(inputsType.get("I4") == 1)
+                inputs.put("I4", true);
+            if(inputsType.get("I4") == 2)
+                inputs.put("I4", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I4");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I4", val);
+            if(val == 0 || val == 1){
+                inputs.put("I4", false);
+            }else{
+                inputs.put("I4", true);
+            }
             updateScreen();
         }
     }//GEN-LAST:event_Entrada_4MousePressed
 
     private void Entrada_5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_5MousePressed
         if(evt.getButton() == 1){
-            inputs.put("I5", !inputs.get("I5"));
+            if(inputsType.get("I5") == 0)
+                inputs.put("I5", !inputs.get("I5"));
+            if(inputsType.get("I5") == 1)
+                inputs.put("I5", true);
+            if(inputsType.get("I5") == 2)
+                inputs.put("I5", false);
             updateScreen();
-        }
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I5");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I5", val);
+            if(val == 0 || val == 1){
+                inputs.put("I5", false);
+            }else{
+                inputs.put("I5", true);
+            }
+            updateScreen();
+        } 
     }//GEN-LAST:event_Entrada_5MousePressed
 
     private void Entrada_6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_6MousePressed
         if(evt.getButton() == 1){
-            inputs.put("I6", !inputs.get("I6"));
+            if(inputsType.get("I6") == 0)
+                inputs.put("I6", !inputs.get("I6"));
+            if(inputsType.get("I6") == 1)
+                inputs.put("I6", true);
+            if(inputsType.get("I6") == 2)
+                inputs.put("I6", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I6");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I6", val);
+            if(val == 0 || val == 1){
+                inputs.put("I6", false);
+            }else{
+                inputs.put("I6", true);
+            }
             updateScreen();
         }
     }//GEN-LAST:event_Entrada_6MousePressed
 
     private void Entrada_7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_7MousePressed
         if(evt.getButton() == 1){
-            inputs.put("I7", !inputs.get("I7"));
+            if(inputsType.get("I7") == 0)
+                inputs.put("I7", !inputs.get("I7"));
+            if(inputsType.get("I7") == 1)
+                inputs.put("I7", true);
+            if(inputsType.get("I7") == 2)
+                inputs.put("I7", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I7");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I7", val);
+            if(val == 0 || val == 1){
+                inputs.put("I7", false);
+            }else{
+                inputs.put("I7", true);
+            }
             updateScreen();
         }
     }//GEN-LAST:event_Entrada_7MousePressed
 
     private void Entrada_8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_8MousePressed
         if(evt.getButton() == 1){
-            inputs.put("I8", !inputs.get("I8"));
+            if(inputsType.get("I8") == 0)
+                inputs.put("I8", !inputs.get("I8"));
+            if(inputsType.get("I8") == 1)
+                inputs.put("I8", true);
+            if(inputsType.get("I8") == 2)
+                inputs.put("I8", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I8");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I8", val);
+            if(val == 0 || val == 1){
+                inputs.put("I8", false);
+            }else{
+                inputs.put("I8", true);
+            }
             updateScreen();
         }
     }//GEN-LAST:event_Entrada_8MousePressed
@@ -766,7 +920,13 @@ public class Home_Pg extends javax.swing.JFrame {
     }//GEN-LAST:event_Editar_BTActionPerformed
 
     private void Entrada_1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_1MouseReleased
-        // TODO add your handling code here:
+        if(evt.getButton() == 1){
+            if(inputsType.get("I1") == 1)
+                inputs.put("I1", false);
+            if(inputsType.get("I1") == 2)
+                inputs.put("I1", true);
+            updateScreen();
+        }
     }//GEN-LAST:event_Entrada_1MouseReleased
     
     private void setaCores(){
