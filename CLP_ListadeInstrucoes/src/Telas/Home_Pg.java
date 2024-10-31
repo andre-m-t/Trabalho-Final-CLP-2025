@@ -309,12 +309,6 @@ public class Home_Pg extends javax.swing.JFrame {
             }
         });
 
-        Variaveis_BT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Variaveis_BTActionPerformed(evt);
-            }
-        });
-
         jSpinner1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         Label_Delay.setText("Tempo de Delay em ms:");
