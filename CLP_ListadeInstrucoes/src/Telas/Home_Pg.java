@@ -267,6 +267,8 @@ public class Home_Pg extends javax.swing.JFrame {
         Image_Camp = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Lista de Instruçoes CLP");
+        setBackground(new java.awt.Color(255, 255, 255));
 
         Simulacoes.setBackground(new java.awt.Color(8, 94, 131));
         Simulacoes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Painel", "Simulação 1", "Simulação 2", "Simulação 3" }));
@@ -306,6 +308,7 @@ public class Home_Pg extends javax.swing.JFrame {
         });
 
         Pause_BT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/pause.png"))); // NOI18N
+        Pause_BT.setOpaque(true);
         Pause_BT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Pause_BTActionPerformed(evt);
