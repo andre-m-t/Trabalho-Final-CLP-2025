@@ -41,6 +41,20 @@ public class InputActions {
         return inputs;
     }
     
+    public static Map createType(Map inputsType) {        
+        // Adiciona no hash
+        inputsType.put("I1", 0);
+        inputsType.put("I2", 0);
+        inputsType.put("I3", 0);
+        inputsType.put("I4", 0);
+        inputsType.put("I5", 0);
+        inputsType.put("I6", 0);
+        inputsType.put("I7", 0);
+        inputsType.put("I8", 0);
+        
+        return inputsType;
+    }
+    
     // "Simula" leitura
     public static Map<String, Boolean> dummyRead(Map inputs) {
         // Lê os valores de cada entrada vindos do módulo

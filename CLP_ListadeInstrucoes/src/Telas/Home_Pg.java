@@ -27,6 +27,8 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.text.AbstractDocument;
 import javax.swing.text.BadLocationException;
 
@@ -41,6 +43,7 @@ public class Home_Pg extends javax.swing.JFrame {
      */
 
      // Cria variáveis
+    static Map<String, Integer> inputsType;
     static Map<String, Boolean> inputs;
     static Map<String, Boolean> outputs;
     static Map<String, MemoryVariable> memoryVariables = new HashMap<String, MemoryVariable>();
@@ -77,18 +80,29 @@ public class Home_Pg extends javax.swing.JFrame {
         ImageIcon iconpause = new ImageIcon("src/Assets/pause.png");
         iconpause.setImage( iconpause.getImage().getScaledInstance(Pause_BT.getWidth(), Pause_BT.getHeight(),1));
         Pause_BT.setIcon(iconpause);
+        
+        
         ImageIcon iconBarra = new ImageIcon("src/Assets/Barra_Lateral.png");
         iconBarra.setImage( iconBarra.getImage().getScaledInstance(Variaveis_BT.getWidth(),Variaveis_BT.getHeight(),1));
         Variaveis_BT.setIcon(iconBarra);
+        
+        
+        
         ImageIcon iconCampo = new ImageIcon("src/Assets/bloco_notas.png");
         iconCampo.setImage( iconCampo.getImage().getScaledInstance(Codigo_Camp.getWidth(),Codigo_Camp.getHeight(),1));
-        //Codigo_Camp.setIcon(iconCampo);
+        Image_Camp.setIcon(iconCampo);
+        
+        
+        Codigo_Camp.setOpaque(false);
+        
         
         AbstractDocument doc = (AbstractDocument) Codigo_Camp.getDocument();
         doc.setDocumentFilter(new UpperCaseDocumentFilter());
         //Inicializa entradas e saídas
+        inputsType = new HashMap<>();
         inputs = new HashMap<>();
         outputs = new HashMap<>();
+        inputsType = InputActions.createType(inputsType);
         inputs = InputActions.create(inputs);
         System.out.println("HashMap de entradas criado:" + inputs);
         outputs = OutputActions.create(outputs);
@@ -113,18 +127,22 @@ public class Home_Pg extends javax.swing.JFrame {
         icon1.setImage( icon1.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
         ImageIcon icon2 = new ImageIcon("src/Assets/chave_fechada.png");
         icon2.setImage( icon2.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-        Entrada_1.setIcon(inputs.get("I1")?icon2:icon1);
-        Entrada_2.setIcon(inputs.get("I2")?icon2:icon1);
-        Entrada_3.setIcon(inputs.get("I3")?icon2:icon1);
-        Entrada_4.setIcon(inputs.get("I4")?icon2:icon1);
-        Entrada_5.setIcon(inputs.get("I5")?icon2:icon1);
-        Entrada_6.setIcon(inputs.get("I6")?icon2:icon1);
-        Entrada_7.setIcon(inputs.get("I7")?icon2:icon1);
-        Entrada_8.setIcon(inputs.get("I8")?icon2:icon1);
-        
-        ImageIcon icon3 = new ImageIcon("src/Assets/led_desligado.png");
+        ImageIcon icon3 = new ImageIcon("src/Assets/buttom.png");
         icon3.setImage( icon3.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-        ImageIcon icon4 = new ImageIcon("src/Assets/led_ligado.png");
+        ImageIcon icon4 = new ImageIcon("src/Assets/buttom_pi.png");
+        icon4.setImage( icon4.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
+        Entrada_1.setIcon(inputsType.get("I1") == 0?inputs.get("I1")?icon2:icon1:inputsType.get("I1") == 1?icon3:icon4);
+        Entrada_2.setIcon(inputsType.get("I2") == 0?inputs.get("I2")?icon2:icon1:inputsType.get("I2") == 1?icon3:icon4);
+        Entrada_3.setIcon(inputsType.get("I3") == 0?inputs.get("I3")?icon2:icon1:inputsType.get("I3") == 1?icon3:icon4);
+        Entrada_4.setIcon(inputsType.get("I4") == 0?inputs.get("I4")?icon2:icon1:inputsType.get("I4") == 1?icon3:icon4);
+        Entrada_5.setIcon(inputsType.get("I5") == 0?inputs.get("I5")?icon2:icon1:inputsType.get("I5") == 1?icon3:icon4);
+        Entrada_6.setIcon(inputsType.get("I6") == 0?inputs.get("I6")?icon2:icon1:inputsType.get("I6") == 1?icon3:icon4);
+        Entrada_7.setIcon(inputsType.get("I7") == 0?inputs.get("I7")?icon2:icon1:inputsType.get("I7") == 1?icon3:icon4);
+        Entrada_8.setIcon(inputsType.get("I8") == 0?inputs.get("I8")?icon2:icon1:inputsType.get("I8") == 1?icon3:icon4);
+        
+        icon3 = new ImageIcon("src/Assets/led_desligado.png");
+        icon3.setImage( icon3.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
+        icon4 = new ImageIcon("src/Assets/led_ligado.png");
         icon4.setImage( icon4.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
         Saida_1.setIcon(outputs.get("Q1")?icon4:icon3);
         Saida_2.setIcon(outputs.get("Q2")?icon4:icon3);
@@ -252,11 +270,12 @@ public class Home_Pg extends javax.swing.JFrame {
         Entrada_3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         Color_Camp = new javax.swing.JPanel();
-        Image_Camp = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
         Codigo_Camp = new javax.swing.JTextArea();
+        Image_Camp = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Lista de Instruçoes CLP");
+        setBackground(new java.awt.Color(255, 255, 255));
 
         Simulacoes.setBackground(new java.awt.Color(8, 94, 131));
         Simulacoes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Painel", "Simulação 1", "Simulação 2", "Simulação 3" }));
@@ -296,15 +315,10 @@ public class Home_Pg extends javax.swing.JFrame {
         });
 
         Pause_BT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/pause.png"))); // NOI18N
+        Pause_BT.setOpaque(true);
         Pause_BT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Pause_BTActionPerformed(evt);
-            }
-        });
-
-        Variaveis_BT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //Variaveis_BTActionPerformed(evt);
             }
         });
 
@@ -347,6 +361,9 @@ public class Home_Pg extends javax.swing.JFrame {
         Entrada_1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_1MouseReleased(evt);
             }
         });
 
@@ -500,39 +517,30 @@ public class Home_Pg extends javax.swing.JFrame {
             .addGap(0, 221, Short.MAX_VALUE)
         );
 
+        Color_Camp.setBackground(new java.awt.Color(0, 102, 204));
+        Color_Camp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Codigo_Camp.setBackground(new java.awt.Color(255, 255, 255));
         Codigo_Camp.setColumns(20);
+        Codigo_Camp.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        Codigo_Camp.setForeground(new java.awt.Color(255, 255, 255));
         Codigo_Camp.setRows(5);
-        jScrollPane1.setViewportView(Codigo_Camp);
+        Codigo_Camp.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        Codigo_Camp.setDragEnabled(true);
+        Codigo_Camp.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        Codigo_Camp.setSelectionColor(new java.awt.Color(204, 204, 204));
+        Color_Camp.add(Codigo_Camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 350, 630));
 
-        javax.swing.GroupLayout Image_CampLayout = new javax.swing.GroupLayout(Image_Camp);
-        Image_Camp.setLayout(Image_CampLayout);
-        Image_CampLayout.setHorizontalGroup(
-            Image_CampLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
-        );
-        Image_CampLayout.setVerticalGroup(
-            Image_CampLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
-        );
-
-        javax.swing.GroupLayout Color_CampLayout = new javax.swing.GroupLayout(Color_Camp);
-        Color_Camp.setLayout(Color_CampLayout);
-        Color_CampLayout.setHorizontalGroup(
-            Color_CampLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Image_Camp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        Color_CampLayout.setVerticalGroup(
-            Color_CampLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Image_Camp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        Image_Camp.setForeground(new java.awt.Color(0, 0, 0));
+        Color_Camp.add(Image_Camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 370, 630));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -540,34 +548,40 @@ public class Home_Pg extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Color_Camp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Arquivar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Editar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Help_BT)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Sobre_BT)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Simulacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(Run_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(Pause_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Label_Delay))
-                        .addGap(503, 503, 503)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Arquivar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Editar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Help_BT)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Sobre_BT)
+                                .addGap(102, 102, 102))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Simulacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(Run_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(Pause_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Label_Delay))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Variaveis_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(16, 16, 16))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(Variaveis_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Sobre_BT)
                             .addComponent(Help_BT)
@@ -581,18 +595,15 @@ public class Home_Pg extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Label_Delay)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Variaveis_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(Color_Camp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
 
         pack();
@@ -695,56 +706,200 @@ public class Home_Pg extends javax.swing.JFrame {
 
     private void Entrada_1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_1MousePressed
         if(evt.getButton() == 1){
-            inputs.put("I1", !inputs.get("I1"));
+            if(inputsType.get("I1") == 0)
+                inputs.put("I1", !inputs.get("I1"));
+            if(inputsType.get("I1") == 1)
+                inputs.put("I1", true);
+            if(inputsType.get("I1") == 2)
+                inputs.put("I1", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I1");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I1", val);
+            if(val == 0 || val == 1){
+                inputs.put("I1", false);
+            }else{
+                inputs.put("I1", true);
+            }
             updateScreen();
         }
     }//GEN-LAST:event_Entrada_1MousePressed
 
     private void Entrada_2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_2MousePressed
         if(evt.getButton() == 1){
-            inputs.put("I2", !inputs.get("I2"));
+            if(inputsType.get("I2") == 0)
+                inputs.put("I2", !inputs.get("I2"));
+            if(inputsType.get("I2") == 1)
+                inputs.put("I2", true);
+            if(inputsType.get("I2") == 2)
+                inputs.put("I2", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I2");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I2", val);
+            if(val == 0 || val == 1){
+                inputs.put("I2", false);
+            }else{
+                inputs.put("I2", true);
+            }
             updateScreen();
         }
     }//GEN-LAST:event_Entrada_2MousePressed
 
     private void Entrada_3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_3MousePressed
         if(evt.getButton() == 1){
-            inputs.put("I3", !inputs.get("I3"));
+            if(inputsType.get("I3") == 0)
+                inputs.put("I3", !inputs.get("I3"));
+            if(inputsType.get("I3") == 1)
+                inputs.put("I3", true);
+            if(inputsType.get("I3") == 2)
+                inputs.put("I3", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I3");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I3", val);
+            if(val == 0 || val == 1){
+                inputs.put("I3", false);
+            }else{
+                inputs.put("I3", true);
+            }
             updateScreen();
         }
     }//GEN-LAST:event_Entrada_3MousePressed
 
     private void Entrada_4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_4MousePressed
         if(evt.getButton() == 1){
-            inputs.put("I4", !inputs.get("I4"));
+            if(inputsType.get("I4") == 0)
+                inputs.put("I4", !inputs.get("I4"));
+            if(inputsType.get("I4") == 1)
+                inputs.put("I4", true);
+            if(inputsType.get("I4") == 2)
+                inputs.put("I4", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I4");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I4", val);
+            if(val == 0 || val == 1){
+                inputs.put("I4", false);
+            }else{
+                inputs.put("I4", true);
+            }
             updateScreen();
         }
     }//GEN-LAST:event_Entrada_4MousePressed
 
     private void Entrada_5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_5MousePressed
         if(evt.getButton() == 1){
-            inputs.put("I5", !inputs.get("I5"));
+            if(inputsType.get("I5") == 0)
+                inputs.put("I5", !inputs.get("I5"));
+            if(inputsType.get("I5") == 1)
+                inputs.put("I5", true);
+            if(inputsType.get("I5") == 2)
+                inputs.put("I5", false);
             updateScreen();
-        }
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I5");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I5", val);
+            if(val == 0 || val == 1){
+                inputs.put("I5", false);
+            }else{
+                inputs.put("I5", true);
+            }
+            updateScreen();
+        } 
     }//GEN-LAST:event_Entrada_5MousePressed
 
     private void Entrada_6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_6MousePressed
         if(evt.getButton() == 1){
-            inputs.put("I6", !inputs.get("I6"));
+            if(inputsType.get("I6") == 0)
+                inputs.put("I6", !inputs.get("I6"));
+            if(inputsType.get("I6") == 1)
+                inputs.put("I6", true);
+            if(inputsType.get("I6") == 2)
+                inputs.put("I6", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I6");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I6", val);
+            if(val == 0 || val == 1){
+                inputs.put("I6", false);
+            }else{
+                inputs.put("I6", true);
+            }
             updateScreen();
         }
     }//GEN-LAST:event_Entrada_6MousePressed
 
     private void Entrada_7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_7MousePressed
         if(evt.getButton() == 1){
-            inputs.put("I7", !inputs.get("I7"));
+            if(inputsType.get("I7") == 0)
+                inputs.put("I7", !inputs.get("I7"));
+            if(inputsType.get("I7") == 1)
+                inputs.put("I7", true);
+            if(inputsType.get("I7") == 2)
+                inputs.put("I7", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I7");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I7", val);
+            if(val == 0 || val == 1){
+                inputs.put("I7", false);
+            }else{
+                inputs.put("I7", true);
+            }
             updateScreen();
         }
     }//GEN-LAST:event_Entrada_7MousePressed
 
     private void Entrada_8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_8MousePressed
         if(evt.getButton() == 1){
-            inputs.put("I8", !inputs.get("I8"));
+            if(inputsType.get("I8") == 0)
+                inputs.put("I8", !inputs.get("I8"));
+            if(inputsType.get("I8") == 1)
+                inputs.put("I8", true);
+            if(inputsType.get("I8") == 2)
+                inputs.put("I8", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I8");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I8", val);
+            if(val == 0 || val == 1){
+                inputs.put("I8", false);
+            }else{
+                inputs.put("I8", true);
+            }
             updateScreen();
         }
     }//GEN-LAST:event_Entrada_8MousePressed
@@ -766,7 +921,13 @@ public class Home_Pg extends javax.swing.JFrame {
     }//GEN-LAST:event_Editar_BTActionPerformed
 
     private void Entrada_1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_1MouseReleased
-        // TODO add your handling code here:
+        if(evt.getButton() == 1){
+            if(inputsType.get("I1") == 1)
+                inputs.put("I1", false);
+            if(inputsType.get("I1") == 2)
+                inputs.put("I1", true);
+            updateScreen();
+        }
     }//GEN-LAST:event_Entrada_1MouseReleased
     
     private void setaCores(){
@@ -864,7 +1025,7 @@ public class Home_Pg extends javax.swing.JFrame {
     private javax.swing.JLabel Entrada_7;
     private javax.swing.JLabel Entrada_8;
     private javax.swing.JButton Help_BT;
-    private javax.swing.JPanel Image_Camp;
+    private javax.swing.JLabel Image_Camp;
     private javax.swing.JLabel Label_Delay;
     private javax.swing.JLabel Label_Entradas;
     private javax.swing.JLabel Label_Saidas;
@@ -883,7 +1044,6 @@ public class Home_Pg extends javax.swing.JFrame {
     private javax.swing.JButton Variaveis_BT;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinner1;
     // End of variables declaration//GEN-END:variables
 }
