@@ -129,16 +129,20 @@ public class Home_Pg extends javax.swing.JFrame {
         icon2.setImage( icon2.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
         ImageIcon icon3 = new ImageIcon("src/Assets/buttom.png");
         icon3.setImage( icon3.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-        ImageIcon icon4 = new ImageIcon("src/Assets/buttom_pi.png");
-        icon4.setImage( icon4.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-        Entrada_1.setIcon(inputsType.get("I1") == 0?inputs.get("I1")?icon2:icon1:inputsType.get("I1") == 1?icon3:icon4);
-        Entrada_2.setIcon(inputsType.get("I2") == 0?inputs.get("I2")?icon2:icon1:inputsType.get("I2") == 1?icon3:icon4);
-        Entrada_3.setIcon(inputsType.get("I3") == 0?inputs.get("I3")?icon2:icon1:inputsType.get("I3") == 1?icon3:icon4);
-        Entrada_4.setIcon(inputsType.get("I4") == 0?inputs.get("I4")?icon2:icon1:inputsType.get("I4") == 1?icon3:icon4);
-        Entrada_5.setIcon(inputsType.get("I5") == 0?inputs.get("I5")?icon2:icon1:inputsType.get("I5") == 1?icon3:icon4);
-        Entrada_6.setIcon(inputsType.get("I6") == 0?inputs.get("I6")?icon2:icon1:inputsType.get("I6") == 1?icon3:icon4);
-        Entrada_7.setIcon(inputsType.get("I7") == 0?inputs.get("I7")?icon2:icon1:inputsType.get("I7") == 1?icon3:icon4);
-        Entrada_8.setIcon(inputsType.get("I8") == 0?inputs.get("I8")?icon2:icon1:inputsType.get("I8") == 1?icon3:icon4);
+        ImageIcon icon4 = new ImageIcon("src/Assets/botao_fechado.png");
+        icon4.setImage(icon4.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
+        
+        ImageIcon icon5 = new ImageIcon("src/Assets/buttom_pi.png");
+        icon5.setImage( icon5.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
+        
+        Entrada_1.setIcon(inputsType.get("I1") == 0?inputs.get("I1")?icon2:icon1:inputsType.get("I1") == 1?inputs.get("I1")?icon4:icon3:icon5);
+        Entrada_2.setIcon(inputsType.get("I2") == 0?inputs.get("I2")?icon2:icon1:inputsType.get("I2") == 1?icon3:icon5);
+        Entrada_3.setIcon(inputsType.get("I3") == 0?inputs.get("I3")?icon2:icon1:inputsType.get("I3") == 1?icon3:icon5);
+        Entrada_4.setIcon(inputsType.get("I4") == 0?inputs.get("I4")?icon2:icon1:inputsType.get("I4") == 1?icon3:icon5);
+        Entrada_5.setIcon(inputsType.get("I5") == 0?inputs.get("I5")?icon2:icon1:inputsType.get("I5") == 1?icon3:icon5);
+        Entrada_6.setIcon(inputsType.get("I6") == 0?inputs.get("I6")?icon2:icon1:inputsType.get("I6") == 1?icon3:icon5);
+        Entrada_7.setIcon(inputsType.get("I7") == 0?inputs.get("I7")?icon2:icon1:inputsType.get("I7") == 1?icon3:icon5);
+        Entrada_8.setIcon(inputsType.get("I8") == 0?inputs.get("I8")?icon2:icon1:inputsType.get("I8") == 1?icon3:icon5);
         
         icon3 = new ImageIcon("src/Assets/led_desligado.png");
         icon3.setImage( icon3.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
