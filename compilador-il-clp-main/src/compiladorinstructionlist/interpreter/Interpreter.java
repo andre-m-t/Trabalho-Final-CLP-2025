@@ -133,7 +133,6 @@ public class Interpreter {
         } else {
             InterfaceScreen.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variable + " não existe!");
         }
-
         return "";
     }
 
@@ -281,7 +280,6 @@ public class Interpreter {
                 if (!type.equals("")) {
                     if (memoryVariableIsValid(variables, memoryVariables)) {
                         if (operator.equals("ST")) {
-
                             if (type.equals("C") && memoryVariables.get(variables.get(0)).counterType.equals("UP")) {
                                 memoryVariables.get(variables.get(0)).testEndTimer();
                                 if (memoryVariables.get(variables.get(0)).currentValue == false && accumulator) {
