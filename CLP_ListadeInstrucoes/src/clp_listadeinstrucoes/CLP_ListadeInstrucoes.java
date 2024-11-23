@@ -5,6 +5,7 @@
 package clp_listadeinstrucoes;
 
 import Telas.Home_Pg;
+import Telas.Lista_de_variaveis_Pg;
 /**
  *
  * @author vinic
