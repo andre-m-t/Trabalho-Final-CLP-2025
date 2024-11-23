@@ -276,12 +276,11 @@ public class Home_Pg extends javax.swing.JFrame {
         });
 
         Run_BT.setFont(new java.awt.Font("Segoe UI", 0, 5)); // NOI18N
-        Run_BT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/start.png"))); // NOI18N
+        Run_BT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/start.png"))); // NOI18N
         Run_BT.setToolTipText("");
         Run_BT.setAlignmentY(0.0F);
         Run_BT.setAutoscrolls(true);
         Run_BT.setBorder(null);
-        Run_BT.setDisabledIcon(null);
         Run_BT.setIconTextGap(0);
         Run_BT.setMaximumSize(new java.awt.Dimension(50, 50));
         Run_BT.setMinimumSize(new java.awt.Dimension(50, 50));
@@ -309,7 +308,7 @@ public class Home_Pg extends javax.swing.JFrame {
             }
         });
 
-        Pause_BT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/pause.png"))); // NOI18N
+        Pause_BT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/pause.png"))); // NOI18N
         Pause_BT.setOpaque(true);
         Pause_BT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,6 +316,7 @@ public class Home_Pg extends javax.swing.JFrame {
             }
         });
 
+        Variaveis_BT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Barra_Lateral.png"))); // NOI18N
         Variaveis_BT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Variaveis_BTA(evt);
@@ -329,21 +329,21 @@ public class Home_Pg extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(142, 177, 199));
 
-        Saida_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/led_desligado.png"))); // NOI18N
+        Saida_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
 
-        Saida_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/led_desligado.png"))); // NOI18N
+        Saida_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
 
-        Saida_4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/led_desligado.png"))); // NOI18N
+        Saida_4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
 
-        Saida_3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/led_desligado.png"))); // NOI18N
+        Saida_3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
 
-        Saida_5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/led_desligado.png"))); // NOI18N
+        Saida_5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
 
-        Saida_6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/led_desligado.png"))); // NOI18N
+        Saida_6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
 
-        Saida_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/led_desligado.png"))); // NOI18N
+        Saida_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
 
-        Saida_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/led_desligado.png"))); // NOI18N
+        Saida_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
 
         Label_Entradas.setFont(new java.awt.Font("Segoe UI Black", 2, 24)); // NOI18N
         Label_Entradas.setText("Entradas");
@@ -359,6 +359,9 @@ public class Home_Pg extends javax.swing.JFrame {
         Entrada_5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_5MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_5MouseReleased(evt);
             }
         });
 
@@ -377,12 +380,18 @@ public class Home_Pg extends javax.swing.JFrame {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_6MousePressed(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_6MouseReleased(evt);
+            }
         });
 
         Entrada_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_2MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_2MouseReleased(evt);
             }
         });
 
@@ -391,12 +400,18 @@ public class Home_Pg extends javax.swing.JFrame {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_8MousePressed(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_8MouseReleased(evt);
+            }
         });
 
         Entrada_4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_4MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_4MouseReleased(evt);
             }
         });
 
@@ -405,12 +420,18 @@ public class Home_Pg extends javax.swing.JFrame {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_7MousePressed(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_7MouseReleased(evt);
+            }
         });
 
         Entrada_3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_3MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_3MouseReleased(evt);
             }
         });
 
@@ -523,7 +544,6 @@ public class Home_Pg extends javax.swing.JFrame {
         Color_Camp.setBackground(new java.awt.Color(0, 102, 204));
         Color_Camp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Codigo_Camp.setBackground(new java.awt.Color(255, 255, 255));
         Codigo_Camp.setColumns(20);
         Codigo_Camp.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
         Codigo_Camp.setForeground(new java.awt.Color(255, 255, 255));
@@ -533,8 +553,6 @@ public class Home_Pg extends javax.swing.JFrame {
         Codigo_Camp.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         Codigo_Camp.setSelectionColor(new java.awt.Color(204, 204, 204));
         Color_Camp.add(Codigo_Camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 350, 630));
-
-        Image_Camp.setForeground(new java.awt.Color(0, 0, 0));
         Color_Camp.add(Image_Camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 370, 630));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -937,6 +955,76 @@ public class Home_Pg extends javax.swing.JFrame {
             updateScreen();
         }
     }//GEN-LAST:event_Entrada_1MouseReleased
+
+    private void Entrada_2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_2MouseReleased
+       if(evt.getButton() == 1){
+            if(inputsType.get("I2") == 1)
+                inputs.put("I2", false);
+            if(inputsType.get("I2") == 2)
+                inputs.put("I2", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_2MouseReleased
+
+    private void Entrada_3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_3MouseReleased
+        if(evt.getButton() == 1){
+            if(inputsType.get("I3") == 1)
+                inputs.put("I3", false);
+            if(inputsType.get("I3") == 2)
+                inputs.put("I3", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_3MouseReleased
+
+    private void Entrada_4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_4MouseReleased
+        if(evt.getButton() == 1){
+            if(inputsType.get("I4") == 1)
+                inputs.put("I4", false);
+            if(inputsType.get("I4") == 2)
+                inputs.put("I4", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_4MouseReleased
+
+    private void Entrada_5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_5MouseReleased
+        if(evt.getButton() == 1){
+            if(inputsType.get("I5") == 1)
+                inputs.put("I5", false);
+            if(inputsType.get("I5") == 2)
+                inputs.put("I5", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_5MouseReleased
+
+    private void Entrada_6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_6MouseReleased
+        if(evt.getButton() == 1){
+            if(inputsType.get("I6") == 1)
+                inputs.put("I6", false);
+            if(inputsType.get("I6") == 2)
+                inputs.put("I6", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_6MouseReleased
+
+    private void Entrada_7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_7MouseReleased
+        if(evt.getButton() == 1){
+            if(inputsType.get("I7") == 1)
+                inputs.put("I7", false);
+            if(inputsType.get("I7") == 2)
+                inputs.put("I7", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_7MouseReleased
+
+    private void Entrada_8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_8MouseReleased
+        if(evt.getButton() == 1){
+            if(inputsType.get("I8") == 1)
+                inputs.put("I8", false);
+            if(inputsType.get("I8") == 2)
+                inputs.put("I8", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_8MouseReleased
     
     private void setaCores(){
         Simulacoes.setBackground(Colors.firstColor(color));

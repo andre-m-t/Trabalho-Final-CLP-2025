@@ -1,1 +1,4 @@
 /CLP_ListadeInstrucoes/dist/
+**/*.class
+**/private.properties
+
