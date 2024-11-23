@@ -178,17 +178,20 @@ public class Home_Pg extends javax.swing.JFrame {
 
     // Atualiza as variáveis de memória na tela
     public void updateMemoryVariables() {
-        /*jta_memory_variables.setText("");
-
-        String line = "";
-
-        for (Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()) {
-            if(variable.getKey().charAt(0) == 'M')
-                line = variable.getKey() + " = " + variable.getValue().currentValue + "\n";
-            else
-                line = variable.getKey() + " = " + variable.getValue().currentValue + ", " + variable.getValue().counter+ ", " + variable.getValue().maxTimer+ ", " + variable.getValue().endTimer + "\n";
-            jta_memory_variables.setText(jta_memory_variables.getText() + line);
-        }*/
+//        Lista_de_variaveis.setText("");
+//
+//        String line = "";
+//
+//        for (Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()) {
+//            if(variable.getKey().charAt(0) == 'M')
+//                line = variable.getKey() + " = " + variable.getValue().currentValue + "\n";
+//            else if (variable.getKey().charAt(0) == 'T'){
+//                line = variable.getKey() + " = " + variable.getValue().currentValue + ", " + variable.getValue().counter+ ", " + variable.getValue().maxTimer+ ", " + variable.getValue().endTimer + "\n";
+//            }else if (variable.getKey().charAt(0) == 'C'){
+//                line = variable.getKey() + " = " + variable.getValue().counter+ ", " + variable.getValue().maxTimer+ ", " + variable.getValue().endTimer + "\n";
+//            }
+//                Lista_de_variaveis.setText(Lista_de_variaveis.getText() + line);
+//        }
     }
 
     // Mostra mensagem de erro na tela
