@@ -391,27 +391,27 @@ public class Interpreter {
                 // Memória precisa existir
                 if (memoryVariableIsValid(variables, memoryVariables)) {
                     if (operator.equals("LD")) {
-                        accumulator = variables.get(0).charAt(0) == 'T' ? memoryVariables.get(variables.get(0)).endTimer : memoryVariables.get(variables.get(0)).currentValue;
+                        accumulator = (variables.get(0).charAt(0) == 'T') || (variables.get(0).charAt(0) == 'C') ? memoryVariables.get(variables.get(0)).endTimer : memoryVariables.get(variables.get(0)).currentValue;
                     }
 
                     if (operator.equals("LDN")) {
-                        accumulator = variables.get(0).charAt(0) == 'T' ? !memoryVariables.get(variables.get(0)).endTimer : !memoryVariables.get(variables.get(0)).currentValue;
+                        accumulator = (variables.get(0).charAt(0) == 'T') || (variables.get(0).charAt(0) == 'C') ? !memoryVariables.get(variables.get(0)).endTimer : !memoryVariables.get(variables.get(0)).currentValue;
                     }
 
                     if (operator.equals("AND")) {
-                        accumulator = variables.get(0).charAt(0) == 'T' ? (accumulator && memoryVariables.get(variables.get(0)).endTimer) : (accumulator && memoryVariables.get(variables.get(0)).currentValue);
+                        accumulator = (variables.get(0).charAt(0) == 'T') || (variables.get(0).charAt(0) == 'C') ? (accumulator && memoryVariables.get(variables.get(0)).endTimer) : (accumulator && memoryVariables.get(variables.get(0)).currentValue);
                     }
 
                     if (operator.equals("ANDN")) {
-                        accumulator = variables.get(0).charAt(0) == 'T' ? (accumulator && !memoryVariables.get(variables.get(0)).endTimer) : (accumulator && !memoryVariables.get(variables.get(0)).currentValue);
+                        accumulator = (variables.get(0).charAt(0) == 'T') || (variables.get(0).charAt(0) == 'C') ? (accumulator && !memoryVariables.get(variables.get(0)).endTimer) : (accumulator && !memoryVariables.get(variables.get(0)).currentValue);
                     }
 
                     if (operator.equals("OR")) {
-                        accumulator = variables.get(0).charAt(0) == 'T' ? (accumulator || memoryVariables.get(variables.get(0)).endTimer) : (accumulator || memoryVariables.get(variables.get(0)).currentValue);
+                        accumulator = (variables.get(0).charAt(0) == 'T') || (variables.get(0).charAt(0) == 'C') ? (accumulator || memoryVariables.get(variables.get(0)).endTimer) : (accumulator || memoryVariables.get(variables.get(0)).currentValue);
                     }
 
                     if (operator.equals("ORN")) {
-                        accumulator = variables.get(0).charAt(0) == 'T' ? (accumulator || !memoryVariables.get(variables.get(0)).endTimer) : (accumulator || !memoryVariables.get(variables.get(0)).currentValue);
+                        accumulator = (variables.get(0).charAt(0) == 'T') || (variables.get(0).charAt(0) == 'C') ? (accumulator || !memoryVariables.get(variables.get(0)).endTimer) : (accumulator || !memoryVariables.get(variables.get(0)).currentValue);
                     }
 
                     System.out.println(accumulator);
