@@ -4,6 +4,8 @@
  */
 package Telas;
 
+import javax.swing.JTextArea;
+
 /**
  *
  * @author vinic
@@ -15,6 +17,15 @@ public class Lista_de_variaveis_Pg extends javax.swing.JFrame {
      */
     public Lista_de_variaveis_Pg() {
         initComponents();
+    }
+    public JTextArea getListaDeVariaveis(){
+        return Lista_de_variaveis;
+    }
+    public void setText(String text){
+        Lista_de_variaveis.setText(text);
+    }
+    public String getText(){
+        return Lista_de_variaveis.getText();
     }
 
     /**
@@ -34,6 +45,8 @@ public class Lista_de_variaveis_Pg extends javax.swing.JFrame {
         Lista_de_variaveis.setColumns(20);
         Lista_de_variaveis.setRows(5);
         jScrollPane1.setViewportView(Lista_de_variaveis);
+        Lista_de_variaveis.setEditable(false);
+        Lista_de_variaveis.setFocusable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

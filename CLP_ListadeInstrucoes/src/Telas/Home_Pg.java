@@ -27,6 +27,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.Timer;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -51,9 +52,12 @@ public class Home_Pg extends javax.swing.JFrame {
     static Integer mode = 1;
     static Integer color = 1;
     static String lingua = "PT-BR";
+    Lista_de_variaveis_Pg tela2 = new Lista_de_variaveis_Pg();
+    private JTextArea Lista_de_variaveis = null;
     
     public Home_Pg() {
         initComponents();
+        Lista_de_variaveis = tela2.getListaDeVariaveis();
         //setando informaçoes iniciais
         ImageIcon iconplay = new ImageIcon("src/Assets/start.png");
         iconplay.setImage( iconplay.getImage().getScaledInstance(Run_BT.getWidth(), Run_BT.getHeight(),1));
@@ -165,20 +169,20 @@ public class Home_Pg extends javax.swing.JFrame {
 
     // Atualiza as variáveis de memória na tela
     public void updateMemoryVariables() {
-//        Lista_de_variaveis.setText("");
-//
-//        String line = "";
-//
-//        for (Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()) {
-//            if(variable.getKey().charAt(0) == 'M')
-//                line = variable.getKey() + " = " + variable.getValue().currentValue + "\n";
-//            else if (variable.getKey().charAt(0) == 'T'){
-//                line = variable.getKey() + " = " + variable.getValue().currentValue + ", " + variable.getValue().counter+ ", " + variable.getValue().maxTimer+ ", " + variable.getValue().endTimer + "\n";
-//            }else if (variable.getKey().charAt(0) == 'C'){
-//                line = variable.getKey() + " = " + variable.getValue().counter+ ", " + variable.getValue().maxTimer+ ", " + variable.getValue().endTimer + "\n";
-//            }
-//                Lista_de_variaveis.setText(Lista_de_variaveis.getText() + line);
-//        }
+        Lista_de_variaveis.setText("");
+
+        String line = "";
+
+        for (Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()) {
+            switch (variable.getKey().charAt(0)) {
+                case 'M' -> line = variable.getKey() + " = " + variable.getValue().currentValue + "\n";
+                case 'T' -> line = variable.getKey() + " = " + variable.getValue().currentValue + ", " + variable.getValue().counter+ ", " + variable.getValue().maxTimer+ ", " + variable.getValue().endTimer + "\n";
+                case 'C' -> line = variable.getKey() + " = " + variable.getValue().counter+ ", " + variable.getValue().maxTimer+ ", " + variable.getValue().endTimer + "\n";
+                default -> {
+                }
+            }
+                Lista_de_variaveis.setText(Lista_de_variaveis.getText() + line);
+        }
     }
 
     // Mostra mensagem de erro na tela
@@ -708,9 +712,9 @@ public class Home_Pg extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Run_BTBT_Run_Pressionado
     private void Variaveis_BTA(java.awt.event.ActionEvent evt){
-        Lista_de_variaveis_Pg tela2 = new Lista_de_variaveis_Pg();
         tela2.setVisible(true);
         tela2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        tela2.setLocation(1100,0);
     }
     private void Pause_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pause_BTActionPerformed
         System.out.println("\nBotão program clicado!");
