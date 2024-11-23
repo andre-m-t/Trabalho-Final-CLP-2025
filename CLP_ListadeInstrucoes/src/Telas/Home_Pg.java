@@ -24,6 +24,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
@@ -54,26 +55,6 @@ public class Home_Pg extends javax.swing.JFrame {
     public Home_Pg() {
         initComponents();
         //setando informaçoes iniciais
-        ImageIcon icon = new ImageIcon("src/Assets/led_desligado.png");
-        icon.setImage( icon.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-        Saida_1.setIcon(icon);
-        Saida_2.setIcon(icon);
-        Saida_3.setIcon(icon);
-        Saida_4.setIcon(icon);
-        Saida_5.setIcon(icon);
-        Saida_6.setIcon(icon);
-        Saida_7.setIcon(icon);
-        Saida_8.setIcon(icon);
-        ImageIcon icon1 = new ImageIcon("src/Assets/chave_aberta.png");
-        icon1.setImage( icon1.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-        Entrada_1.setIcon(icon1);
-        Entrada_2.setIcon(icon1);
-        Entrada_3.setIcon(icon1);
-        Entrada_4.setIcon(icon1);
-        Entrada_5.setIcon(icon1);
-        Entrada_6.setIcon(icon1);
-        Entrada_7.setIcon(icon1);
-        Entrada_8.setIcon(icon1);
         ImageIcon iconplay = new ImageIcon("src/Assets/start.png");
         iconplay.setImage( iconplay.getImage().getScaledInstance(Run_BT.getWidth(), Run_BT.getHeight(),1));
         Run_BT.setIcon(iconplay);
@@ -129,16 +110,22 @@ public class Home_Pg extends javax.swing.JFrame {
         icon2.setImage( icon2.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
         ImageIcon icon3 = new ImageIcon("src/Assets/buttom.png");
         icon3.setImage( icon3.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-        ImageIcon icon4 = new ImageIcon("src/Assets/buttom_pi.png");
-        icon4.setImage( icon4.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-        Entrada_1.setIcon(inputsType.get("I1") == 0?inputs.get("I1")?icon2:icon1:inputsType.get("I1") == 1?icon3:icon4);
-        Entrada_2.setIcon(inputsType.get("I2") == 0?inputs.get("I2")?icon2:icon1:inputsType.get("I2") == 1?icon3:icon4);
-        Entrada_3.setIcon(inputsType.get("I3") == 0?inputs.get("I3")?icon2:icon1:inputsType.get("I3") == 1?icon3:icon4);
-        Entrada_4.setIcon(inputsType.get("I4") == 0?inputs.get("I4")?icon2:icon1:inputsType.get("I4") == 1?icon3:icon4);
-        Entrada_5.setIcon(inputsType.get("I5") == 0?inputs.get("I5")?icon2:icon1:inputsType.get("I5") == 1?icon3:icon4);
-        Entrada_6.setIcon(inputsType.get("I6") == 0?inputs.get("I6")?icon2:icon1:inputsType.get("I6") == 1?icon3:icon4);
-        Entrada_7.setIcon(inputsType.get("I7") == 0?inputs.get("I7")?icon2:icon1:inputsType.get("I7") == 1?icon3:icon4);
-        Entrada_8.setIcon(inputsType.get("I8") == 0?inputs.get("I8")?icon2:icon1:inputsType.get("I8") == 1?icon3:icon4);
+        ImageIcon icon4 = new ImageIcon("src/Assets/botao_fechado.png");
+        icon4.setImage(icon4.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
+        ImageIcon icon5 = new ImageIcon("src/Assets/buttom_pi.png");
+        icon5.setImage( icon5.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
+        ImageIcon icon6 = new ImageIcon("src/Assets/button_pi_aberto.png");
+        icon6.setImage( icon6.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
+        
+        Entrada_1.setIcon(inputsType.get("I1") == 0? inputs.get("I1")?icon2:icon1:inputsType.get("I1") == 1?inputs.get("I1")?icon4:icon3:inputsType.get("I1") == 2? inputs.get("I1")?icon6:icon5:icon1);
+        Entrada_2.setIcon(inputsType.get("I2") == 0? inputs.get("I2")?icon2:icon1:inputsType.get("I2") == 1?inputs.get("I2")?icon4:icon3:inputsType.get("I2") == 2? inputs.get("I2")?icon6:icon5:icon1);
+        Entrada_3.setIcon(inputsType.get("I3") == 0? inputs.get("I3")?icon2:icon1:inputsType.get("I3") == 1?inputs.get("I3")?icon4:icon3:inputsType.get("I3") == 2? inputs.get("I3")?icon6:icon5:icon1);
+        Entrada_4.setIcon(inputsType.get("I4") == 0? inputs.get("I4")?icon2:icon1:inputsType.get("I4") == 1?inputs.get("I4")?icon4:icon3:inputsType.get("I4") == 2? inputs.get("I4")?icon6:icon5:icon1);
+        Entrada_5.setIcon(inputsType.get("I5") == 0? inputs.get("I5")?icon2:icon1:inputsType.get("I5") == 1?inputs.get("I5")?icon4:icon3:inputsType.get("I5") == 2? inputs.get("I5")?icon6:icon5:icon1);
+        Entrada_6.setIcon(inputsType.get("I6") == 0? inputs.get("I6")?icon2:icon1:inputsType.get("I6") == 1?inputs.get("I6")?icon4:icon3:inputsType.get("I6") == 2? inputs.get("I6")?icon6:icon5:icon1);
+        Entrada_7.setIcon(inputsType.get("I7") == 0? inputs.get("I7")?icon2:icon1:inputsType.get("I7") == 1?inputs.get("I7")?icon4:icon3:inputsType.get("I7") == 2? inputs.get("I7")?icon6:icon5:icon1);
+        Entrada_8.setIcon(inputsType.get("I8") == 0? inputs.get("I8")?icon2:icon1:inputsType.get("I8") == 1?inputs.get("I8")?icon4:icon3:inputsType.get("I8") == 2? inputs.get("I8")?icon6:icon5:icon1);
+        
         
         icon3 = new ImageIcon("src/Assets/led_desligado.png");
         icon3.setImage( icon3.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
@@ -307,6 +294,11 @@ public class Home_Pg extends javax.swing.JFrame {
         Arquivar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arquivar", "Salvar", "Item 3", "Item 4" }));
 
         Editar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Editar", "Tema", "Idioma" }));
+        Editar_BT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Editar_BTActionPerformed(evt);
+            }
+        });
 
         Help_BT.setText("Help");
 
@@ -322,6 +314,12 @@ public class Home_Pg extends javax.swing.JFrame {
         Pause_BT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Pause_BTActionPerformed(evt);
+            }
+        });
+
+        Variaveis_BT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Variaveis_BTA(evt);
             }
         });
 
@@ -349,9 +347,13 @@ public class Home_Pg extends javax.swing.JFrame {
 
         Label_Entradas.setFont(new java.awt.Font("Segoe UI Black", 2, 24)); // NOI18N
         Label_Entradas.setText("Entradas");
+        Label_Entradas.setFocusable(false);
+        Label_Entradas.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         Label_Saidas.setFont(new java.awt.Font("Segoe UI Black", 2, 24)); // NOI18N
         Label_Saidas.setText("Saidas");
+        Label_Saidas.setToolTipText("");
+        Label_Saidas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Entrada_5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -416,53 +418,56 @@ public class Home_Pg extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Entrada_1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(Entrada_5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Entrada_1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(Entrada_5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Entrada_2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(Entrada_6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Entrada_3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(Entrada_7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Entrada_4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(Entrada_8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Entrada_2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(Entrada_6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Entrada_3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(Entrada_7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Entrada_4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(Entrada_8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(65, 65, 65)
+                        .addComponent(Label_Entradas, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Saida_4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Saida_3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Saida_1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Saida_2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Saida_8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Saida_7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Saida_5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Saida_6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(88, 88, 88))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(Label_Entradas, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(454, Short.MAX_VALUE)
-                    .addComponent(Label_Saidas, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(78, 78, 78)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Saida_4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Saida_3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Saida_1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Saida_2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Saida_8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Saida_7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Saida_5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Saida_6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(88, 88, 88))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(Label_Saidas, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(Label_Entradas, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Label_Entradas, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Label_Saidas))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -500,11 +505,6 @@ public class Home_Pg extends javax.swing.JFrame {
                                 .addGap(21, 21, 21)
                                 .addComponent(Saida_4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(49, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(22, 22, 22)
-                    .addComponent(Label_Saidas, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(328, Short.MAX_VALUE)))
         );
 
         jPanel2.setBackground(new java.awt.Color(8, 94, 131));
@@ -689,7 +689,11 @@ public class Home_Pg extends javax.swing.JFrame {
             updateMode();
         }
     }//GEN-LAST:event_Run_BTBT_Run_Pressionado
-
+    private void Variaveis_BTA(java.awt.event.ActionEvent evt){
+        Lista_de_variaveis_Pg tela2 = new Lista_de_variaveis_Pg();
+        tela2.setVisible(true);
+        tela2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }
     private void Pause_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pause_BTActionPerformed
         System.out.println("\nBotão program clicado!");
         mode = 1;
@@ -908,6 +912,7 @@ public class Home_Pg extends javax.swing.JFrame {
     }//GEN-LAST:event_Entrada_8MousePressed
 
     private void Editar_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Editar_BTActionPerformed
+
         if("Tema".equals(Editar_BT.getSelectedItem().toString())){
             Editar_BT.setSelectedIndex(0);
             color++;
@@ -937,7 +942,7 @@ public class Home_Pg extends javax.swing.JFrame {
         Simulacoes.setBackground(Colors.firstColor(color));
         jPanel2.setBackground(Colors.firstColor(color));
         jPanel1.setBackground(Colors.secondColor(color));
-        Codigo_Camp.setBackground(Colors.thirdColor(color));
+        Color_Camp.setBackground(Colors.thirdColor(color));
     }
     
     private void setaLanguage(){
