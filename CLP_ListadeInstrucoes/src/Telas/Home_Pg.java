@@ -13,10 +13,9 @@ import compiladorinstructionlist.memoryvariable.MemoryVariable;
 import compiladorinstructionlist.output.OutputActions;
 import compiladorinstructionlist.uppercasedocumentfilter.UpperCaseDocumentFilter;
 import java.awt.Color;
+import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,9 +27,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.text.AbstractDocument;
 import javax.swing.text.BadLocationException;
 
@@ -38,7 +40,7 @@ import javax.swing.text.BadLocationException;
  *
  * @author vinic
  */
-public class Home_Pg extends javax.swing.JFrame {
+public final class Home_Pg extends javax.swing.JFrame {
 
     /**
      * Creates new form Home_Pg
@@ -48,13 +50,14 @@ public class Home_Pg extends javax.swing.JFrame {
     static Map<String, Integer> inputsType;
     static Map<String, Boolean> inputs;
     static Map<String, Boolean> outputs;
+    @SuppressWarnings("Convert2Diamond")
     static Map<String, MemoryVariable> memoryVariables = new HashMap<String, MemoryVariable>();
     static Integer mode = 1;
     static Integer color = 1;
-    static String lingua = "PT-BR";
     Lista_de_variaveis_Pg tela2 = new Lista_de_variaveis_Pg();
     private JTextArea Lista_de_variaveis = null;
     
+    @SuppressWarnings("unchecked")
     public Home_Pg() {
         initComponents();
         Lista_de_variaveis = tela2.getListaDeVariaveis();
@@ -82,7 +85,7 @@ public class Home_Pg extends javax.swing.JFrame {
         //adicionando icones de contador e timer
         ImageIcon icontimer = new ImageIcon("src/Assets/temporizador.png");
         icontimer.setImage( icontimer.getImage().getScaledInstance(Timer_1.getWidth(), Timer_1.getHeight(),1));
-        Timer_1.setIcon(icontimer);
+        Timer_1.setIcon(icontimer);       
         Timer_2.setIcon(icontimer);
         Timer_3.setIcon(icontimer);
         Timer_4.setIcon(icontimer);
@@ -116,7 +119,6 @@ public class Home_Pg extends javax.swing.JFrame {
         inputs = InputActions.create(inputs);
         System.out.println("HashMap de entradas criado:" + inputs);
         outputs = OutputActions.create(outputs);
-        System.out.println("assaa");
         System.out.println("HashMap de saídas criado:" + outputs);
         // Atualiza entradas e saídas na tela
         updateScreen();
@@ -174,40 +176,320 @@ public class Home_Pg extends javax.swing.JFrame {
     // Atualiza o modo atual na tela
     public void updateMode() {
         System.out.println("Modo atual: " + mode);
-        if (mode == 1) {
-            Codigo_Camp.setEditable(true);
-            ImageIcon icon1 = new ImageIcon("src/Assets/start.png");
-            icon1.setImage( icon1.getImage().getScaledInstance(Run_BT.getWidth(), Run_BT.getHeight(),1));
-            Run_BT.setIcon(icon1);
-            //jSpinner1.setEditable(true);
-        } else if (mode == 2) {
-            Codigo_Camp.setEditable(false);
-            ImageIcon icon1 = new ImageIcon("src/Assets/start.png");
-            icon1.setImage( icon1.getImage().getScaledInstance(Run_BT.getWidth(), Run_BT.getHeight(),1));
-            Run_BT.setIcon(icon1);
-        } else {
+        if (null == mode) {
             Codigo_Camp.setEditable(false);
             ImageIcon icon1 = new ImageIcon("src/Assets/start_verde.png");
             icon1.setImage( icon1.getImage().getScaledInstance(Run_BT.getWidth(), Run_BT.getHeight(),1));
             Run_BT.setIcon(icon1);
+        } else switch (mode) {
+            case 1 ->                 {
+                    Codigo_Camp.setEditable(true);
+                    ImageIcon icon1 = new ImageIcon("src/Assets/start.png");
+                    icon1.setImage( icon1.getImage().getScaledInstance(Run_BT.getWidth(), Run_BT.getHeight(),1));
+                    Run_BT.setIcon(icon1);
+                //jSpinner1.setEditable(true);
+                }
+            case 2 ->                 {
+                    Codigo_Camp.setEditable(false);
+                    ImageIcon icon1 = new ImageIcon("src/Assets/start.png");
+                    icon1.setImage( icon1.getImage().getScaledInstance(Run_BT.getWidth(), Run_BT.getHeight(),1));
+                    Run_BT.setIcon(icon1);
+                }
+            default ->                 {
+                    Codigo_Camp.setEditable(false);
+                    ImageIcon icon1 = new ImageIcon("src/Assets/start_verde.png");
+                    icon1.setImage( icon1.getImage().getScaledInstance(Run_BT.getWidth(), Run_BT.getHeight(),1));
+                    Run_BT.setIcon(icon1);
+                }
         }
     }
 
     // Atualiza as variáveis de memória na tela
     public void updateMemoryVariables() {
         Lista_de_variaveis.setText("");
-
+    
         String line = "";
-
+        List<MemoryVariable> tVariables = new ArrayList<>();
+        List<MemoryVariable> cVariables = new ArrayList<>();
+        int contC = 1;
+        int contT = 1;
+    
         for (Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()) {
             switch (variable.getKey().charAt(0)) {
-                case 'M' -> line = variable.getKey() + " = " + variable.getValue().currentValue + "\n";
-                case 'T' -> line = variable.getKey() + " = " + variable.getValue().currentValue + ", " + variable.getValue().counter+ ", " + variable.getValue().maxTimer+ ", " + variable.getValue().endTimer + "\n";
-                case 'C' -> line = variable.getKey() + " = " + variable.getValue().counter+ ", " + variable.getValue().maxTimer+ ", " + variable.getValue().endTimer + "\n";
+                case 'M' -> {
+                    line = variable.getKey() + " = " + variable.getValue().currentValue + "\n";
+                }
+                case 'T' -> {
+                    line = variable.getKey() + " = " + variable.getValue().currentValue + ", " + variable.getValue().counter + ", " + variable.getValue().maxTimer + ", " + variable.getValue().endTimer + "\n";
+                    if (tVariables.size() < 10) {
+                        tVariables.add(variable.getValue());
+                    }
+                }
+                case 'C' -> {
+                    line = variable.getKey() + " = " + variable.getValue().counter + ", " + variable.getValue().maxTimer + ", " + variable.getValue().endTimer + "\n";
+                    if (cVariables.size() < 10) {
+                        cVariables.add(variable.getValue());
+                    }
+                }
                 default -> {
                 }
             }
-                Lista_de_variaveis.setText(Lista_de_variaveis.getText() + line);
+    
+            Lista_de_variaveis.setText(Lista_de_variaveis.getText() + line);
+        }
+    
+        // Exemplo de como você pode usar as listas tVariables e cVariables
+        for (MemoryVariable tVariable : tVariables) {
+            // System.out.println("ID: " + tVariable.id + ", Counter: " + tVariable.counter + ", MaxTimer: " + tVariable.maxTimer);
+            switch (contT) {
+                case 1 -> {
+                    Timer_1.setText(String.valueOf(tVariable.id));
+                    Timer_1.setHorizontalTextPosition(JLabel.CENTER);
+                    Timer_1.setVerticalTextPosition(JLabel.CENTER);
+                    Timer_1.setForeground(Color.WHITE);
+
+                    Temp_atual_1.setText(String.valueOf(tVariable.counter));
+                    Temp_atual_1.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Temp_parada_1.setText(String.valueOf(tVariable.maxTimer));
+                    Temp_parada_1.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+                case 2 -> {
+                    Timer_2.setText(String.valueOf(tVariable.id));
+                    Timer_2.setHorizontalTextPosition(JLabel.CENTER);
+                    Timer_2.setVerticalTextPosition(JLabel.CENTER);
+                    Timer_2.setForeground(Color.WHITE);
+
+                    Temp_atual_2.setText(String.valueOf(tVariable.counter));
+                    Temp_atual_2.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Temp_parada_2.setText(String.valueOf(tVariable.maxTimer));
+                    Temp_parada_2.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+                case 3 -> {
+                    Timer_3.setText(String.valueOf(tVariable.id));
+                    Timer_3.setHorizontalTextPosition(JLabel.CENTER);
+                    Timer_3.setVerticalTextPosition(JLabel.CENTER);
+                    Timer_3.setForeground(Color.WHITE);
+
+                    Temp_atual_3.setText(String.valueOf(tVariable.counter));
+                    Temp_atual_3.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Temp_parada_3.setText(String.valueOf(tVariable.maxTimer));
+                    Temp_parada_3.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+                case 4 -> {
+                    Timer_4.setText(String.valueOf(tVariable.id));
+                    Timer_4.setHorizontalTextPosition(JLabel.CENTER);
+                    Timer_4.setVerticalTextPosition(JLabel.CENTER);
+                    Timer_4.setForeground(Color.WHITE);
+
+                    Temp_atual_4.setText(String.valueOf(tVariable.counter));
+                    Temp_atual_4.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Temp_parada_4.setText(String.valueOf(tVariable.maxTimer));
+                    Temp_parada_4.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+                case 5 -> {
+                    Timer_5.setText(String.valueOf(tVariable.id));
+                    Timer_5.setHorizontalTextPosition(JLabel.CENTER);
+                    Timer_5.setVerticalTextPosition(JLabel.CENTER);
+                    Timer_5.setForeground(Color.WHITE);
+
+                    Temp_atual_5.setText(String.valueOf(tVariable.counter));
+                    Temp_atual_5.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Temp_parada_5.setText(String.valueOf(tVariable.maxTimer));
+                    Temp_parada_5.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+                case 6 -> {
+                    Timer_6.setText(String.valueOf(tVariable.id));
+                    Timer_6.setHorizontalTextPosition(JLabel.CENTER);
+                    Timer_6.setVerticalTextPosition(JLabel.CENTER);
+                    Timer_6.setForeground(Color.WHITE);
+
+                    Temp_atual_6.setText(String.valueOf(tVariable.counter));
+                    Temp_atual_6.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Temp_parada_6.setText(String.valueOf(tVariable.maxTimer));
+                    Temp_parada_6.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+                case 7 -> {
+                    Timer_7.setText(String.valueOf(tVariable.id));
+                    Timer_7.setHorizontalTextPosition(JLabel.CENTER);
+                    Timer_7.setVerticalTextPosition(JLabel.CENTER);
+                    Timer_7.setForeground(Color.WHITE);
+
+                    Temp_atual_7.setText(String.valueOf(tVariable.counter));
+                    Temp_atual_7.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Temp_parada_7.setText(String.valueOf(tVariable.maxTimer));
+                    Temp_parada_7.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+                case 8 -> {
+                    Timer_8.setText(String.valueOf(tVariable.id));
+                    Timer_8.setHorizontalTextPosition(JLabel.CENTER);
+                    Timer_8.setVerticalTextPosition(JLabel.CENTER);
+                    Timer_8.setForeground(Color.WHITE);
+
+                    Temp_atual_8.setText(String.valueOf(tVariable.counter));
+                    Temp_atual_8.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Temp_parada_8.setText(String.valueOf(tVariable.maxTimer));
+                    Temp_parada_8.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+                case 9 -> {
+                    Timer_9.setText(String.valueOf(tVariable.id));
+                    Timer_9.setHorizontalTextPosition(JLabel.CENTER);
+                    Timer_9.setVerticalTextPosition(JLabel.CENTER);
+                    Timer_9.setForeground(Color.WHITE);
+
+                    Temp_atual_9.setText(String.valueOf(tVariable.counter));
+                    Temp_atual_9.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Temp_parada_9.setText(String.valueOf(tVariable.maxTimer));
+                    Temp_parada_9.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+                case 10 -> {
+                    Timer_10.setText(String.valueOf(tVariable.id));
+                    Timer_10.setHorizontalTextPosition(JLabel.CENTER);
+                    Timer_10.setVerticalTextPosition(JLabel.CENTER);
+                    Timer_10.setForeground(Color.WHITE);
+
+                    Temp_atual_10.setText(String.valueOf(tVariable.counter));
+                    Temp_atual_10.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Temp_parada_10.setText(String.valueOf(tVariable.maxTimer));
+                    Temp_parada_10.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+            }
+            contT++;
+        }
+        for (MemoryVariable cVariable : cVariables) {
+            // System.out.println("ID: " + cVariable.id + ", Counter: " + cVariable.counter + ", MaxTimer: " + cVariable.maxTimer);
+            switch(contC) {
+                case 1 -> {
+                    Contador_1.setText(String.valueOf(cVariable.id));
+                    Contador_1.setHorizontalTextPosition(JLabel.CENTER);
+                    Contador_1.setVerticalTextPosition(JLabel.CENTER);
+                    Contador_1.setForeground(Color.WHITE);
+                    
+                    Contagem_atual_1.setText(String.valueOf(cVariable.counter));
+                    Contagem_atual_1.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Contagem_parada_1.setText(String.valueOf(cVariable.maxTimer));
+                    Contagem_parada_1.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+                case 2 -> {
+                    Contador_2.setText(String.valueOf(cVariable.id));
+                    Contador_2.setHorizontalTextPosition(JLabel.CENTER);
+                    Contador_2.setVerticalTextPosition(JLabel.CENTER);
+                    Contador_2.setForeground(Color.WHITE);
+
+                    Contagem_atual_2.setText(String.valueOf(cVariable.counter));
+                    Contagem_atual_2.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Contagem_parada_2.setText(String.valueOf(cVariable.maxTimer));
+                    Contagem_parada_2.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+                case 3 -> {
+                    Contador_3.setText(String.valueOf(cVariable.id));
+                    Contador_3.setHorizontalTextPosition(JLabel.CENTER);
+                    Contador_3.setVerticalTextPosition(JLabel.CENTER);
+                    Contador_3.setForeground(Color.WHITE);
+
+                    Contagem_atual_3.setText(String.valueOf(cVariable.counter));
+                    Contagem_atual_3.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Contagem_parada_3.setText(String.valueOf(cVariable.maxTimer));
+                    Contagem_parada_3.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+                case 4 -> {
+                    Contador_4.setText(String.valueOf(cVariable.id));
+                    Contador_4.setHorizontalTextPosition(JLabel.CENTER);
+                    Contador_4.setVerticalTextPosition(JLabel.CENTER);
+                    Contador_4.setForeground(Color.WHITE);
+
+                    Contagem_atual_4.setText(String.valueOf(cVariable.counter));
+                    Contagem_atual_4.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Contagem_parada_4.setText(String.valueOf(cVariable.maxTimer));
+                    Contagem_parada_4.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+                case 5 -> {
+                    Contador_5.setText(String.valueOf(cVariable.id));
+                    Contador_5.setHorizontalTextPosition(JLabel.CENTER);
+                    Contador_5.setVerticalTextPosition(JLabel.CENTER);
+                    Contador_5.setForeground(Color.WHITE);
+
+                    Contagem_atual_5.setText(String.valueOf(cVariable.counter));
+                    Contagem_atual_5.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Contagem_parada_5.setText(String.valueOf(cVariable.maxTimer));
+                    Contagem_parada_5.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+                case 6 -> {
+                    Contador_6.setText(String.valueOf(cVariable.id));
+                    Contador_6.setHorizontalTextPosition(JLabel.CENTER);
+                    Contador_6.setVerticalTextPosition(JLabel.CENTER);
+                    Contador_6.setForeground(Color.WHITE);
+
+                    Contagem_atual_6.setText(String.valueOf(cVariable.counter));
+                    Contagem_atual_6.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Contagem_parada_6.setText(String.valueOf(cVariable.maxTimer));
+                    Contagem_parada_6.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+                case 7 -> {
+                    Contador_7.setText(String.valueOf(cVariable.id));
+                    Contador_7.setHorizontalTextPosition(JLabel.CENTER);
+                    Contador_7.setVerticalTextPosition(JLabel.CENTER);
+                    Contador_7.setForeground(Color.WHITE);
+
+                    Contagem_atual_7.setText(String.valueOf(cVariable.counter));
+                    Contagem_atual_7.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Contagem_parada_7.setText(String.valueOf(cVariable.maxTimer));
+                    Contagem_parada_7.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+                case 8 -> {
+                    Contador_8.setText(String.valueOf(cVariable.id));
+                    Contador_8.setHorizontalTextPosition(JLabel.CENTER);
+                    Contador_8.setVerticalTextPosition(JLabel.CENTER);
+                    Contador_8.setForeground(Color.WHITE);
+
+                    Contagem_atual_8.setText(String.valueOf(cVariable.counter));
+                    Contagem_atual_8.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Contagem_parada_8.setText(String.valueOf(cVariable.maxTimer));
+                    Contagem_parada_8.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+                case 9 -> {
+                    Contador_9.setText(String.valueOf(cVariable.id));
+                    Contador_9.setHorizontalTextPosition(JLabel.CENTER);
+                    Contador_9.setVerticalTextPosition(JLabel.CENTER);
+                    Contador_9.setForeground(Color.WHITE);
+
+                    Contagem_atual_9.setText(String.valueOf(cVariable.counter));
+                    Contagem_atual_9.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Contagem_parada_9.setText(String.valueOf(cVariable.maxTimer));
+                    Contagem_parada_9.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+                case 10 -> {
+                    Contador_10.setText(String.valueOf(cVariable.id));
+                    Contador_10.setHorizontalTextPosition(JLabel.CENTER);
+                    Contador_10.setVerticalTextPosition(JLabel.CENTER);
+                    Contador_10.setForeground(Color.WHITE);
+
+                    Contagem_atual_10.setText(String.valueOf(cVariable.counter));
+                    Contagem_atual_10.setHorizontalAlignment(SwingConstants.CENTER);
+            
+                    Contagem_parada_10.setText(String.valueOf(cVariable.maxTimer));
+                    Contagem_parada_10.setHorizontalAlignment(SwingConstants.CENTER);
+                }
+            }
+            contC++;
         }
     }
 
@@ -236,6 +518,7 @@ public class Home_Pg extends javax.swing.JFrame {
         return lineList;
     }
     
+    @SuppressWarnings("rawtypes")
     public Map setaBit(Map<String,Boolean> inputs){
         Boolean input = inputs.get("I1");
         inputs.clear();
@@ -379,11 +662,7 @@ public class Home_Pg extends javax.swing.JFrame {
 
         Simulacoes.setBackground(new java.awt.Color(8, 94, 131));
         Simulacoes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Painel", "Simulação 1", "Simulação 2", "Simulação 3" }));
-        Simulacoes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SimulacoesActionPerformed(evt);
-            }
-        });
+        Simulacoes.addActionListener(this::SimulacoesActionPerformed);
 
         Run_BT.setFont(new java.awt.Font("Segoe UI", 0, 5)); // NOI18N
         Run_BT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/start.png"))); // NOI18N
@@ -394,44 +673,24 @@ public class Home_Pg extends javax.swing.JFrame {
         Run_BT.setIconTextGap(0);
         Run_BT.setMaximumSize(new java.awt.Dimension(50, 50));
         Run_BT.setMinimumSize(new java.awt.Dimension(50, 50));
-        Run_BT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Run_BTBT_Run_Pressionado(evt);
-            }
-        });
+        Run_BT.addActionListener(this::Run_BTBT_Run_Pressionado);
 
         Arquivar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arquivar", "Salvar", "Item 3", "Item 4" }));
 
         Editar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Editar", "Tema", "Idioma" }));
-        Editar_BT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Editar_BTActionPerformed(evt);
-            }
-        });
+        Editar_BT.addActionListener(this::Editar_BTActionPerformed);
 
         Help_BT.setText("Help");
 
         Sobre_BT.setText("Sobre");
-        Sobre_BT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Sobre_BTActionPerformed(evt);
-            }
-        });
+        Sobre_BT.addActionListener(this::Sobre_BTActionPerformed);
 
         Pause_BT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/pause.png"))); // NOI18N
         Pause_BT.setOpaque(true);
-        Pause_BT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Pause_BTActionPerformed(evt);
-            }
-        });
+        Pause_BT.addActionListener(this::Pause_BTActionPerformed);
 
         Variaveis_BT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Barra_Lateral.png"))); // NOI18N
-        Variaveis_BT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Variaveis_BTA(evt);
-            }
-        });
+        Variaveis_BT.addActionListener(this::Variaveis_BTA);
 
         jSpinner1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -467,9 +726,11 @@ public class Home_Pg extends javax.swing.JFrame {
 
         Entrada_5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_5.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_5MousePressed(evt);
             }
+            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 Entrada_5MouseReleased(evt);
             }
@@ -477,9 +738,11 @@ public class Home_Pg extends javax.swing.JFrame {
 
         Entrada_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_1.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_1MousePressed(evt);
             }
+            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 Entrada_1MouseReleased(evt);
             }
@@ -487,9 +750,11 @@ public class Home_Pg extends javax.swing.JFrame {
 
         Entrada_6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_6.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_6MousePressed(evt);
             }
+            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 Entrada_6MouseReleased(evt);
             }
@@ -497,9 +762,11 @@ public class Home_Pg extends javax.swing.JFrame {
 
         Entrada_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_2.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_2MousePressed(evt);
             }
+            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 Entrada_2MouseReleased(evt);
             }
@@ -507,9 +774,11 @@ public class Home_Pg extends javax.swing.JFrame {
 
         Entrada_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_8.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_8MousePressed(evt);
             }
+            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 Entrada_8MouseReleased(evt);
             }
@@ -517,9 +786,11 @@ public class Home_Pg extends javax.swing.JFrame {
 
         Entrada_4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_4.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_4MousePressed(evt);
             }
+            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 Entrada_4MouseReleased(evt);
             }
@@ -527,9 +798,11 @@ public class Home_Pg extends javax.swing.JFrame {
 
         Entrada_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_7.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_7MousePressed(evt);
             }
+            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 Entrada_7MouseReleased(evt);
             }
@@ -537,9 +810,11 @@ public class Home_Pg extends javax.swing.JFrame {
 
         Entrada_3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_3.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_3MousePressed(evt);
             }
+            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 Entrada_3MouseReleased(evt);
             }
@@ -639,7 +914,7 @@ public class Home_Pg extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(8, 94, 131));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setLayout((LayoutManager) new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Temp_parada_1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(Temp_parada_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 50, 20));
@@ -902,7 +1177,7 @@ public class Home_Pg extends javax.swing.JFrame {
         jPanel2.add(label_20, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, 30, 30));
 
         Color_Camp.setBackground(new java.awt.Color(0, 102, 204));
-        Color_Camp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Color_Camp.setLayout((LayoutManager) new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Codigo_Camp.setColumns(20);
         Codigo_Camp.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1001,7 +1276,7 @@ public class Home_Pg extends javax.swing.JFrame {
 
             if (!stringTime.equals("")) {
                 try {
-                    time = Integer.parseInt(stringTime);
+                    time = Integer.valueOf(stringTime);
                 } catch (NumberFormatException e) {
                     mode = 1;
                     updateMode();
@@ -1012,42 +1287,39 @@ public class Home_Pg extends javax.swing.JFrame {
             }
 
             // Executa o laço corretamente sem travar a tela 
-            Timer timer = new Timer(time, new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent evt) {
-                    // Salva linhas da área de texto
-                    List<String> lineList = new ArrayList<String>();
-                    lineList = saveLines(lineList);
-
-                    if (mode == 3) {
-                        //inputs = InputActions.dummyRead(inputs);
-                        inputs = InputActions.read(inputs);
-                        outputs = OutputActions.setAllFalse(outputs);
-                        outputs = Interpreter.receiveLines(lineList, inputs, outputs, memoryVariables);
-                        for(Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()){
-                            if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("ON") && variable.getValue().currentValue == true)
-                                variable.getValue().timer.start();
-                            else if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("ON") && variable.getValue().currentValue == false){
-                                variable.getValue().timer.stop();
-                                variable.getValue().counter = 0;
-                                variable.getValue().endTimer = false;
-                            }
-                            if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("OFF") && variable.getValue().currentValue == true){
-                                variable.getValue().timer.stop();
-                                variable.getValue().counter = 0;
-                                variable.getValue().endTimer = true;
-                            }else if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("OFF") && variable.getValue().currentValue == false){
-                                variable.getValue().timer.start();
-                            }
+            @SuppressWarnings("unchecked")
+            Timer timer = new Timer(time, (ActionEvent evt1) -> {
+                // Salva linhas da área de texto
+                List<String> lineList = new ArrayList<>();
+                lineList = saveLines(lineList);
+                if (mode == 3) {
+                    //inputs = InputActions.dummyRead(inputs);
+                    inputs = InputActions.read(inputs);
+                    outputs = OutputActions.setAllFalse(outputs);
+                    outputs = Interpreter.receiveLines(lineList, inputs, outputs, memoryVariables);
+                    for(Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()){
+                        if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("ON") && variable.getValue().currentValue == true)
+                            variable.getValue().timer.start();
+                        else if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("ON") && variable.getValue().currentValue == false){
+                            variable.getValue().timer.stop();
+                            variable.getValue().counter = 0;
+                            variable.getValue().endTimer = false;
                         }
-                        //outputs = OutputActions.dummyWrite(outputs);
-                        outputs = OutputActions.write(outputs);
-                        updateMode();
-                        updateScreen();
-                        updateMemoryVariables();
-                    } else {
-                        ((Timer) evt.getSource()).stop();
+                        if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("OFF") && variable.getValue().currentValue == true){
+                            variable.getValue().timer.stop();
+                            variable.getValue().counter = 0;
+                            variable.getValue().endTimer = true;
+                        }else if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("OFF") && variable.getValue().currentValue == false){
+                            variable.getValue().timer.start();
+                        }
                     }
+                    //outputs = OutputActions.dummyWrite(outputs);
+                    outputs = OutputActions.write(outputs);
+                    updateMode();
+                    updateScreen();
+                    updateMemoryVariables();
+                } else {
+                    ((Timer) evt1.getSource()).stop();
                 }
             });
 
@@ -1392,6 +1664,7 @@ public class Home_Pg extends javax.swing.JFrame {
     }
     
     private void setaLanguage(){
+        @SuppressWarnings("rawtypes")
         JComboBox aux = Language.getArquivar();
         Arquivar_BT.removeItemAt(0);
         Arquivar_BT.removeItemAt(0);
@@ -1446,22 +1719,16 @@ public class Home_Pg extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home_Pg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home_Pg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home_Pg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Home_Pg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         
+        //</editor-fold>
+        
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Home_Pg().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Home_Pg().setVisible(true);
         });
     }
 
