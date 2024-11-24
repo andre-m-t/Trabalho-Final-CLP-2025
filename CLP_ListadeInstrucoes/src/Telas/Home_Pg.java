@@ -72,13 +72,38 @@ public class Home_Pg extends javax.swing.JFrame {
         Variaveis_BT.setIcon(iconBarra);
         
         
-        
         ImageIcon iconCampo = new ImageIcon("src/Assets/bloco_notas.png");
         iconCampo.setImage( iconCampo.getImage().getScaledInstance(Codigo_Camp.getWidth(),Codigo_Camp.getHeight(),1));
         Image_Camp.setIcon(iconCampo);
         
         
         Codigo_Camp.setOpaque(false);
+        
+        //adicionando icones de contador e timer
+        ImageIcon icontimer = new ImageIcon("src/Assets/temporizador.png");
+        icontimer.setImage( icontimer.getImage().getScaledInstance(Timer_1.getWidth(), Timer_1.getHeight(),1));
+        Timer_1.setIcon(icontimer);
+        Timer_2.setIcon(icontimer);
+        Timer_3.setIcon(icontimer);
+        Timer_4.setIcon(icontimer);
+        Timer_5.setIcon(icontimer);
+        Timer_6.setIcon(icontimer);
+        Timer_7.setIcon(icontimer);
+        Timer_8.setIcon(icontimer);
+        Timer_9.setIcon(icontimer);
+        Timer_10.setIcon(icontimer);
+        ImageIcon iconCont = new ImageIcon("src/Assets/contador.png");
+        iconCont.setImage( iconCont.getImage().getScaledInstance(Contador_1.getWidth(), Contador_1.getHeight(),1));
+        Contador_1.setIcon(iconCont);
+        Contador_2.setIcon(iconCont);
+        Contador_3.setIcon(iconCont);
+        Contador_4.setIcon(iconCont);
+        Contador_5.setIcon(iconCont);
+        Contador_6.setIcon(iconCont);
+        Contador_7.setIcon(iconCont);
+        Contador_8.setIcon(iconCont);
+        Contador_9.setIcon(iconCont);
+        Contador_10.setIcon(iconCont);
         
         
         AbstractDocument doc = (AbstractDocument) Codigo_Camp.getDocument();
@@ -95,6 +120,7 @@ public class Home_Pg extends javax.swing.JFrame {
         System.out.println("HashMap de saídas criado:" + outputs);
         // Atualiza entradas e saídas na tela
         updateScreen();
+        
         
     }
     
@@ -263,6 +289,86 @@ public class Home_Pg extends javax.swing.JFrame {
         Entrada_7 = new javax.swing.JLabel();
         Entrada_3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        Temp_parada_1 = new javax.swing.JLabel();
+        Temp_parada_2 = new javax.swing.JLabel();
+        Temp_parada_3 = new javax.swing.JLabel();
+        Temp_parada_4 = new javax.swing.JLabel();
+        Temp_parada_5 = new javax.swing.JLabel();
+        Temp_parada_6 = new javax.swing.JLabel();
+        Temp_parada_7 = new javax.swing.JLabel();
+        Temp_parada_8 = new javax.swing.JLabel();
+        Temp_parada_9 = new javax.swing.JLabel();
+        Temp_parada_10 = new javax.swing.JLabel();
+        Contagem_parada_1 = new javax.swing.JLabel();
+        Contagem_parada_2 = new javax.swing.JLabel();
+        Contagem_parada_3 = new javax.swing.JLabel();
+        Contagem_parada_4 = new javax.swing.JLabel();
+        Contagem_parada_5 = new javax.swing.JLabel();
+        Contagem_parada_6 = new javax.swing.JLabel();
+        Contagem_parada_7 = new javax.swing.JLabel();
+        Contagem_parada_8 = new javax.swing.JLabel();
+        Contagem_parada_9 = new javax.swing.JLabel();
+        Contagem_parada_10 = new javax.swing.JLabel();
+        Temp_atual_1 = new javax.swing.JLabel();
+        Temp_atual_2 = new javax.swing.JLabel();
+        Temp_atual_3 = new javax.swing.JLabel();
+        Temp_atual_4 = new javax.swing.JLabel();
+        Temp_atual_5 = new javax.swing.JLabel();
+        Temp_atual_6 = new javax.swing.JLabel();
+        Temp_atual_7 = new javax.swing.JLabel();
+        Temp_atual_8 = new javax.swing.JLabel();
+        Temp_atual_9 = new javax.swing.JLabel();
+        Temp_atual_10 = new javax.swing.JLabel();
+        Contagem_atual_1 = new javax.swing.JLabel();
+        Contagem_atual_2 = new javax.swing.JLabel();
+        Contagem_atual_3 = new javax.swing.JLabel();
+        Contagem_atual_4 = new javax.swing.JLabel();
+        Contagem_atual_5 = new javax.swing.JLabel();
+        Contagem_atual_6 = new javax.swing.JLabel();
+        Contagem_atual_7 = new javax.swing.JLabel();
+        Contagem_atual_8 = new javax.swing.JLabel();
+        Contagem_atual_9 = new javax.swing.JLabel();
+        Contagem_atual_10 = new javax.swing.JLabel();
+        Timer_1 = new javax.swing.JLabel();
+        Timer_2 = new javax.swing.JLabel();
+        Timer_3 = new javax.swing.JLabel();
+        Timer_4 = new javax.swing.JLabel();
+        Timer_5 = new javax.swing.JLabel();
+        Timer_6 = new javax.swing.JLabel();
+        Timer_7 = new javax.swing.JLabel();
+        Timer_8 = new javax.swing.JLabel();
+        Timer_9 = new javax.swing.JLabel();
+        Timer_10 = new javax.swing.JLabel();
+        Contador_1 = new javax.swing.JLabel();
+        Contador_2 = new javax.swing.JLabel();
+        Contador_3 = new javax.swing.JLabel();
+        Contador_4 = new javax.swing.JLabel();
+        Contador_5 = new javax.swing.JLabel();
+        Contador_6 = new javax.swing.JLabel();
+        Contador_7 = new javax.swing.JLabel();
+        Contador_8 = new javax.swing.JLabel();
+        Contador_9 = new javax.swing.JLabel();
+        Contador_10 = new javax.swing.JLabel();
+        label_1 = new javax.swing.JLabel();
+        label_2 = new javax.swing.JLabel();
+        label_3 = new javax.swing.JLabel();
+        label_4 = new javax.swing.JLabel();
+        label_5 = new javax.swing.JLabel();
+        label_6 = new javax.swing.JLabel();
+        label_7 = new javax.swing.JLabel();
+        label_8 = new javax.swing.JLabel();
+        label_9 = new javax.swing.JLabel();
+        label_10 = new javax.swing.JLabel();
+        label_11 = new javax.swing.JLabel();
+        label_12 = new javax.swing.JLabel();
+        label_13 = new javax.swing.JLabel();
+        label_14 = new javax.swing.JLabel();
+        label_15 = new javax.swing.JLabel();
+        label_16 = new javax.swing.JLabel();
+        label_17 = new javax.swing.JLabel();
+        label_18 = new javax.swing.JLabel();
+        label_19 = new javax.swing.JLabel();
+        label_20 = new javax.swing.JLabel();
         Color_Camp = new javax.swing.JPanel();
         Codigo_Camp = new javax.swing.JTextArea();
         Image_Camp = new javax.swing.JLabel();
@@ -533,31 +639,281 @@ public class Home_Pg extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(8, 94, 131));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 221, Short.MAX_VALUE)
-        );
+        Temp_parada_1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_parada_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 50, 20));
+
+        Temp_parada_2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_parada_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 50, 20));
+
+        Temp_parada_3.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_parada_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 50, 20));
+
+        Temp_parada_4.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_parada_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 50, 20));
+
+        Temp_parada_5.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_parada_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 50, 20));
+
+        Temp_parada_6.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_parada_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 50, 20));
+
+        Temp_parada_7.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_parada_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 50, 20));
+
+        Temp_parada_8.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_parada_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 50, 20));
+
+        Temp_parada_9.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_parada_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 50, 20));
+
+        Temp_parada_10.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_parada_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 50, 20));
+
+        Contagem_parada_1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_parada_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 50, 20));
+
+        Contagem_parada_2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_parada_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 50, 20));
+
+        Contagem_parada_3.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_parada_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 50, 20));
+
+        Contagem_parada_4.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_parada_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 50, 20));
+
+        Contagem_parada_5.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_parada_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 50, 20));
+
+        Contagem_parada_6.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_parada_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 50, 20));
+
+        Contagem_parada_7.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_parada_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 50, 20));
+
+        Contagem_parada_8.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_parada_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, 50, 20));
+
+        Contagem_parada_9.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_parada_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 50, 20));
+
+        Contagem_parada_10.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_parada_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 50, 20));
+
+        Temp_atual_1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_atual_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 50, 20));
+
+        Temp_atual_2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_atual_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 50, 20));
+
+        Temp_atual_3.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_atual_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 50, 20));
+
+        Temp_atual_4.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_atual_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 50, 20));
+
+        Temp_atual_5.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_atual_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 50, 20));
+
+        Temp_atual_6.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_atual_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 50, 20));
+
+        Temp_atual_7.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_atual_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 50, 20));
+
+        Temp_atual_8.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_atual_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 50, 20));
+
+        Temp_atual_9.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_atual_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 50, 20));
+
+        Temp_atual_10.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Temp_atual_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 50, 20));
+
+        Contagem_atual_1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_atual_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 50, 20));
+
+        Contagem_atual_2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_atual_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 50, 20));
+
+        Contagem_atual_3.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_atual_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 50, 20));
+
+        Contagem_atual_4.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_atual_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 50, 20));
+
+        Contagem_atual_5.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_atual_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 50, 20));
+
+        Contagem_atual_6.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_atual_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 50, 20));
+
+        Contagem_atual_7.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_atual_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 50, 20));
+
+        Contagem_atual_8.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_atual_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 50, 20));
+
+        Contagem_atual_9.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_atual_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 220, 50, 20));
+
+        Contagem_atual_10.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(Contagem_atual_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 290, 50, 20));
+
+        Timer_1.setText("jLabel1");
+        jPanel2.add(Timer_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 60));
+
+        Timer_2.setText("jLabel1");
+        jPanel2.add(Timer_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 130, 60));
+
+        Timer_3.setText("jLabel1");
+        jPanel2.add(Timer_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 130, 60));
+
+        Timer_4.setText("jLabel1");
+        jPanel2.add(Timer_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 130, 60));
+
+        Timer_5.setText("jLabel1");
+        jPanel2.add(Timer_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 130, 60));
+
+        Timer_6.setText("jLabel1");
+        jPanel2.add(Timer_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 130, 60));
+
+        Timer_7.setText("jLabel1");
+        jPanel2.add(Timer_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 130, 60));
+
+        Timer_8.setText("jLabel1");
+        jPanel2.add(Timer_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 130, 60));
+
+        Timer_9.setText("jLabel1");
+        jPanel2.add(Timer_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 130, 60));
+
+        Timer_10.setText("jLabel1");
+        jPanel2.add(Timer_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 130, 60));
+
+        Contador_1.setText("jLabel1");
+        jPanel2.add(Contador_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 130, 60));
+
+        Contador_2.setText("jLabel1");
+        jPanel2.add(Contador_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 130, 60));
+
+        Contador_3.setText("jLabel1");
+        jPanel2.add(Contador_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 130, 60));
+
+        Contador_4.setText("jLabel1");
+        jPanel2.add(Contador_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 130, 60));
+
+        Contador_5.setText("jLabel1");
+        jPanel2.add(Contador_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 130, 60));
+
+        Contador_6.setText("jLabel1");
+        jPanel2.add(Contador_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, 130, 60));
+
+        Contador_7.setText("jLabel1");
+        jPanel2.add(Contador_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 130, 60));
+
+        Contador_8.setText("jLabel1");
+        jPanel2.add(Contador_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 130, 60));
+
+        Contador_9.setText("jLabel1");
+        jPanel2.add(Contador_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 130, 60));
+
+        Contador_10.setText("jLabel1");
+        jPanel2.add(Contador_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 130, 60));
+
+        label_1.setForeground(new java.awt.Color(255, 255, 255));
+        label_1.setText(" 1");
+        jPanel2.add(label_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 30, 30));
+
+        label_2.setForeground(new java.awt.Color(255, 255, 255));
+        label_2.setText(" 2");
+        jPanel2.add(label_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 30, 30));
+
+        label_3.setForeground(new java.awt.Color(255, 255, 255));
+        label_3.setText(" 3");
+        jPanel2.add(label_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 30, 30));
+
+        label_4.setForeground(new java.awt.Color(255, 255, 255));
+        label_4.setText(" 4");
+        jPanel2.add(label_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 30, 30));
+
+        label_5.setForeground(new java.awt.Color(255, 255, 255));
+        label_5.setText(" 5");
+        jPanel2.add(label_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 30, 30));
+
+        label_6.setForeground(new java.awt.Color(255, 255, 255));
+        label_6.setText(" 6");
+        jPanel2.add(label_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 30, 30));
+
+        label_7.setForeground(new java.awt.Color(255, 255, 255));
+        label_7.setText(" 7");
+        jPanel2.add(label_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 30, 30));
+
+        label_8.setForeground(new java.awt.Color(255, 255, 255));
+        label_8.setText(" 8");
+        jPanel2.add(label_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 30, 30));
+
+        label_9.setForeground(new java.awt.Color(255, 255, 255));
+        label_9.setText(" 9");
+        jPanel2.add(label_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 30, 30));
+
+        label_10.setForeground(new java.awt.Color(255, 255, 255));
+        label_10.setText("10");
+        jPanel2.add(label_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 30, 30));
+
+        label_11.setForeground(new java.awt.Color(255, 255, 255));
+        label_11.setText(" 1");
+        jPanel2.add(label_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 30, 30));
+
+        label_12.setForeground(new java.awt.Color(255, 255, 255));
+        label_12.setText(" 2");
+        jPanel2.add(label_12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 30, 30));
+
+        label_13.setForeground(new java.awt.Color(255, 255, 255));
+        label_13.setText(" 3");
+        jPanel2.add(label_13, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 30, 30));
+
+        label_14.setForeground(new java.awt.Color(255, 255, 255));
+        label_14.setText(" 4");
+        jPanel2.add(label_14, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 30, 30));
+
+        label_15.setForeground(new java.awt.Color(255, 255, 255));
+        label_15.setText(" 5");
+        jPanel2.add(label_15, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 30, 30));
+
+        label_16.setForeground(new java.awt.Color(255, 255, 255));
+        label_16.setText(" 6");
+        jPanel2.add(label_16, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 30, 30));
+
+        label_17.setForeground(new java.awt.Color(255, 255, 255));
+        label_17.setText(" 7");
+        jPanel2.add(label_17, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 110, 30, 30));
+
+        label_18.setForeground(new java.awt.Color(255, 255, 255));
+        label_18.setText(" 8");
+        jPanel2.add(label_18, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 180, 30, 30));
+
+        label_19.setForeground(new java.awt.Color(255, 255, 255));
+        label_19.setText(" 9");
+        jPanel2.add(label_19, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 30, 30));
+
+        label_20.setForeground(new java.awt.Color(255, 255, 255));
+        label_20.setText("10");
+        jPanel2.add(label_20, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, 30, 30));
 
         Color_Camp.setBackground(new java.awt.Color(0, 102, 204));
         Color_Camp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Codigo_Camp.setColumns(20);
-        Codigo_Camp.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        Codigo_Camp.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Codigo_Camp.setForeground(new java.awt.Color(255, 255, 255));
         Codigo_Camp.setRows(5);
         Codigo_Camp.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         Codigo_Camp.setDragEnabled(true);
         Codigo_Camp.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         Codigo_Camp.setSelectionColor(new java.awt.Color(204, 204, 204));
-        Color_Camp.add(Codigo_Camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 350, 630));
-        Color_Camp.add(Image_Camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 370, 630));
+        Color_Camp.add(Codigo_Camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 350, 750));
+        Color_Camp.add(Image_Camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 6, 370, 750));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -570,8 +926,9 @@ public class Home_Pg extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Color_Camp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(Color_Camp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -594,19 +951,15 @@ public class Home_Pg extends javax.swing.JFrame {
                                     .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Label_Delay))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Variaveis_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                        .addComponent(Variaveis_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(Variaveis_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Sobre_BT)
                             .addComponent(Help_BT)
@@ -620,15 +973,16 @@ public class Home_Pg extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Label_Delay)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(Variaveis_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Color_Camp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(12, 12, 12))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Color_Camp, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35))
         );
 
         pack();
@@ -1115,6 +1469,36 @@ public class Home_Pg extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Arquivar_BT;
     private javax.swing.JTextArea Codigo_Camp;
     private javax.swing.JPanel Color_Camp;
+    private javax.swing.JLabel Contador_1;
+    private javax.swing.JLabel Contador_10;
+    private javax.swing.JLabel Contador_2;
+    private javax.swing.JLabel Contador_3;
+    private javax.swing.JLabel Contador_4;
+    private javax.swing.JLabel Contador_5;
+    private javax.swing.JLabel Contador_6;
+    private javax.swing.JLabel Contador_7;
+    private javax.swing.JLabel Contador_8;
+    private javax.swing.JLabel Contador_9;
+    private javax.swing.JLabel Contagem_atual_1;
+    private javax.swing.JLabel Contagem_atual_10;
+    private javax.swing.JLabel Contagem_atual_2;
+    private javax.swing.JLabel Contagem_atual_3;
+    private javax.swing.JLabel Contagem_atual_4;
+    private javax.swing.JLabel Contagem_atual_5;
+    private javax.swing.JLabel Contagem_atual_6;
+    private javax.swing.JLabel Contagem_atual_7;
+    private javax.swing.JLabel Contagem_atual_8;
+    private javax.swing.JLabel Contagem_atual_9;
+    private javax.swing.JLabel Contagem_parada_1;
+    private javax.swing.JLabel Contagem_parada_10;
+    private javax.swing.JLabel Contagem_parada_2;
+    private javax.swing.JLabel Contagem_parada_3;
+    private javax.swing.JLabel Contagem_parada_4;
+    private javax.swing.JLabel Contagem_parada_5;
+    private javax.swing.JLabel Contagem_parada_6;
+    private javax.swing.JLabel Contagem_parada_7;
+    private javax.swing.JLabel Contagem_parada_8;
+    private javax.swing.JLabel Contagem_parada_9;
     private javax.swing.JComboBox<String> Editar_BT;
     private javax.swing.JLabel Entrada_1;
     private javax.swing.JLabel Entrada_2;
@@ -1141,9 +1525,59 @@ public class Home_Pg extends javax.swing.JFrame {
     private javax.swing.JLabel Saida_8;
     private javax.swing.JComboBox<String> Simulacoes;
     private javax.swing.JButton Sobre_BT;
+    private javax.swing.JLabel Temp_atual_1;
+    private javax.swing.JLabel Temp_atual_10;
+    private javax.swing.JLabel Temp_atual_2;
+    private javax.swing.JLabel Temp_atual_3;
+    private javax.swing.JLabel Temp_atual_4;
+    private javax.swing.JLabel Temp_atual_5;
+    private javax.swing.JLabel Temp_atual_6;
+    private javax.swing.JLabel Temp_atual_7;
+    private javax.swing.JLabel Temp_atual_8;
+    private javax.swing.JLabel Temp_atual_9;
+    private javax.swing.JLabel Temp_parada_1;
+    private javax.swing.JLabel Temp_parada_10;
+    private javax.swing.JLabel Temp_parada_2;
+    private javax.swing.JLabel Temp_parada_3;
+    private javax.swing.JLabel Temp_parada_4;
+    private javax.swing.JLabel Temp_parada_5;
+    private javax.swing.JLabel Temp_parada_6;
+    private javax.swing.JLabel Temp_parada_7;
+    private javax.swing.JLabel Temp_parada_8;
+    private javax.swing.JLabel Temp_parada_9;
+    private javax.swing.JLabel Timer_1;
+    private javax.swing.JLabel Timer_10;
+    private javax.swing.JLabel Timer_2;
+    private javax.swing.JLabel Timer_3;
+    private javax.swing.JLabel Timer_4;
+    private javax.swing.JLabel Timer_5;
+    private javax.swing.JLabel Timer_6;
+    private javax.swing.JLabel Timer_7;
+    private javax.swing.JLabel Timer_8;
+    private javax.swing.JLabel Timer_9;
     private javax.swing.JButton Variaveis_BT;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JLabel label_1;
+    private javax.swing.JLabel label_10;
+    private javax.swing.JLabel label_11;
+    private javax.swing.JLabel label_12;
+    private javax.swing.JLabel label_13;
+    private javax.swing.JLabel label_14;
+    private javax.swing.JLabel label_15;
+    private javax.swing.JLabel label_16;
+    private javax.swing.JLabel label_17;
+    private javax.swing.JLabel label_18;
+    private javax.swing.JLabel label_19;
+    private javax.swing.JLabel label_2;
+    private javax.swing.JLabel label_20;
+    private javax.swing.JLabel label_3;
+    private javax.swing.JLabel label_4;
+    private javax.swing.JLabel label_5;
+    private javax.swing.JLabel label_6;
+    private javax.swing.JLabel label_7;
+    private javax.swing.JLabel label_8;
+    private javax.swing.JLabel label_9;
     // End of variables declaration//GEN-END:variables
 }
