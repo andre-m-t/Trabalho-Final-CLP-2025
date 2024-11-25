@@ -31,7 +31,7 @@ public class Save {
     }
     
     public static List<String> load(String name) throws IOException{
-        BufferedReader buffRead = new BufferedReader(new FileReader(name+".txt"));
+        BufferedReader buffRead = new BufferedReader(new FileReader(name));
         List<String> texto = new ArrayList<>();
         String linha = "";
         while (true) {
