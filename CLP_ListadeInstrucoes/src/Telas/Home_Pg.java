@@ -1691,6 +1691,7 @@ public final class Home_Pg extends javax.swing.JFrame {
         }
         
         if(Arquivar_BT.getItemAt(2) == Arquivar_BT.getSelectedItem()){
+            
             Arquivar_BT.setSelectedIndex(0);
             
             JFrame frame = new JFrame("Load");
