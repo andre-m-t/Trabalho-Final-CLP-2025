@@ -16,6 +16,7 @@ import java.awt.Color;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,6 +36,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.text.AbstractDocument;
 import javax.swing.text.BadLocationException;
+import save.Save;
 
 /**
  *
@@ -144,9 +146,9 @@ public final class Home_Pg extends javax.swing.JFrame {
         icon3.setImage( icon3.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
         ImageIcon icon4 = new ImageIcon("src/Assets/botao_fechado.png");
         icon4.setImage(icon4.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-        ImageIcon icon5 = new ImageIcon("src/Assets/buttom_pi.png");
+        ImageIcon icon5 = new ImageIcon("src/Assets/button_pi_aberto.png");
         icon5.setImage( icon5.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-        ImageIcon icon6 = new ImageIcon("src/Assets/button_pi_aberto.png");
+        ImageIcon icon6 = new ImageIcon("src/Assets/buttom_pi.png");
         icon6.setImage( icon6.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
         
         Entrada_1.setIcon(inputsType.get("I1") == 0? inputs.get("I1")?icon2:icon1:inputsType.get("I1") == 1?inputs.get("I1")?icon4:icon3:inputsType.get("I1") == 2? inputs.get("I1")?icon6:icon5:icon1);
@@ -662,7 +664,11 @@ public final class Home_Pg extends javax.swing.JFrame {
 
         Simulacoes.setBackground(new java.awt.Color(8, 94, 131));
         Simulacoes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Painel", "Simulação 1", "Simulação 2", "Simulação 3" }));
-        Simulacoes.addActionListener(this::SimulacoesActionPerformed);
+        Simulacoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SimulacoesActionPerformed(evt);
+            }
+        });
 
         Run_BT.setFont(new java.awt.Font("Segoe UI", 0, 5)); // NOI18N
         Run_BT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/start.png"))); // NOI18N
@@ -673,24 +679,49 @@ public final class Home_Pg extends javax.swing.JFrame {
         Run_BT.setIconTextGap(0);
         Run_BT.setMaximumSize(new java.awt.Dimension(50, 50));
         Run_BT.setMinimumSize(new java.awt.Dimension(50, 50));
-        Run_BT.addActionListener(this::Run_BTBT_Run_Pressionado);
+        Run_BT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Run_BTBT_Run_Pressionado(evt);
+            }
+        });
 
-        Arquivar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arquivar", "Salvar", "Item 3", "Item 4" }));
+        Arquivar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arquivar", "Salvar", "Carregar", "Item 4" }));
+        Arquivar_BT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Arquivar_BTActionPerformed(evt);
+            }
+        });
 
         Editar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Editar", "Tema", "Idioma" }));
-        Editar_BT.addActionListener(this::Editar_BTActionPerformed);
+        Editar_BT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Editar_BTActionPerformed(evt);
+            }
+        });
 
         Help_BT.setText("Help");
 
         Sobre_BT.setText("Sobre");
-        Sobre_BT.addActionListener(this::Sobre_BTActionPerformed);
+        Sobre_BT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Sobre_BTActionPerformed(evt);
+            }
+        });
 
         Pause_BT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/pause.png"))); // NOI18N
         Pause_BT.setOpaque(true);
-        Pause_BT.addActionListener(this::Pause_BTActionPerformed);
+        Pause_BT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Pause_BTActionPerformed(evt);
+            }
+        });
 
         Variaveis_BT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Barra_Lateral.png"))); // NOI18N
-        Variaveis_BT.addActionListener(this::Variaveis_BTA);
+        Variaveis_BT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Variaveis_BTA(evt);
+            }
+        });
 
         jSpinner1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -726,11 +757,9 @@ public final class Home_Pg extends javax.swing.JFrame {
 
         Entrada_5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_5.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_5MousePressed(evt);
             }
-            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 Entrada_5MouseReleased(evt);
             }
@@ -738,11 +767,9 @@ public final class Home_Pg extends javax.swing.JFrame {
 
         Entrada_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_1.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_1MousePressed(evt);
             }
-            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 Entrada_1MouseReleased(evt);
             }
@@ -750,11 +777,9 @@ public final class Home_Pg extends javax.swing.JFrame {
 
         Entrada_6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_6.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_6MousePressed(evt);
             }
-            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 Entrada_6MouseReleased(evt);
             }
@@ -762,11 +787,9 @@ public final class Home_Pg extends javax.swing.JFrame {
 
         Entrada_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_2.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_2MousePressed(evt);
             }
-            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 Entrada_2MouseReleased(evt);
             }
@@ -774,11 +797,9 @@ public final class Home_Pg extends javax.swing.JFrame {
 
         Entrada_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_8.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_8MousePressed(evt);
             }
-            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 Entrada_8MouseReleased(evt);
             }
@@ -786,11 +807,9 @@ public final class Home_Pg extends javax.swing.JFrame {
 
         Entrada_4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_4.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_4MousePressed(evt);
             }
-            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 Entrada_4MouseReleased(evt);
             }
@@ -798,11 +817,9 @@ public final class Home_Pg extends javax.swing.JFrame {
 
         Entrada_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_7.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_7MousePressed(evt);
             }
-            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 Entrada_7MouseReleased(evt);
             }
@@ -810,11 +827,9 @@ public final class Home_Pg extends javax.swing.JFrame {
 
         Entrada_3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
         Entrada_3.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Entrada_3MousePressed(evt);
             }
-            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 Entrada_3MouseReleased(evt);
             }
@@ -1561,7 +1576,7 @@ public final class Home_Pg extends javax.swing.JFrame {
 
     private void Editar_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Editar_BTActionPerformed
 
-        if("Tema".equals(Editar_BT.getSelectedItem().toString())){
+        if(Editar_BT.getItemAt(1) == Editar_BT.getSelectedItem().toString()){
             Editar_BT.setSelectedIndex(0);
             color++;
             if(color >= 5){
@@ -1569,7 +1584,7 @@ public final class Home_Pg extends javax.swing.JFrame {
             }
             setaCores();
         }
-        if("Idioma".equals(Editar_BT.getSelectedItem().toString())){
+        if(Editar_BT.getItemAt(2) == Editar_BT.getSelectedItem().toString()){
             Editar_BT.setSelectedIndex(0);
             Language.setLingua();
             setaLanguage();
@@ -1655,6 +1670,47 @@ public final class Home_Pg extends javax.swing.JFrame {
             updateScreen();
         }
     }//GEN-LAST:event_Entrada_8MouseReleased
+
+    private void Arquivar_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Arquivar_BTActionPerformed
+        
+        if(Arquivar_BT.getItemAt(1) == Arquivar_BT.getSelectedItem()){
+            
+            Arquivar_BT.setSelectedIndex(0);
+            
+            JFrame frame = new JFrame("Save");
+
+            String name = JOptionPane.showInputDialog(frame, "Nome do arquivo: ");
+    
+            List<String> memory = new ArrayList<>();
+            memory = saveLines(memory);
+            try {
+                Save.save(name, memory);
+            } catch (IOException ex) {
+                Logger.getLogger(Home_Pg.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        if(Arquivar_BT.getItemAt(2) == Arquivar_BT.getSelectedItem()){
+            Arquivar_BT.setSelectedIndex(0);
+            
+            JFrame frame = new JFrame("Load");
+
+            String name = JOptionPane.showInputDialog(frame, "Nome do arquivo: ");
+            
+            List<String> memory = new ArrayList<>();
+            try {
+                memory = Save.load(name);
+                Codigo_Camp.setText("");
+                for(int i = 0; i < memory.size(); i++){
+                    Codigo_Camp.append(memory.get(i));
+                    Codigo_Camp.append("\n");
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Home_Pg.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+    }//GEN-LAST:event_Arquivar_BTActionPerformed
     
     private void setaCores(){
         Simulacoes.setBackground(Colors.firstColor(color));
