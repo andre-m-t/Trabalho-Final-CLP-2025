@@ -139,20 +139,6 @@ public final class Home_Pg extends javax.swing.JFrame {
 
     // Atualiza entradas e saídas na tela
     public void updateScreen() {
-<<<<<<< Updated upstream
-        ImageIcon icon1 = new ImageIcon("src/Assets/chave_aberta.png");
-        icon1.setImage( icon1.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-        ImageIcon icon2 = new ImageIcon("src/Assets/chave_fechada.png");
-        icon2.setImage( icon2.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-        ImageIcon icon3 = new ImageIcon("src/Assets/buttom.png");
-        icon3.setImage( icon3.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-        ImageIcon icon4 = new ImageIcon("src/Assets/botao_fechado.png");
-        icon4.setImage(icon4.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-        ImageIcon icon5 = new ImageIcon("src/Assets/button_pi_aberto.png");
-        icon5.setImage( icon5.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-        ImageIcon icon6 = new ImageIcon("src/Assets/buttom_pi.png");
-        icon6.setImage( icon6.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-=======
         ImageIcon icon1 = new ImageIcon(getClass().getResource("/Assets/chave_aberta.png"));
         icon1.setImage(icon1.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(), 1));
 
@@ -171,7 +157,7 @@ public final class Home_Pg extends javax.swing.JFrame {
         ImageIcon icon6 = new ImageIcon(getClass().getResource("/Assets/buttom_pi.png"));
         icon6.setImage(icon6.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(), 1));
 
->>>>>>> Stashed changes
+
         
         Entrada_1.setIcon(inputsType.get("I1") == 0? inputs.get("I1")?icon2:icon1:inputsType.get("I1") == 1?inputs.get("I1")?icon4:icon3:inputsType.get("I1") == 2? inputs.get("I1")?icon6:icon5:icon1);
         Entrada_2.setIcon(inputsType.get("I2") == 0? inputs.get("I2")?icon2:icon1:inputsType.get("I2") == 1?inputs.get("I2")?icon4:icon3:inputsType.get("I2") == 2? inputs.get("I2")?icon6:icon5:icon1);
