@@ -2,3 +2,4 @@
 **/*.class
 **/private.properties
 
+/CLP_ListadeInstrucoes/build/

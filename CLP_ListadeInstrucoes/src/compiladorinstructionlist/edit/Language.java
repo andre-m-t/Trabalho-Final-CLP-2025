@@ -26,23 +26,23 @@ public class Language {
         JComboBox<String> jComboBox = new JComboBox();
         if(lingua.equals("EN")){
             jComboBox.addItem("File");
-            jComboBox.addItem("Salvar");
-            jComboBox.addItem("Item 3");
+            jComboBox.addItem("Save");
+            jComboBox.addItem("Load");
             jComboBox.addItem("Item 4");
         }else if(lingua.equals("JA")){
             jComboBox.addItem("ファイル");
-            jComboBox.addItem("Salvar");
-            jComboBox.addItem("Item 3");
-            jComboBox.addItem("Item 4");
+            jComboBox.addItem("保存");
+            jComboBox.addItem("ロードするには");
+            jComboBox.addItem("項目 4");
         }else if(lingua.equals("DE")){
             jComboBox.addItem("Datei");
-            jComboBox.addItem("Salvar");
-            jComboBox.addItem("Item 3");
-            jComboBox.addItem("Item 4");
+            jComboBox.addItem("Speichern");
+            jComboBox.addItem("Zum Laden");
+            jComboBox.addItem("Punkt 4");
         }else{
             jComboBox.addItem("Arquivo");
             jComboBox.addItem("Salvar");
-            jComboBox.addItem("Item 3");
+            jComboBox.addItem("Carregar");
             jComboBox.addItem("Item 4");
         }
         return jComboBox;
@@ -52,16 +52,16 @@ public class Language {
         JComboBox<String> jComboBox = new JComboBox();
         if(lingua.equals("EN")){
             jComboBox.addItem("Edit");
-            jComboBox.addItem("Tema");
-            jComboBox.addItem("Idioma");
+            jComboBox.addItem("Theme");
+            jComboBox.addItem("Language");
         }else if(lingua.equals("JA")){
             jComboBox.addItem("編集");
-            jComboBox.addItem("Tema");
-            jComboBox.addItem("Idioma");
+            jComboBox.addItem("テーマ");
+            jComboBox.addItem("言語");
         }else if(lingua.equals("DE")){
             jComboBox.addItem("Bearbeiten");
-            jComboBox.addItem("Tema");
-            jComboBox.addItem("Idioma");
+            jComboBox.addItem("Thema");
+            jComboBox.addItem("Sprache");
         }else{
             jComboBox.addItem("Editar");
             jComboBox.addItem("Tema");
@@ -97,20 +97,20 @@ public class Language {
     public static JComboBox getSimulação(){
         JComboBox<String> jComboBox = new JComboBox();
         if(lingua.equals("EN")){
-            jComboBox.addItem("simulation");
-            jComboBox.addItem("Simulação 1");
-            jComboBox.addItem("Simulação 2");
-            jComboBox.addItem("Simulação 3");
+            jComboBox.addItem("Panel");
+            jComboBox.addItem("Simulation 1");
+            jComboBox.addItem("Simulation 2");
+            jComboBox.addItem("Simulation 3");
         }else if(lingua.equals("JA")){
-            jComboBox.addItem("シミュレーション");
-            jComboBox.addItem("Simulação 1");
-            jComboBox.addItem("Simulação 2");
-            jComboBox.addItem("Simulação 3");
+            jComboBox.addItem("パネル");
+            jComboBox.addItem("シミュレーション 1");
+            jComboBox.addItem("シミュレーション 2");
+            jComboBox.addItem("シミュレーション 3");
         }else if(lingua.equals("DE")){
-            jComboBox.addItem("Simulation");
-            jComboBox.addItem("Simulação 1");
-            jComboBox.addItem("Simulação 2");
-            jComboBox.addItem("Simulação 3");
+            jComboBox.addItem("Panel");
+            jComboBox.addItem("Simulation 1");
+            jComboBox.addItem("Simulation 2");
+            jComboBox.addItem("Simulation 3");
         }else{
             jComboBox.addItem("Painel");
             jComboBox.addItem("Simulação 1");
