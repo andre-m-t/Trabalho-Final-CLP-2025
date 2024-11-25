@@ -62,20 +62,21 @@ public final class Home_Pg extends javax.swing.JFrame {
         initComponents();
         Lista_de_variaveis = tela2.getListaDeVariaveis();
         //setando informaçoes iniciais
-        ImageIcon iconplay = new ImageIcon("src/Assets/start.png");
+        ImageIcon iconplay = new ImageIcon(getClass().getResource("/Assets/start.png"));
         iconplay.setImage( iconplay.getImage().getScaledInstance(Run_BT.getWidth(), Run_BT.getHeight(),1));
         Run_BT.setIcon(iconplay);
-        ImageIcon iconpause = new ImageIcon("src/Assets/pause.png");
+        ImageIcon iconpause = new ImageIcon(getClass().getResource("/Assets/pause.png"));
+        
         iconpause.setImage( iconpause.getImage().getScaledInstance(Pause_BT.getWidth(), Pause_BT.getHeight(),1));
         Pause_BT.setIcon(iconpause);
         
         
-        ImageIcon iconBarra = new ImageIcon("src/Assets/Barra_Lateral.png");
+        ImageIcon iconBarra = new ImageIcon(getClass().getResource("/Assets/Barra_Lateral.png"));
         iconBarra.setImage( iconBarra.getImage().getScaledInstance(Variaveis_BT.getWidth(),Variaveis_BT.getHeight(),1));
         Variaveis_BT.setIcon(iconBarra);
         
         
-        ImageIcon iconCampo = new ImageIcon("src/Assets/bloco_notas.png");
+        ImageIcon iconCampo = new ImageIcon(getClass().getResource("/Assets/bloco_notas.png"));
         iconCampo.setImage( iconCampo.getImage().getScaledInstance(Codigo_Camp.getWidth(),Codigo_Camp.getHeight(),1));
         Image_Camp.setIcon(iconCampo);
         
@@ -83,7 +84,7 @@ public final class Home_Pg extends javax.swing.JFrame {
         Codigo_Camp.setOpaque(false);
         
         //adicionando icones de contador e timer
-        ImageIcon icontimer = new ImageIcon("src/Assets/temporizador.png");
+        ImageIcon icontimer = new ImageIcon(getClass().getResource("/Assets/temporizador.png"));
         icontimer.setImage( icontimer.getImage().getScaledInstance(Timer_1.getWidth(), Timer_1.getHeight(),1));
         Timer_1.setIcon(icontimer);       
         Timer_2.setIcon(icontimer);
@@ -95,7 +96,7 @@ public final class Home_Pg extends javax.swing.JFrame {
         Timer_8.setIcon(icontimer);
         Timer_9.setIcon(icontimer);
         Timer_10.setIcon(icontimer);
-        ImageIcon iconCont = new ImageIcon("src/Assets/contador.png");
+        ImageIcon iconCont = new ImageIcon(getClass().getResource("/Assets/contador.png"));
         iconCont.setImage( iconCont.getImage().getScaledInstance(Contador_1.getWidth(), Contador_1.getHeight(),1));
         Contador_1.setIcon(iconCont);
         Contador_2.setIcon(iconCont);
@@ -136,6 +137,7 @@ public final class Home_Pg extends javax.swing.JFrame {
 
     // Atualiza entradas e saídas na tela
     public void updateScreen() {
+<<<<<<< Updated upstream
         ImageIcon icon1 = new ImageIcon("src/Assets/chave_aberta.png");
         icon1.setImage( icon1.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
         ImageIcon icon2 = new ImageIcon("src/Assets/chave_fechada.png");
@@ -148,6 +150,26 @@ public final class Home_Pg extends javax.swing.JFrame {
         icon5.setImage( icon5.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
         ImageIcon icon6 = new ImageIcon("src/Assets/button_pi_aberto.png");
         icon6.setImage( icon6.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
+=======
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/Assets/chave_aberta.png"));
+        icon1.setImage(icon1.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(), 1));
+
+        ImageIcon icon2 = new ImageIcon(getClass().getResource("/Assets/chave_fechada.png"));
+        icon2.setImage(icon2.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(), 1));
+
+        ImageIcon icon3 = new ImageIcon(getClass().getResource("/Assets/buttom.png"));
+        icon3.setImage(icon3.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(), 1));
+
+        ImageIcon icon4 = new ImageIcon(getClass().getResource("/Assets/botao_fechado.png"));
+        icon4.setImage(icon4.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(), 1));
+
+        ImageIcon icon5 = new ImageIcon(getClass().getResource("/Assets/button_pi_aberto.png"));
+        icon5.setImage(icon5.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(), 1));
+
+        ImageIcon icon6 = new ImageIcon(getClass().getResource("/Assets/buttom_pi.png"));
+        icon6.setImage(icon6.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(), 1));
+
+>>>>>>> Stashed changes
         
         Entrada_1.setIcon(inputsType.get("I1") == 0? inputs.get("I1")?icon2:icon1:inputsType.get("I1") == 1?inputs.get("I1")?icon4:icon3:inputsType.get("I1") == 2? inputs.get("I1")?icon6:icon5:icon1);
         Entrada_2.setIcon(inputsType.get("I2") == 0? inputs.get("I2")?icon2:icon1:inputsType.get("I2") == 1?inputs.get("I2")?icon4:icon3:inputsType.get("I2") == 2? inputs.get("I2")?icon6:icon5:icon1);
@@ -159,9 +181,9 @@ public final class Home_Pg extends javax.swing.JFrame {
         Entrada_8.setIcon(inputsType.get("I8") == 0? inputs.get("I8")?icon2:icon1:inputsType.get("I8") == 1?inputs.get("I8")?icon4:icon3:inputsType.get("I8") == 2? inputs.get("I8")?icon6:icon5:icon1);
         
         
-        icon3 = new ImageIcon("src/Assets/led_desligado.png");
+        icon3 = new ImageIcon(getClass().getResource("/Assets/led_desligado.png"));
         icon3.setImage( icon3.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
-        icon4 = new ImageIcon("src/Assets/led_ligado.png");
+        icon4 = new ImageIcon(getClass().getResource("/Assets/led_ligado.png"));
         icon4.setImage( icon4.getImage().getScaledInstance(Saida_1.getWidth(), Saida_1.getHeight(),1));
         Saida_1.setIcon(outputs.get("Q1")?icon4:icon3);
         Saida_2.setIcon(outputs.get("Q2")?icon4:icon3);
@@ -178,26 +200,26 @@ public final class Home_Pg extends javax.swing.JFrame {
         System.out.println("Modo atual: " + mode);
         if (null == mode) {
             Codigo_Camp.setEditable(false);
-            ImageIcon icon1 = new ImageIcon("src/Assets/start_verde.png");
+            ImageIcon icon1 = new ImageIcon(getClass().getResource("/Assets/start_verde.png"));
             icon1.setImage( icon1.getImage().getScaledInstance(Run_BT.getWidth(), Run_BT.getHeight(),1));
             Run_BT.setIcon(icon1);
         } else switch (mode) {
             case 1 ->                 {
                     Codigo_Camp.setEditable(true);
-                    ImageIcon icon1 = new ImageIcon("src/Assets/start.png");
+                    ImageIcon icon1 = new ImageIcon(getClass().getResource("/Assets/start.png"));
                     icon1.setImage( icon1.getImage().getScaledInstance(Run_BT.getWidth(), Run_BT.getHeight(),1));
                     Run_BT.setIcon(icon1);
                 //jSpinner1.setEditable(true);
                 }
             case 2 ->                 {
                     Codigo_Camp.setEditable(false);
-                    ImageIcon icon1 = new ImageIcon("src/Assets/start.png");
+                    ImageIcon icon1 = new ImageIcon(getClass().getResource("/Assets/start.png"));
                     icon1.setImage( icon1.getImage().getScaledInstance(Run_BT.getWidth(), Run_BT.getHeight(),1));
                     Run_BT.setIcon(icon1);
                 }
             default ->                 {
                     Codigo_Camp.setEditable(false);
-                    ImageIcon icon1 = new ImageIcon("src/Assets/start_verde.png");
+                    ImageIcon icon1 = new ImageIcon(getClass().getResource("/Assets/start_verde.png"));
                     icon1.setImage( icon1.getImage().getScaledInstance(Run_BT.getWidth(), Run_BT.getHeight(),1));
                     Run_BT.setIcon(icon1);
                 }
