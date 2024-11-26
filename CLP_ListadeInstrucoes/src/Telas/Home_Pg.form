@@ -163,11 +163,10 @@
     <Component class="javax.swing.JComboBox" name="Arquivar_BT">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
+          <StringArray count="3">
             <StringItem index="0" value="Arquivar"/>
             <StringItem index="1" value="Salvar"/>
             <StringItem index="2" value="Carregar"/>
-            <StringItem index="3" value="Item 4"/>
           </StringArray>
         </Property>
       </Properties>

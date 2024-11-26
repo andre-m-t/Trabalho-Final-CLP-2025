@@ -28,7 +28,6 @@ public class Language {
             jComboBox.addItem("File");
             jComboBox.addItem("Save");
             jComboBox.addItem("Load");
-            jComboBox.addItem("Item 4");
         }else if(lingua.equals("JA")){
             jComboBox.addItem("ファイル");
             jComboBox.addItem("保存");

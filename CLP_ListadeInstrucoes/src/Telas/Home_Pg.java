@@ -24,6 +24,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -693,7 +694,7 @@ public final class Home_Pg extends javax.swing.JFrame {
             }
         });
 
-        Arquivar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arquivar", "Salvar", "Carregar", "Item 4" }));
+        Arquivar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arquivar", "Salvar", "Carregar" }));
         Arquivar_BT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Arquivar_BTActionPerformed(evt);
@@ -1681,44 +1682,55 @@ public final class Home_Pg extends javax.swing.JFrame {
 
     private void Arquivar_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Arquivar_BTActionPerformed
         
-        if(Arquivar_BT.getItemAt(1) == Arquivar_BT.getSelectedItem()){
-            
-            Arquivar_BT.setSelectedIndex(0);
-            
-            JFrame frame = new JFrame("Save");
+        if(Arquivar_BT.getItemCount() == 2){
+            if(Language.getArquivar().getItemAt(2) == Arquivar_BT.getSelectedItem().toString()){
+                JFileChooser c = new JFileChooser();
+                String filename = "";
+                String dir = "";
+                // Demonstrate "Open" dialog:
+                int rVal = c.showOpenDialog(Home_Pg.this);
+                if (rVal == JFileChooser.APPROVE_OPTION) {
+                  filename = (c.getSelectedFile().getName());
+                  dir = (c.getCurrentDirectory().toString());
+                }
+                List<String> memory = new ArrayList<>();
+                try {
+                    memory = Save.load(dir+"\\"+filename);
+                    Codigo_Camp.setText("");
+                    for(int i = 0; i < memory.size(); i++){
+                        Codigo_Camp.append(memory.get(i));
+                        Codigo_Camp.append("\n");
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(Home_Pg.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Arquivar_BT.setSelectedIndex(0);
+            }
 
-            String name = JOptionPane.showInputDialog(frame, "Nome do arquivo: ");
-    
-            List<String> memory = new ArrayList<>();
-            memory = saveLines(memory);
-            try {
-                Save.save(name, memory);
-            } catch (IOException ex) {
-                Logger.getLogger(Home_Pg.class.getName()).log(Level.SEVERE, null, ex);
+            if(Arquivar_BT.getItemAt(1) == Arquivar_BT.getSelectedItem()){
+
+                Arquivar_BT.setSelectedIndex(0);
+
+                JFileChooser c = new JFileChooser();
+                String filename = "";
+                String dir = "";
+                // Demonstrate "Save" dialog:
+                int rVal = c.showSaveDialog(Home_Pg.this);
+                if (rVal == JFileChooser.APPROVE_OPTION) {
+                  filename = (c.getSelectedFile().getName());
+                  dir = (c.getCurrentDirectory().toString());
+                }
+
+                List<String> memory = new ArrayList<>();
+                memory = saveLines(memory);
+                try {
+                    Save.save(dir+"\\"+filename, memory);
+                } catch (IOException ex) {
+                    Logger.getLogger(Home_Pg.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
         
-        if(Arquivar_BT.getItemAt(2) == Arquivar_BT.getSelectedItem()){
-            
-            Arquivar_BT.setSelectedIndex(0);
-            
-            JFrame frame = new JFrame("Load");
-
-            String name = JOptionPane.showInputDialog(frame, "Nome do arquivo: ");
-            
-            List<String> memory = new ArrayList<>();
-            try {
-                memory = Save.load(name);
-                Codigo_Camp.setText("");
-                for(int i = 0; i < memory.size(); i++){
-                    Codigo_Camp.append(memory.get(i));
-                    Codigo_Camp.append("\n");
-                }
-            } catch (IOException ex) {
-                Logger.getLogger(Home_Pg.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-        }
     }//GEN-LAST:event_Arquivar_BTActionPerformed
     
     private void setaCores(){
@@ -1734,11 +1746,9 @@ public final class Home_Pg extends javax.swing.JFrame {
         Arquivar_BT.removeItemAt(0);
         Arquivar_BT.removeItemAt(0);
         Arquivar_BT.removeItemAt(0);
-        Arquivar_BT.removeItemAt(0);
         Arquivar_BT.insertItemAt(aux.getItemAt(0).toString(), 0);
         Arquivar_BT.insertItemAt(aux.getItemAt(1).toString(), 1);
         Arquivar_BT.insertItemAt(aux.getItemAt(2).toString(), 2);
-        Arquivar_BT.insertItemAt(aux.getItemAt(3).toString(), 3);
         Arquivar_BT.setSelectedIndex(0);
         
         aux = Language.getEditar();
