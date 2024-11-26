@@ -59,6 +59,7 @@ public final class Home_Pg extends javax.swing.JFrame {
     static Integer color = 1;
     Lista_de_variaveis_Pg tela2 = new Lista_de_variaveis_Pg();
     private JTextArea Lista_de_variaveis = null;
+    private boolean updating = false;
     
     @SuppressWarnings("unchecked")
     public Home_Pg() {
@@ -938,7 +939,7 @@ public final class Home_Pg extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(8, 94, 131));
-        jPanel2.setLayout((LayoutManager) new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Temp_parada_1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(Temp_parada_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 50, 20));
@@ -1201,7 +1202,7 @@ public final class Home_Pg extends javax.swing.JFrame {
         jPanel2.add(label_20, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, 30, 30));
 
         Color_Camp.setBackground(new java.awt.Color(0, 102, 204));
-        Color_Camp.setLayout((LayoutManager) new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Color_Camp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Codigo_Camp.setColumns(20);
         Codigo_Camp.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1584,8 +1585,7 @@ public final class Home_Pg extends javax.swing.JFrame {
     }//GEN-LAST:event_Entrada_8MousePressed
 
     private void Editar_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Editar_BTActionPerformed
-
-        if(Editar_BT.getItemAt(1) == Editar_BT.getSelectedItem().toString()){
+ if(Editar_BT.getItemAt(1) == Editar_BT.getSelectedItem().toString()){
             Editar_BT.setSelectedIndex(0);
             color++;
             if(color >= 5){
@@ -1598,6 +1598,7 @@ public final class Home_Pg extends javax.swing.JFrame {
             Language.setLingua();
             setaLanguage();
         }
+        
     }//GEN-LAST:event_Editar_BTActionPerformed
 
     private void Entrada_1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_1MouseReleased
@@ -1681,9 +1682,9 @@ public final class Home_Pg extends javax.swing.JFrame {
     }//GEN-LAST:event_Entrada_8MouseReleased
 
     private void Arquivar_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Arquivar_BTActionPerformed
+        if (updating) return;
         
-        if(Arquivar_BT.getItemCount() == 2){
-            if(Language.getArquivar().getItemAt(2) == Arquivar_BT.getSelectedItem().toString()){
+            if(Language.getArquivar().getItemAt(2) == (Arquivar_BT.getSelectedItem().toString())){
                 JFileChooser c = new JFileChooser();
                 String filename = "";
                 String dir = "";
@@ -1707,7 +1708,7 @@ public final class Home_Pg extends javax.swing.JFrame {
                 Arquivar_BT.setSelectedIndex(0);
             }
 
-            if(Arquivar_BT.getItemAt(1) == Arquivar_BT.getSelectedItem()){
+            if(Arquivar_BT.getItemAt(1)==(Arquivar_BT.getSelectedItem()) ){
 
                 Arquivar_BT.setSelectedIndex(0);
 
@@ -1729,7 +1730,7 @@ public final class Home_Pg extends javax.swing.JFrame {
                     Logger.getLogger(Home_Pg.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        }
+        
         
     }//GEN-LAST:event_Arquivar_BTActionPerformed
     
@@ -1743,6 +1744,7 @@ public final class Home_Pg extends javax.swing.JFrame {
     private void setaLanguage(){
         @SuppressWarnings("rawtypes")
         JComboBox aux = Language.getArquivar();
+        updating = true;
         Arquivar_BT.removeItemAt(0);
         Arquivar_BT.removeItemAt(0);
         Arquivar_BT.removeItemAt(0);
@@ -1750,6 +1752,7 @@ public final class Home_Pg extends javax.swing.JFrame {
         Arquivar_BT.insertItemAt(aux.getItemAt(1).toString(), 1);
         Arquivar_BT.insertItemAt(aux.getItemAt(2).toString(), 2);
         Arquivar_BT.setSelectedIndex(0);
+        updating = false;
         
         aux = Language.getEditar();
         Editar_BT.removeItemAt(0);
