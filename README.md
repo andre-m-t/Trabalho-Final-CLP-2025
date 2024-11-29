@@ -66,3 +66,6 @@ O projeto foi implementado em Java, utilizando o NetBeans como ambiente de desen
 # **Interface e Referências** 
 A interface interativa permite a manipulação simples de entradas e saídas. O projeto teve como referência o LogixPro, adaptando sua lógica ao formato de Lista de Instrução. Podendo mudar as cores do visual e o idioma.
 
+# **Youtube**
+Uma breve explicação do funcionamento do aplicativo: https://www.youtube.com/watch?v=Qdy83gkzqz0
+
