@@ -58,6 +58,7 @@ public final class Home_Pg extends javax.swing.JFrame {
     static Integer mode = 1;
     static Integer color = 1;
     Lista_de_variaveis_Pg tela2 = new Lista_de_variaveis_Pg();
+    Simulador_De_Portao telaPortao = new Simulador_De_Portao();
     private JTextArea Lista_de_variaveis = null;
     private boolean updating = false;
     
@@ -667,6 +668,7 @@ public final class Home_Pg extends javax.swing.JFrame {
         Color_Camp = new javax.swing.JPanel();
         Codigo_Camp = new javax.swing.JTextArea();
         Image_Camp = new javax.swing.JLabel();
+        simulador_portao_BT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lista de Instruçoes CLP");
@@ -1215,6 +1217,14 @@ public final class Home_Pg extends javax.swing.JFrame {
         Color_Camp.add(Codigo_Camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 350, 750));
         Color_Camp.add(Image_Camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 6, 370, 750));
 
+        simulador_portao_BT.setText("Simulador De Portão");
+        simulador_portao_BT.setActionCommand("");
+        simulador_portao_BT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tela_Portao(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1239,7 +1249,9 @@ public final class Home_Pg extends javax.swing.JFrame {
                                 .addComponent(Help_BT)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Sobre_BT)
-                                .addGap(102, 102, 102))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(simulador_portao_BT)
+                                .addGap(21, 21, 21))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Simulacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(7, 7, 7)
@@ -1264,7 +1276,8 @@ public final class Home_Pg extends javax.swing.JFrame {
                             .addComponent(Sobre_BT)
                             .addComponent(Help_BT)
                             .addComponent(Editar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Arquivar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Arquivar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(simulador_portao_BT))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Simulacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1365,8 +1378,8 @@ public final class Home_Pg extends javax.swing.JFrame {
     private void Variaveis_BTA(java.awt.event.ActionEvent evt){
         tela2.setVisible(true);
         tela2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        tela2.setLocation(1100,0);
-    }
+        tela2.setLocation(700,100);
+    }    
     private void Pause_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pause_BTActionPerformed
         System.out.println("\nBotão program clicado!");
         mode = 1;
@@ -1733,6 +1746,13 @@ public final class Home_Pg extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_Arquivar_BTActionPerformed
+
+    private void Tela_Portao(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tela_Portao
+        // TODO add your handling code here:
+        telaPortao.setVisible(true);
+        telaPortao.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        telaPortao.setLocation(700,100);
+    }//GEN-LAST:event_Tela_Portao
     
     private void setaCores(){
         Simulacoes.setBackground(Colors.firstColor(color));
@@ -1924,5 +1944,6 @@ public final class Home_Pg extends javax.swing.JFrame {
     private javax.swing.JLabel label_7;
     private javax.swing.JLabel label_8;
     private javax.swing.JLabel label_9;
+    private javax.swing.JButton simulador_portao_BT;
     // End of variables declaration//GEN-END:variables
 }

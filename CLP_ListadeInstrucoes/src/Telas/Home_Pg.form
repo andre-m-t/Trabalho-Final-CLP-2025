@@ -49,7 +49,9 @@
                               <Component id="Help_BT" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="Sobre_BT" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="simulador_portao_BT" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="Simulacoes" min="-2" pref="222" max="-2" attributes="0"/>
@@ -83,6 +85,7 @@
                           <Component id="Help_BT" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Editar_BT" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Arquivar_BT" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="simulador_portao_BT" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1536,5 +1539,14 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="simulador_portao_BT">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Simulador De Port&#xe3;o"/>
+        <Property name="actionCommand" type="java.lang.String" value=""/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Tela_Portao"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>
