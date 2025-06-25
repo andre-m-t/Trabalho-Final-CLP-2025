@@ -4,6 +4,8 @@
  */
 package Telas;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author André
@@ -17,6 +19,19 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
      */
     public Simulador_De_Portao() {
         initComponents();
+        // Deixando Text Area Transparente
+        Codigo_Camp.setOpaque(false); // Isso permite transparência
+        Codigo_Camp.setBackground(new java.awt.Color(0, 0, 0, 0)); // Fundo 100% transparente
+        
+        //Desgin do Bloco para Codigo
+        ImageIcon iconCampo = new ImageIcon(getClass().getResource("/Assets/bloco_notas.png"));
+        iconCampo.setImage( iconCampo.getImage().getScaledInstance(Codigo_Camp.getWidth(),Codigo_Camp.getHeight(),1));
+        Image_Camp.setIcon(iconCampo);
+        
+        //Setando imagem de fundo para a simulação
+        ImageIcon bgSimulation = new ImageIcon(getClass().getResource("/Assets/Entortas Bar Simulation/Portao Aberto versão final.png"));
+        bgSimulation.setImage(bgSimulation.getImage().getScaledInstance(AreaDeSimulacao.getWidth(), AreaDeSimulacao.getHeight(),1));
+        SimBg_Camp.setIcon(bgSimulation);
     }
 
     /**
@@ -28,22 +43,158 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Color_Camp = new javax.swing.JPanel();
+        Codigo_Camp = new javax.swing.JTextArea();
+        Image_Camp = new javax.swing.JLabel();
+        PainelDeOpcoes = new javax.swing.JPanel();
+        Arquivar_BT = new javax.swing.JComboBox<>();
+        Editar_BT = new javax.swing.JComboBox<>();
+        Help_BT = new javax.swing.JButton();
+        Sobre_BT = new javax.swing.JButton();
+        jSpinner1 = new javax.swing.JSpinner();
+        Label_Delay = new javax.swing.JLabel();
+        AreaDeSimulacao = new javax.swing.JPanel();
+        SimBg_Camp = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1088, 913));
+
+        Color_Camp.setBackground(new java.awt.Color(0, 102, 204));
+        Color_Camp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Codigo_Camp.setColumns(20);
+        Codigo_Camp.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Codigo_Camp.setForeground(new java.awt.Color(255, 255, 255));
+        Codigo_Camp.setRows(5);
+        Codigo_Camp.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        Codigo_Camp.setDragEnabled(true);
+        Codigo_Camp.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        Codigo_Camp.setSelectionColor(new java.awt.Color(204, 204, 204));
+        Color_Camp.add(Codigo_Camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 350, 750));
+        Color_Camp.add(Image_Camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 750));
+
+        Arquivar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arquivar", "Salvar", "Carregar" }));
+        Arquivar_BT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Arquivar_BTActionPerformed(evt);
+            }
+        });
+
+        Editar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PROGRAM", "STOP", "RUN" }));
+        Editar_BT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Editar_BTActionPerformed(evt);
+            }
+        });
+
+        Help_BT.setText("Help");
+
+        Sobre_BT.setText("Sobre");
+        Sobre_BT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Sobre_BTActionPerformed(evt);
+            }
+        });
+
+        jSpinner1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        Label_Delay.setText("Tempo de Delay em ms:");
+
+        javax.swing.GroupLayout PainelDeOpcoesLayout = new javax.swing.GroupLayout(PainelDeOpcoes);
+        PainelDeOpcoes.setLayout(PainelDeOpcoesLayout);
+        PainelDeOpcoesLayout.setHorizontalGroup(
+            PainelDeOpcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelDeOpcoesLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(Arquivar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Editar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Help_BT)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Sobre_BT)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(Label_Delay)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90))
+        );
+        PainelDeOpcoesLayout.setVerticalGroup(
+            PainelDeOpcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelDeOpcoesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PainelDeOpcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Arquivar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Editar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Help_BT)
+                    .addComponent(Sobre_BT)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Label_Delay))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout AreaDeSimulacaoLayout = new javax.swing.GroupLayout(AreaDeSimulacao);
+        AreaDeSimulacao.setLayout(AreaDeSimulacaoLayout);
+        AreaDeSimulacaoLayout.setHorizontalGroup(
+            AreaDeSimulacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AreaDeSimulacaoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(SimBg_Camp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        AreaDeSimulacaoLayout.setVerticalGroup(
+            AreaDeSimulacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AreaDeSimulacaoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(SimBg_Camp, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(AreaDeSimulacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(PainelDeOpcoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Color_Camp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Color_Camp, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(PainelDeOpcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AreaDeSimulacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(188, 188, 188))
         );
+
+        getAccessibleContext().setAccessibleName("Bar Simulation");
+        getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Arquivar_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Arquivar_BTActionPerformed
+        
+
+    }//GEN-LAST:event_Arquivar_BTActionPerformed
+
+    private void Editar_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Editar_BTActionPerformed
+
+
+    }//GEN-LAST:event_Editar_BTActionPerformed
+
+    private void Sobre_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sobre_BTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Sobre_BTActionPerformed
 
     /**
      * @param args the command line arguments
@@ -71,5 +222,17 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel AreaDeSimulacao;
+    private javax.swing.JComboBox<String> Arquivar_BT;
+    private javax.swing.JTextArea Codigo_Camp;
+    private javax.swing.JPanel Color_Camp;
+    private javax.swing.JComboBox<String> Editar_BT;
+    private javax.swing.JButton Help_BT;
+    private javax.swing.JLabel Image_Camp;
+    private javax.swing.JLabel Label_Delay;
+    private javax.swing.JPanel PainelDeOpcoes;
+    private javax.swing.JLabel SimBg_Camp;
+    private javax.swing.JButton Sobre_BT;
+    private javax.swing.JSpinner jSpinner1;
     // End of variables declaration//GEN-END:variables
 }
