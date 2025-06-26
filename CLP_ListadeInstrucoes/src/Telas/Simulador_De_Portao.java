@@ -4,7 +4,10 @@
  */
 package Telas;
 
+import java.awt.Graphics;
+import java.awt.MediaTracker;
 import javax.swing.ImageIcon;
+import javax.swing.JLayeredPane;
 
 /**
  *
@@ -14,11 +17,30 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Simulador_De_Portao.class.getName());
 
+    //Variaveis Para controle
+    private int alturaAtual = 400; // Altura inicial do portão 343
+    private final int ALTURA_MIN = 50;
+    private final int ALTURA_MAX = 400;//343
+    private final int VELOCIDADE_PORTAO = 2;
+    private javax.swing.Timer timerPortao;
+    private boolean recolhendo = true;
+    
+    //Carregando imagens
+    ImageIcon BL_Apertado = new ImageIcon(getClass().getResource("/Assets/EntortasBarSimulation/BotaoVerdeApertado.png"));
+    ImageIcon BL_NaoApertado = new ImageIcon(getClass().getResource("/Assets/EntortasBarSimulation/BotaoVerde.png"));
+    ImageIcon BD_Apertado = new ImageIcon(getClass().getResource("/Assets/EntortasBarSimulation/BotaoVermelhoApertado.png"));
+    ImageIcon BD_NaoApertado = new ImageIcon(getClass().getResource("/Assets/EntortasBarSimulation/BotaoVermelho.png"));
+    ImageIcon Lamp_Ligada = new ImageIcon(getClass().getResource("/Assets/EntortasBarSimulation/LampadaAcesa.png"));
+    ImageIcon Lamp_Desligada = new ImageIcon(getClass().getResource("/Assets/EntortasBarSimulation/LampadaApagada.png"));
+    
+    
     /**
      * Creates new form Simulador_De_Portao
      */
     public Simulador_De_Portao() {
         initComponents();
+        
+
         // Deixando Text Area Transparente
         Codigo_Camp.setOpaque(false); // Isso permite transparência
         Codigo_Camp.setBackground(new java.awt.Color(0, 0, 0, 0)); // Fundo 100% transparente
@@ -28,10 +50,31 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
         iconCampo.setImage( iconCampo.getImage().getScaledInstance(Codigo_Camp.getWidth(),Codigo_Camp.getHeight(),1));
         Image_Camp.setIcon(iconCampo);
         
-        //Setando imagem de fundo para a simulação
-        ImageIcon bgSimulation = new ImageIcon(getClass().getResource("/Assets/Entortas Bar Simulation/Portao Aberto versão final.png"));
-        bgSimulation.setImage(bgSimulation.getImage().getScaledInstance(AreaDeSimulacao.getWidth(), AreaDeSimulacao.getHeight(),1));
-        SimBg_Camp.setIcon(bgSimulation);
+        //Inserindo imagem do Portao
+        ImageIcon portaoIco = new ImageIcon(getClass().getResource("/Assets/EntortasBarSimulation/PortaoEntorta.png"));
+        portaoIco.setImage(portaoIco.getImage().getScaledInstance(PortaoLabel.getWidth(),PortaoLabel.getHeight(),1));
+        PortaoLabel.setIcon(portaoIco);
+        
+        //Definindo imagem inicial dos botões
+        BL_Apertado.setImage(BL_Apertado.getImage().getScaledInstance(BotaoDeCima.getWidth(),BotaoDeCima.getHeight(),1));
+        BL_NaoApertado.setImage(BL_NaoApertado.getImage().getScaledInstance(BotaoDeCima.getWidth(),BotaoDeCima.getHeight(),1));
+        
+        BotaoDeCima.setIcon(BL_NaoApertado);
+        
+        
+        BD_Apertado.setImage(BD_Apertado.getImage().getScaledInstance(BotaoDeCima.getWidth(),BotaoDeCima.getHeight(),1));
+        BD_NaoApertado.setImage(BD_NaoApertado.getImage().getScaledInstance(BotaoDeCima.getWidth(),BotaoDeCima.getHeight(),1));
+        
+        BotaoDeBaixo.setIcon(BD_NaoApertado);
+        
+        //Definindo imagem inicial das luzes indicadoras
+        Lamp_Ligada.setImage(Lamp_Ligada.getImage().getScaledInstance(OpenLamp.getWidth(),OpenLamp.getHeight(),1));
+        Lamp_Desligada.setImage(Lamp_Desligada.getImage().getScaledInstance(OpenLamp.getWidth(),OpenLamp.getHeight(),1));
+        
+        OpenLamp.setIcon(Lamp_Desligada);
+        AjarLamp.setIcon(Lamp_Desligada);
+        CloseLamp.setIcon(Lamp_Desligada);
+        
     }
 
     /**
@@ -48,13 +91,23 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
         Image_Camp = new javax.swing.JLabel();
         PainelDeOpcoes = new javax.swing.JPanel();
         Arquivar_BT = new javax.swing.JComboBox<>();
-        Editar_BT = new javax.swing.JComboBox<>();
+        PLC_Status = new javax.swing.JComboBox<>();
         Help_BT = new javax.swing.JButton();
         Sobre_BT = new javax.swing.JButton();
         jSpinner1 = new javax.swing.JSpinner();
         Label_Delay = new javax.swing.JLabel();
-        AreaDeSimulacao = new javax.swing.JPanel();
-        SimBg_Camp = new javax.swing.JLabel();
+        BarPanel = new Telas.PainelComImagem();
+        PortaoLabel = new javax.swing.JLabel();
+        BotaoDeCima = new javax.swing.JLabel();
+        BotaoDeBaixo = new javax.swing.JLabel();
+        OpenLabel = new javax.swing.JLabel();
+        OpenLamp = new javax.swing.JLabel();
+        AjarLabel = new javax.swing.JLabel();
+        AjarLamp = new javax.swing.JLabel();
+        CloseLabel = new javax.swing.JLabel();
+        CloseLamp = new javax.swing.JLabel();
+        BotaoCima_Label = new javax.swing.JLabel();
+        BotaoBaixoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1088, 913));
@@ -80,10 +133,10 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
             }
         });
 
-        Editar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PROGRAM", "STOP", "RUN" }));
-        Editar_BT.addActionListener(new java.awt.event.ActionListener() {
+        PLC_Status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PROGRAM", "STOP", "RUN" }));
+        PLC_Status.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Editar_BTActionPerformed(evt);
+                PLC_StatusActionPerformed(evt);
             }
         });
 
@@ -108,7 +161,7 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(Arquivar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Editar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PLC_Status, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Help_BT)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -125,7 +178,7 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(PainelDeOpcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Arquivar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Editar_BT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PLC_Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Help_BT)
                     .addComponent(Sobre_BT)
                     .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -133,35 +186,83 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout AreaDeSimulacaoLayout = new javax.swing.GroupLayout(AreaDeSimulacao);
-        AreaDeSimulacao.setLayout(AreaDeSimulacaoLayout);
-        AreaDeSimulacaoLayout.setHorizontalGroup(
-            AreaDeSimulacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AreaDeSimulacaoLayout.createSequentialGroup()
+        javax.swing.GroupLayout BarPanelLayout = new javax.swing.GroupLayout(BarPanel);
+        BarPanel.setLayout(BarPanelLayout);
+        BarPanelLayout.setHorizontalGroup(
+            BarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BarPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(SimBg_Camp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(PortaoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        AreaDeSimulacaoLayout.setVerticalGroup(
-            AreaDeSimulacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AreaDeSimulacaoLayout.createSequentialGroup()
+        BarPanelLayout.setVerticalGroup(
+            BarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BarPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(SimBg_Camp, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                .addComponent(PortaoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        BotaoDeCima.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotaoDeCimaMouseClicked(evt);
+            }
+        });
+
+        BotaoDeBaixo.setVerifyInputWhenFocusTarget(false);
+        BotaoDeBaixo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotaoDeBaixoMouseClicked(evt);
+            }
+        });
+
+        OpenLabel.setText("Aberto (Q1)");
+
+        AjarLabel.setText("Entreaberto (Q2)");
+
+        CloseLabel.setText("Fechado (Q3)");
+
+        BotaoCima_Label.setText("Botao 1 (I1)");
+
+        BotaoBaixoLabel.setText("Botao 2 (I2)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PainelDeOpcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(AreaDeSimulacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(PainelDeOpcoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(BotaoDeCima, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                                .addComponent(BotaoDeBaixo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(OpenLabel)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(AjarLabel)
+                                        .addComponent(CloseLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGap(6, 6, 6)
+                                            .addComponent(CloseLamp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(OpenLamp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(AjarLamp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(BotaoCima_Label))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(BotaoBaixoLabel)))
+                        .addGap(33, 33, 33)
+                        .addComponent(BarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Color_Camp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -171,10 +272,68 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
                     .addComponent(Color_Camp, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(PainelDeOpcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(OpenLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(OpenLamp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(AjarLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(AjarLamp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(CloseLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CloseLamp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
+                                .addComponent(BotaoDeCima, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BotaoCima_Label)
+                                .addGap(22, 22, 22)
+                                .addComponent(BotaoDeBaixo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(BarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AreaDeSimulacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(BotaoBaixoLabel)))
                 .addGap(188, 188, 188))
         );
+
+        BotaoDeCima.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                // Quando o botão for pressionado, muda para a imagem de pressionado
+                BotaoDeCima.setIcon(BL_Apertado);
+                // Cria o Timer para subir o portão
+                timerPortao = new javax.swing.Timer(15, e -> subirPortao()); // Passa a função abaixarPortao
+                timerPortao.start(); //Primeiramente sem logica
+            }
+
+            @Override
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                // Quando o botão for solto, volta para a imagem inicial
+                BotaoDeCima.setIcon(BL_NaoApertado);
+                if(timerPortao != null)
+                timerPortao.stop();
+            }
+        });
+        BotaoDeBaixo.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                // Quando o botão for pressionado, muda para a imagem de pressionado
+                BotaoDeBaixo.setIcon(BD_Apertado);
+                // Cria o Timer para descer o portão
+                timerPortao = new javax.swing.Timer(15, e -> abaixarPortao()); // Passa a função abaixarPortao
+                timerPortao.start(); //Primeiramente sem logica
+            }
+
+            @Override
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                // Quando o botão for solto, volta para a imagem inicial
+                BotaoDeBaixo.setIcon(BD_NaoApertado);
+                if(timerPortao != null)
+                timerPortao.stop();
+            }
+        });
 
         getAccessibleContext().setAccessibleName("Bar Simulation");
         getAccessibleContext().setAccessibleDescription("");
@@ -182,19 +341,77 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    private void subirPortao(){
+        if (alturaAtual > ALTURA_MIN) {
+                alturaAtual -= VELOCIDADE_PORTAO;
+                PortaoLabel.setSize(PortaoLabel.getWidth(), alturaAtual);
+                PortaoLabel.repaint();
+        }
+    }
+    
+    private void abaixarPortao(){
+        if (alturaAtual < ALTURA_MAX ) {
+                alturaAtual += VELOCIDADE_PORTAO;
+                PortaoLabel.setSize(PortaoLabel.getWidth(), alturaAtual);
+                PortaoLabel.repaint();
+        }
+    }
+    
+    
+    private void iniciarAnimacaoPortao() {
+    if (timerPortao != null && timerPortao.isRunning()) return;
+
+    recolhendo = !recolhendo;
+
+    timerPortao = new javax.swing.Timer(15, e -> {
+        if (recolhendo) {
+            if (alturaAtual > ALTURA_MIN) {
+                alturaAtual -= VELOCIDADE_PORTAO;
+                PortaoLabel.setSize(PortaoLabel.getWidth(), alturaAtual);
+                PortaoLabel.repaint();
+            } else {
+                timerPortao.stop();
+            }
+        } else {
+            if (alturaAtual < ALTURA_MAX) {
+                alturaAtual += VELOCIDADE_PORTAO;
+                PortaoLabel.setSize(PortaoLabel.getWidth(), alturaAtual);
+                PortaoLabel.repaint();
+            } else {
+                timerPortao.stop();
+            }
+        }
+    });
+    timerPortao.start();
+}
     private void Arquivar_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Arquivar_BTActionPerformed
         
 
     }//GEN-LAST:event_Arquivar_BTActionPerformed
 
-    private void Editar_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Editar_BTActionPerformed
+    private void PLC_StatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PLC_StatusActionPerformed
+        
 
-
-    }//GEN-LAST:event_Editar_BTActionPerformed
+    }//GEN-LAST:event_PLC_StatusActionPerformed
 
     private void Sobre_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sobre_BTActionPerformed
         // TODO add your handling code here:
+        iniciarAnimacaoPortao();
     }//GEN-LAST:event_Sobre_BTActionPerformed
+
+    private void BotaoDeCimaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotaoDeCimaMouseClicked
+        // TODO add your handling code here: 
+        //BotaoDeCima.setIcon(BL_Apertado);
+        //subirPortao();
+     
+    }//GEN-LAST:event_BotaoDeCimaMouseClicked
+
+    private void BotaoDeBaixoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotaoDeBaixoMouseClicked
+        // TODO add your handling code here:
+        //BotaoDeBaixo.setIcon(BD_Apertado);
+        //abaixarPortao();
+    }//GEN-LAST:event_BotaoDeBaixoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -222,16 +439,26 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel AreaDeSimulacao;
+    private javax.swing.JLabel AjarLabel;
+    private javax.swing.JLabel AjarLamp;
     private javax.swing.JComboBox<String> Arquivar_BT;
+    private javax.swing.JPanel BarPanel;
+    private javax.swing.JLabel BotaoBaixoLabel;
+    private javax.swing.JLabel BotaoCima_Label;
+    private javax.swing.JLabel BotaoDeBaixo;
+    private javax.swing.JLabel BotaoDeCima;
+    private javax.swing.JLabel CloseLabel;
+    private javax.swing.JLabel CloseLamp;
     private javax.swing.JTextArea Codigo_Camp;
     private javax.swing.JPanel Color_Camp;
-    private javax.swing.JComboBox<String> Editar_BT;
     private javax.swing.JButton Help_BT;
     private javax.swing.JLabel Image_Camp;
     private javax.swing.JLabel Label_Delay;
+    private javax.swing.JLabel OpenLabel;
+    private javax.swing.JLabel OpenLamp;
+    private javax.swing.JComboBox<String> PLC_Status;
     private javax.swing.JPanel PainelDeOpcoes;
-    private javax.swing.JLabel SimBg_Camp;
+    private javax.swing.JLabel PortaoLabel;
     private javax.swing.JButton Sobre_BT;
     private javax.swing.JSpinner jSpinner1;
     // End of variables declaration//GEN-END:variables

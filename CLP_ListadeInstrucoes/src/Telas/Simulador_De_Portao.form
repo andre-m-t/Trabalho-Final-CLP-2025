@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -31,15 +31,50 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                      <Component id="AreaDeSimulacao" max="32767" attributes="0"/>
+              <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="PainelDeOpcoes" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="BotaoDeCima" pref="75" max="32767" attributes="0"/>
+                              <Component id="BotaoDeBaixo" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="OpenLabel" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="AjarLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="CloseLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                          <Component id="CloseLamp" min="-2" pref="33" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="OpenLamp" min="-2" pref="33" max="-2" attributes="0"/>
+                                          <Component id="AjarLamp" min="-2" pref="33" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                              <Component id="BotaoCima_Label" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                              <Component id="BotaoBaixoLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="BarPanel" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="PainelDeOpcoes" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="Color_Camp" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -51,8 +86,31 @@
                   <Component id="Color_Camp" min="-2" pref="764" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="PainelDeOpcoes" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="OpenLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="OpenLamp" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="AjarLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="AjarLamp" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="CloseLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="CloseLamp" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="BotaoDeCima" min="-2" pref="75" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="BotaoCima_Label" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <Component id="BotaoDeBaixo" min="-2" pref="75" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="BarPanel" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="AreaDeSimulacao" min="-2" max="-2" attributes="0"/>
+                      <Component id="BotaoBaixoLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
@@ -117,7 +175,7 @@
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="Arquivar_BT" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="Editar_BT" min="-2" pref="94" max="-2" attributes="0"/>
+                  <Component id="PLC_Status" min="-2" pref="94" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="Help_BT" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -136,7 +194,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Arquivar_BT" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Editar_BT" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="PLC_Status" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="Help_BT" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="Sobre_BT" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -165,7 +223,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="Editar_BT">
+        <Component class="javax.swing.JComboBox" name="PLC_Status">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
@@ -176,7 +234,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Editar_BTActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PLC_StatusActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -209,32 +267,85 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="AreaDeSimulacao">
+    <Container class="javax.swing.JPanel" name="BarPanel">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Telas.PainelComImagem()"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="SimBg_Camp" max="32767" attributes="0"/>
+                  <Component id="PortaoLabel" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="SimBg_Camp" pref="452" max="32767" attributes="0"/>
+                  <Component id="PortaoLabel" pref="407" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="SimBg_Camp">
+        <Component class="javax.swing.JLabel" name="PortaoLabel">
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="BotaoDeCima">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BotaoDeCimaMouseClicked"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="BotaoDeCima.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    @Override&#xa;    public void mousePressed(java.awt.event.MouseEvent evt) {&#xa;        // Quando o bot&#xe3;o for pressionado, muda para a imagem de pressionado&#xa;        BotaoDeCima.setIcon(BL_Apertado);&#xa;        // Cria o Timer para subir o port&#xe3;o&#xa;        timerPortao = new javax.swing.Timer(15, e -&gt; subirPortao()); // Passa a fun&#xe7;&#xe3;o abaixarPortao&#xa;        timerPortao.start(); //Primeiramente sem logica&#xa;    }&#xa;&#xa;    @Override&#xa;    public void mouseReleased(java.awt.event.MouseEvent evt) {&#xa;        // Quando o bot&#xe3;o for solto, volta para a imagem inicial&#xa;        BotaoDeCima.setIcon(BL_NaoApertado);&#xa;        if(timerPortao != null)&#xa;            timerPortao.stop();&#xa;    }&#xa;});"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="BotaoDeBaixo">
+      <Properties>
+        <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BotaoDeBaixoMouseClicked"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="BotaoDeBaixo.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    @Override&#xa;    public void mousePressed(java.awt.event.MouseEvent evt) {&#xa;        // Quando o bot&#xe3;o for pressionado, muda para a imagem de pressionado&#xa;        BotaoDeBaixo.setIcon(BD_Apertado);&#xa;        // Cria o Timer para descer o port&#xe3;o&#xa;        timerPortao = new javax.swing.Timer(15, e -&gt; abaixarPortao()); // Passa a fun&#xe7;&#xe3;o abaixarPortao&#xa;        timerPortao.start(); //Primeiramente sem logica&#xa;    }&#xa;&#xa;    @Override&#xa;    public void mouseReleased(java.awt.event.MouseEvent evt) {&#xa;        // Quando o bot&#xe3;o for solto, volta para a imagem inicial&#xa;        BotaoDeBaixo.setIcon(BD_NaoApertado);&#xa;        if(timerPortao != null)&#xa;            timerPortao.stop();&#xa;    }&#xa;});"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="OpenLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Aberto (Q1)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="OpenLamp">
+    </Component>
+    <Component class="javax.swing.JLabel" name="AjarLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Entreaberto (Q2)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="AjarLamp">
+    </Component>
+    <Component class="javax.swing.JLabel" name="CloseLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fechado (Q3)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="CloseLamp">
+    </Component>
+    <Component class="javax.swing.JLabel" name="BotaoCima_Label">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Botao 1 (I1)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="BotaoBaixoLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Botao 2 (I2)"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
