@@ -4,10 +4,29 @@
  */
 package Telas;
 
+import static Telas.Home_Pg.memoryVariables;
+import static Telas.Home_Pg.showErrorMessage;
+import compiladorinstructionlist.edit.Language;
+import compiladorinstructionlist.input.InputActions;
+import compiladorinstructionlist.interpreter.Interpreter;
+import compiladorinstructionlist.memoryvariable.MemoryVariable;
+import compiladorinstructionlist.output.OutputActions;
 import java.awt.Graphics;
 import java.awt.MediaTracker;
+import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JLayeredPane;
+import javax.swing.Timer;
+import javax.swing.text.BadLocationException;
+import save.Save;
 
 /**
  *
@@ -24,6 +43,9 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
     private final int VELOCIDADE_PORTAO = 2;
     private javax.swing.Timer timerPortao;
     private boolean recolhendo = true;
+    private boolean updating = false; 
+    static Map<String, Boolean> inputs;
+    static Map<String, Boolean> outputs;
     
     //Carregando imagens
     ImageIcon BL_Apertado = new ImageIcon(getClass().getResource("/Assets/EntortasBarSimulation/BotaoVerdeApertado.png"));
@@ -75,7 +97,18 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
         AjarLamp.setIcon(Lamp_Desligada);
         CloseLamp.setIcon(Lamp_Desligada);
         
+        //Inicializa entradas e saídas
+        //inputsType = new HashMap<>();
+        inputs = new HashMap<>();
+        outputs = new HashMap<>();
+        //inputsType = InputActions.createType(inputsType);
+        inputs = InputActions.create(inputs);
+        System.out.println("HashMap de entradas criado:" + inputs);
+        outputs = OutputActions.create(outputs);
+        System.out.println("HashMap de saídas criado:" + outputs);
+        
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -126,7 +159,7 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
         Color_Camp.add(Codigo_Camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 350, 750));
         Color_Camp.add(Image_Camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 750));
 
-        Arquivar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arquivar", "Salvar", "Carregar" }));
+        Arquivar_BT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arquivo", "Salvar", "Carregar" }));
         Arquivar_BT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Arquivar_BTActionPerformed(evt);
@@ -358,6 +391,23 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
         }
     }
     
+    private List<String> saveLines(List<String> lineList) {
+        int quant = Codigo_Camp.getLineCount();
+
+        for (int i = 0; i < quant; i++) {
+            try {
+                Integer start = Codigo_Camp.getLineStartOffset(i);
+                Integer end = Codigo_Camp.getLineEndOffset(i);
+                String line = Codigo_Camp.getText(start, end - start);
+                lineList.add(line);
+            } catch (BadLocationException ex) {
+                Logger.getLogger(Simulador_De_Portao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        System.out.println("Lista de linhas: " + lineList);
+        return lineList;
+    }
     
     private void iniciarAnimacaoPortao() {
     if (timerPortao != null && timerPortao.isRunning()) return;
@@ -386,12 +436,131 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
     timerPortao.start();
 }
     private void Arquivar_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Arquivar_BTActionPerformed
-        
+         if (updating) return;
+            if(Language.getArquivar().getItemAt(2) == (Arquivar_BT.getSelectedItem().toString())){
+                JFileChooser c = new JFileChooser();
+                String filename = "";
+                String dir = "";
+                // Demonstrate "Open" dialog:
+                int rVal = c.showOpenDialog(Simulador_De_Portao.this);
+                if (rVal == JFileChooser.APPROVE_OPTION) {
+                  filename = (c.getSelectedFile().getName());
+                  dir = (c.getCurrentDirectory().toString());
+                }
+                List<String> memory = new ArrayList<>();
+                try {
+                    memory = Save.load(dir+"\\"+filename);
+                    Codigo_Camp.setText("");
+                    for(int i = 0; i < memory.size(); i++){
+                        Codigo_Camp.append(memory.get(i));
+                        Codigo_Camp.append("\n");
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(Simulador_De_Portao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Arquivar_BT.setSelectedIndex(0);
+            }
 
+            if(Arquivar_BT.getItemAt(1)==(Arquivar_BT.getSelectedItem()) ){
+
+                Arquivar_BT.setSelectedIndex(0);
+
+                JFileChooser c = new JFileChooser();
+                String filename = "";
+                String dir = "";
+                // Demonstrate "Save" dialog:
+                int rVal = c.showSaveDialog(Simulador_De_Portao.this);
+                if (rVal == JFileChooser.APPROVE_OPTION) {
+                  filename = (c.getSelectedFile().getName());
+                  dir = (c.getCurrentDirectory().toString());
+                }
+
+                List<String> memory = new ArrayList<>();
+                memory = saveLines(memory);
+                try {
+                    Save.save(dir+"\\"+filename, memory);
+                } catch (IOException ex) {
+                    Logger.getLogger(Simulador_De_Portao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
     }//GEN-LAST:event_Arquivar_BTActionPerformed
 
     private void PLC_StatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PLC_StatusActionPerformed
-        
+        if(PLC_Status.getSelectedItem().toString() == "RUN"){
+            //Bloqueia campo de codigo
+            Codigo_Camp.setEditable(false);
+            
+            
+            
+            // Verificando tempo de delay
+            String stringTime = jSpinner1.getValue().toString();
+            Integer time = 0;
+
+            if (!stringTime.equals("")) {
+                try {
+                    time = Integer.valueOf(stringTime);
+                } catch (NumberFormatException e) {
+                    showErrorMessage("Tempo de delay inválido! Insira um número inteiro.");
+                }
+
+                System.out.println("Tempo de delay: " + time + "\n");
+            }
+            
+            // Executa o laço corretamente sem travar a tela 
+            @SuppressWarnings("unchecked")
+            Timer timer = new Timer(time, (ActionEvent evt1) -> {
+                //Salva o codigo digitado num array
+                List<String> lineList = saveLines(new ArrayList<>());
+                lineList = saveLines(lineList);
+                if (PLC_Status.getSelectedItem().toString() == "RUN") {
+                    //inputs = InputActions.dummyRead(inputs);
+                    inputs = InputActions.read(inputs);
+                    outputs = OutputActions.setAllFalse(outputs);
+                    outputs = Interpreter.receiveLines(lineList, inputs, outputs, memoryVariables);
+                    for(Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()){
+                        if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("ON") && variable.getValue().currentValue == true)
+                            variable.getValue().timer.start();
+                        else if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("ON") && variable.getValue().currentValue == false){
+                            variable.getValue().timer.stop();
+                            variable.getValue().counter = 0;
+                            variable.getValue().endTimer = false;
+                        }
+                        if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("OFF") && variable.getValue().currentValue == true){
+                            variable.getValue().timer.stop();
+                            variable.getValue().counter = 0;
+                            variable.getValue().endTimer = true;
+                        }else if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("OFF") && variable.getValue().currentValue == false){
+                            variable.getValue().timer.start();
+                        }
+                    }
+                    //outputs = OutputActions.dummyWrite(outputs);
+                    outputs = OutputActions.write(outputs);
+                    updateScreen();
+                    updateMemoryVariables();
+                } else {
+                    ((Timer) evt1.getSource()).stop();
+                }
+            });
+
+            timer.setInitialDelay(0); // começa sem atraso
+            timer.start();
+            
+            
+        }
+        if(PLC_Status.getSelectedItem().toString() == "PROGRAM"){
+            Codigo_Camp.setEditable(true);
+        }
+        if(PLC_Status.getSelectedItem().toString() == "STOP"){
+            //Bloqueia Campo de codigo
+            Codigo_Camp.setEditable(false);
+            //Botao Stop Clicado
+            for (Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()) {
+                if(variable.getKey().charAt(0) == 'T'){
+                    variable.getValue().timer.stop();
+                }
+            }
+            updateMemoryVariables();
+        }
 
     }//GEN-LAST:event_PLC_StatusActionPerformed
 
