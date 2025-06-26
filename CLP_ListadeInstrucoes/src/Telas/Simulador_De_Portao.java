@@ -44,6 +44,8 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
     private final int VELOCIDADE_PORTAO = 2;
     private javax.swing.Timer timerPortao;
     private boolean recolhendo = true;
+    //Motor
+    private boolean motorDanificado = false;
     //Controle do arquivo
     private boolean updating = false; 
     //Entradas e Saidas
@@ -392,7 +394,14 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
                 alturaAtual -= VELOCIDADE_PORTAO;
                 PortaoLabel.setSize(PortaoLabel.getWidth(), alturaAtual);
                 PortaoLabel.repaint();
+        }else{
+            motorDanificado = true;
         }
+        //Ativa Sensor de cima
+        if(alturaAtual == ALTURA_MIN)
+            inputs.put("I3", false);
+        else
+            inputs.put("I3", true);
     }
     
     private void abaixarPortao(){
@@ -400,7 +409,14 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
                 alturaAtual += VELOCIDADE_PORTAO;
                 PortaoLabel.setSize(PortaoLabel.getWidth(), alturaAtual);
                 PortaoLabel.repaint();
+        }else{
+            motorDanificado = true;
         }
+        //Ativa Sensor de baixo
+        if(alturaAtual == ALTURA_MAX)
+            inputs.put("I4", true);
+        else
+            inputs.put("I4", false);
     }
     
     private List<String> saveLines(List<String> lineList) {
@@ -510,6 +526,7 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
                 try {
                     time = Integer.valueOf(stringTime);
                 } catch (NumberFormatException e) {
+                    updateMode();
                     showErrorMessage("Tempo de delay inválido! Insira um número inteiro.");
                 }
 
@@ -522,7 +539,7 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
                 //Salva o codigo digitado num array
                 List<String> lineList = saveLines(new ArrayList<>());
                 lineList = saveLines(lineList);
-                if (PLC_Status.getSelectedItem().toString() == "RUN") {
+                if (PLC_Status.getSelectedItem().toString().equals("RUN")) {
                     //inputs = InputActions.dummyRead(inputs);
                     inputs = InputActions.read(inputs);
                     outputs = OutputActions.setAllFalse(outputs);
@@ -545,6 +562,7 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
                     }
                     //outputs = OutputActions.dummyWrite(outputs);
                     outputs = OutputActions.write(outputs);
+                    updateMode();
                     updateScreen();
                     //updateMemoryVariables();
                 } else {
@@ -562,6 +580,7 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
         }
         if(PLC_Status.getSelectedItem().toString() == "STOP"){
             //Bloqueia Campo de codigo
+            Interpreter.setErro(false);
             Codigo_Camp.setEditable(false);
             //Botao Stop Clicado
             for (Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()) {
@@ -574,6 +593,13 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
 
     }//GEN-LAST:event_PLC_StatusActionPerformed
 
+    private void updateMode(){
+        System.out.println("Entrei aqui papae!");
+        if(Interpreter.getErro()){
+            PLC_Status.setSelectedItem("STOP");
+        }
+    }
+    
     private void updateScreen(){
         OpenLamp.setIcon(outputs.get("Q1")?Lamp_Ligada:Lamp_Desligada);
         AjarLamp.setIcon(outputs.get("Q2")?Lamp_Ligada:Lamp_Desligada);
