@@ -556,7 +556,10 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
 
     private void PLC_StatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PLC_StatusActionPerformed
        
-        if(PLC_Status.getSelectedItem().toString() == "RUN"){
+        if(PLC_Status.getSelectedItem().toString().equals("RUN")){
+            //Libera Spinner
+            jSpinner1.setEnabled(false);
+            
             
             //Bloqueia campo de codigo
             Codigo_Camp.setEditable(false);
@@ -619,11 +622,15 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
             
             
         }
-        if(PLC_Status.getSelectedItem().toString() == "PROGRAM"){
+        if(PLC_Status.getSelectedItem().toString().equals("PROGRAM")){
             Codigo_Camp.setEditable(true);
+            //Libera Spinner
+            jSpinner1.setEnabled(true);
             
         }
-        if(PLC_Status.getSelectedItem().toString() == "STOP"){
+        if(PLC_Status.getSelectedItem().toString().equals("STOP")){
+            //Libera Spinner
+            jSpinner1.setEnabled(true);            
             //Bloqueia Campo de codigo
             alturaAtual = ALTURA_MAX;
             motorDanificado = false;
