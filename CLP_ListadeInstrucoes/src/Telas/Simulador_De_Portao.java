@@ -37,15 +37,21 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Simulador_De_Portao.class.getName());
 
     //Variaveis Para controle
+    //Portao
     private int alturaAtual = 400; // Altura inicial do portão 343
     private final int ALTURA_MIN = 50;
     private final int ALTURA_MAX = 400;//343
     private final int VELOCIDADE_PORTAO = 2;
     private javax.swing.Timer timerPortao;
     private boolean recolhendo = true;
+    //Controle do arquivo
     private boolean updating = false; 
+    //Entradas e Saidas
     static Map<String, Boolean> inputs;
     static Map<String, Boolean> outputs;
+    @SuppressWarnings("Convert2Diamond")
+    static Map<String, MemoryVariable> memoryVariables = new HashMap<String, MemoryVariable>();
+    
     
     //Carregando imagens
     ImageIcon BL_Apertado = new ImageIcon(getClass().getResource("/Assets/EntortasBarSimulation/BotaoVerdeApertado.png"));
@@ -336,17 +342,20 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 // Quando o botão for pressionado, muda para a imagem de pressionado
                 BotaoDeCima.setIcon(BL_Apertado);
+                inputs.put("I1", true);
                 // Cria o Timer para subir o portão
-                timerPortao = new javax.swing.Timer(15, e -> subirPortao()); // Passa a função abaixarPortao
-                timerPortao.start(); //Primeiramente sem logica
+                //timerPortao = new javax.swing.Timer(15, e -> subirPortao()); // Passa a função abaixarPortao
+                //timerPortao.start(); //Primeiramente sem logica
             }
 
             @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 // Quando o botão for solto, volta para a imagem inicial
                 BotaoDeCima.setIcon(BL_NaoApertado);
-                if(timerPortao != null)
-                timerPortao.stop();
+                inputs.put("I1", false);
+                //Logica para parar o portão
+                //if(timerPortao != null)
+                //timerPortao.stop();
             }
         });
         BotaoDeBaixo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -354,17 +363,20 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 // Quando o botão for pressionado, muda para a imagem de pressionado
                 BotaoDeBaixo.setIcon(BD_Apertado);
+                inputs.put("I2", true);
                 // Cria o Timer para descer o portão
-                timerPortao = new javax.swing.Timer(15, e -> abaixarPortao()); // Passa a função abaixarPortao
-                timerPortao.start(); //Primeiramente sem logica
+                //timerPortao = new javax.swing.Timer(15, e -> abaixarPortao()); // Passa a função abaixarPortao
+                //timerPortao.start(); //Primeiramente sem logica
             }
 
             @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 // Quando o botão for solto, volta para a imagem inicial
                 BotaoDeBaixo.setIcon(BD_NaoApertado);
-                if(timerPortao != null)
-                timerPortao.stop();
+                inputs.put("I2", false);
+                //Logica portao
+                //if(timerPortao != null)
+                //timerPortao.stop();
             }
         });
 
@@ -490,8 +502,6 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
             //Bloqueia campo de codigo
             Codigo_Camp.setEditable(false);
             
-            
-            
             // Verificando tempo de delay
             String stringTime = jSpinner1.getValue().toString();
             Integer time = 0;
@@ -536,7 +546,7 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
                     //outputs = OutputActions.dummyWrite(outputs);
                     outputs = OutputActions.write(outputs);
                     updateScreen();
-                    updateMemoryVariables();
+                    //updateMemoryVariables();
                 } else {
                     ((Timer) evt1.getSource()).stop();
                 }
@@ -559,11 +569,23 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
                     variable.getValue().timer.stop();
                 }
             }
-            updateMemoryVariables();
+            //updateMemoryVariables();
         }
 
     }//GEN-LAST:event_PLC_StatusActionPerformed
 
+    private void updateScreen(){
+        OpenLamp.setIcon(outputs.get("Q1")?Lamp_Ligada:Lamp_Desligada);
+        AjarLamp.setIcon(outputs.get("Q2")?Lamp_Ligada:Lamp_Desligada);
+        CloseLamp.setIcon(outputs.get("Q3")?Lamp_Ligada:Lamp_Desligada);
+        if(outputs.get("Q5"))
+            subirPortao();
+        if(outputs.get("Q6"))
+            abaixarPortao();
+        
+    }
+    
+    
     private void Sobre_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sobre_BTActionPerformed
         // TODO add your handling code here:
         iniciarAnimacaoPortao();
