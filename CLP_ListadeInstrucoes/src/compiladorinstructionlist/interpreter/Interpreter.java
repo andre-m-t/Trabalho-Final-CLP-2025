@@ -12,6 +12,15 @@ public class Interpreter {
     // Cria variáveis
     static Boolean accumulator;
     static List<String> validOperators = new ArrayList<String>();
+    //Variavel para controle de erro na  simulacao portao
+    static boolean erro = false;
+    //get&set
+    public static void setErro(boolean stts){
+        erro = stts;
+    }
+    public static boolean getErro(){
+        return erro;
+    }
 
     // Define operadores válidos
     public static void initializeValidOperators() {
@@ -91,6 +100,7 @@ public class Interpreter {
 
         if (justEmptyLines) {
             Home_Pg.showErrorMessage("Insira as intruções para o CLP!");
+            setErro(true);
         }
 
         return outputs;
@@ -128,10 +138,12 @@ public class Interpreter {
 
         if (!type.equals("M") && !type.equals("T") && !type.equals("C")) {
             Home_Pg.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variable + " não existe!");
+            setErro(true);
         } else if (cod != -1) {
             return type;
         } else {
             Home_Pg.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variable + " não existe!");
+            setErro(true);
         }
 
         return "";
@@ -217,6 +229,7 @@ public class Interpreter {
                         }
                     } else {
                         Home_Pg.showErrorMessage("Entradas não podem ser modificadas, portanto, operadores ST e STN não são válidos para entradas!");
+                        setErro(true);
                     }
                 }
 
@@ -269,6 +282,7 @@ public class Interpreter {
                 System.out.println("Saídas: " + outputs);
             } else {
                 Home_Pg.showErrorMessage("Acumulador vazio! Carregue inicialmente a variável desejada para o acumulador com as funções LD ou LDN!");
+                setErro(true);
             }
 
             // Caso operador seja válido e tenhamos como variável uma memória
@@ -315,6 +329,7 @@ public class Interpreter {
                             memoryVariables.get(variables.get(0)).timerType = "ON";
                         } else if (operator.equals("TON")) {
                             Home_Pg.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variables.get(0) + " invalido!");
+                            setErro(true);
                         }
 
                         if (operator.equals("TOFF") && type.equals("T")) {
@@ -322,6 +337,7 @@ public class Interpreter {
                             memoryVariables.get(variables.get(0)).timerType = "OFF";
                         } else if (operator.equals("TOFF")) {
                             Home_Pg.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variables.get(0) + " invalido!");
+                            setErro(true);
                         }
 
                         if (operator.equals("CTD") && type.equals("C")) {
@@ -329,6 +345,7 @@ public class Interpreter {
                             memoryVariables.get(variables.get(0)).counterType = "DOWN";
                         } else if (operator.equals("CTD")) {
                             Home_Pg.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variables.get(0) + " invalido!");
+                            setErro(true);
                         }
 
                         if (operator.equals("CTU") && type.equals("C")) {
@@ -336,6 +353,7 @@ public class Interpreter {
                             memoryVariables.get(variables.get(0)).counterType = "UP";
                         } else if (operator.equals("CTU")) {
                             Home_Pg.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variables.get(0) + " invalido!");
+                            setErro(true);
                         }
                         // Se memória não existe, ela é criada e e guardada no hash
                     } else {
@@ -355,6 +373,7 @@ public class Interpreter {
                             memoryVariables.get(variables.get(0)).timerType = "ON";
                         } else if (operator.equals("TON")) {
                             Home_Pg.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variables.get(0) + " invalido!");
+                            setErro(true);
                         }
 
                         if (operator.equals("TOFF") && type.equals("T")) {
@@ -363,6 +382,7 @@ public class Interpreter {
                             memoryVariables.get(variables.get(0)).timerType = "OFF";
                         } else if (operator.equals("TOFF")) {
                             Home_Pg.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variables.get(0) + " invalido!");
+                            setErro(true);
                         }
 
                         if (operator.equals("CTD") && type.equals("C")) {
@@ -371,6 +391,7 @@ public class Interpreter {
                             memoryVariables.get(variables.get(0)).counterType = "DOWN";
                         } else if (operator.equals("CTD")) {
                             Home_Pg.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variables.get(0) + " invalido!");
+                            setErro(true);
                         }
 
                         if (operator.equals("CTU") && type.equals("C")) {
@@ -379,6 +400,7 @@ public class Interpreter {
                             memoryVariables.get(variables.get(0)).counterType = "UP";
                         } else if (operator.equals("CTU")) {
                             Home_Pg.showErrorMessage("Sintaxe incorreta! Espaço de memória " + variables.get(0) + " invalido!");
+                            setErro(true);
                         }
                     }
                 }
@@ -420,10 +442,12 @@ public class Interpreter {
                     System.out.println(memoryVariables);
                 } else {
                     Home_Pg.showErrorMessage("Sintaxe incorreta! Variável " + variables.get(0) + " não existe!");
+                    setErro(true);
                 }
             }
         } else {
             Home_Pg.showErrorMessage("Sintaxe incorreta! Operador " + operator + " não existe!");
+            setErro(true);
         }
 
         System.out.println(accumulator);

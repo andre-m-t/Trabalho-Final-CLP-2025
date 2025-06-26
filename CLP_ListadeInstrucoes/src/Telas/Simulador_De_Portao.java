@@ -400,11 +400,7 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
         }else{
             motorDanificado = true;
         }
-        //Ativa Sensor de cima
-        if(alturaAtual == ALTURA_MIN)
-            inputs.put("I3", false);
-        else
-            inputs.put("I3", true);
+        
     }
     
     private void abaixarPortao(){
@@ -415,11 +411,6 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
         }else{
             motorDanificado = true;
         }
-        //Ativa Sensor de baixo
-        if(alturaAtual == ALTURA_MAX)
-            inputs.put("I4", true);
-        else
-            inputs.put("I4", false);
     }
     
     private List<String> saveLines(List<String> lineList) {
@@ -614,6 +605,16 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
             subirPortao();
         if(outputs.get("Q6"))
             abaixarPortao();
+        //Ativa Sensor de baixo
+        if(alturaAtual == ALTURA_MAX)
+            inputs.put("I4", true);
+        else
+            inputs.put("I4", false);
+        //Ativa Sensor de cima
+        if(alturaAtual == ALTURA_MIN)
+            inputs.put("I3", false);
+        else
+            inputs.put("I3", true);
     }
     
     

@@ -36,6 +36,10 @@ public class OutputActions {
         
         return outputs;
     }
+    // Leitura
+    public static Map read(Map outputs) {
+        return outputs;
+    }
     
     // "Limpa" values do hash de saída
     public static Map setAllFalse(Map outputs) {

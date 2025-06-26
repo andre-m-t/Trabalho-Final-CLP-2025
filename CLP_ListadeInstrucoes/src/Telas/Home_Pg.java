@@ -1364,7 +1364,7 @@ public final class Home_Pg extends javax.swing.JFrame {
                 if (mode == 3) {
                     //inputs = InputActions.dummyRead(inputs);
                     inputs = InputActions.read(inputs);
-                    outputs = OutputActions.setAllFalse(outputs);
+                    outputs = OutputActions.read(outputs);
                     outputs = Interpreter.receiveLines(lineList, inputs, outputs, memoryVariables);
                     for(Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()){
                         if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("ON") && variable.getValue().currentValue == true)
