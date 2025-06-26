@@ -11,7 +11,7 @@ public class PainelComImagem extends JPanel {
 
     public PainelComImagem() {
         // Substitua esse caminho pelo caminho real da sua imagem na pasta src
-        imagem = new ImageIcon(getClass().getResource("/Assets/EntortasBarSimulation/Background.png")).getImage();
+        imagem = new ImageIcon(getClass().getResource("/Assets/EntortasBarSimulation/New_Background.png")).getImage();
         setOpaque(false);
     }
 
