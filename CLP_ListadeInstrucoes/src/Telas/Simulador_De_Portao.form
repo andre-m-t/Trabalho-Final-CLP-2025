@@ -33,48 +33,58 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="PainelDeOpcoes" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="BotaoDeCima" pref="75" max="32767" attributes="0"/>
-                              <Component id="BotaoDeBaixo" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="PainelDeOpcoes" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="OpenLabel" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="AjarLabel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="CloseLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                          <Component id="CloseLamp" min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="BotaoDeCima" pref="75" max="32767" attributes="0"/>
+                                      <Component id="BotaoDeBaixo" max="32767" attributes="0"/>
+                                      <Component id="BotaoDoMeio" alignment="0" pref="75" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="OpenLabel" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="AjarLabel" min="-2" max="-2" attributes="0"/>
+                                              <Component id="CloseLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                                  <Component id="CloseLamp" min="-2" pref="33" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="OpenLamp" min="-2" pref="33" max="-2" attributes="0"/>
+                                                  <Component id="AjarLamp" min="-2" pref="33" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="OpenLamp" min="-2" pref="33" max="-2" attributes="0"/>
-                                          <Component id="AjarLamp" min="-2" pref="33" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="BotaoCima_Label" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                      <Component id="BotaoDoMeio_Label" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="BotaoCima_Label" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="BotaoBaixoLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="BarPanel" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="BarPanel" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                      <Component id="BotaoBaixoLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
               <Component id="Color_Camp" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -101,11 +111,15 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="CloseLamp" min="-2" pref="33" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="BotaoDeCima" min="-2" pref="75" max="-2" attributes="0"/>
+                              <Component id="BotaoDeCima" min="-2" pref="39" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="BotaoCima_Label" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="BotaoDeBaixo" min="-2" pref="75" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="BotaoDoMeio" min="-2" pref="39" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                              <Component id="BotaoDoMeio_Label" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="BotaoDeBaixo" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                           <Component id="BarPanel" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -339,12 +353,25 @@
     </Component>
     <Component class="javax.swing.JLabel" name="BotaoCima_Label">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Botao 1 (I1)"/>
+        <Property name="text" type="java.lang.String" value="Open (I1)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="BotaoBaixoLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Botao 2 (I2)"/>
+        <Property name="text" type="java.lang.String" value="Stop (I2)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="BotaoDoMeio">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BotaoDoMeioMouseClicked"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="BotaoDoMeio.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    @Override&#xa;    public void mousePressed(java.awt.event.MouseEvent evt) {&#xa;        // Quando o bot&#xe3;o for pressionado, muda para a imagem de pressionado&#xa;        BotaoDoMeio.setIcon(BL_Apertado);&#xa;        inputs.put(&quot;I5&quot;, true);&#xa;        &#xa;        // Cria o Timer para subir o port&#xe3;o&#xa;        //timerPortao = new javax.swing.Timer(15, e -&gt; subirPortao()); // Passa a fun&#xe7;&#xe3;o abaixarPortao&#xa;        //timerPortao.start(); //Primeiramente sem logica&#xa;&#xa;    }&#xa;&#xa;    @Override&#xa;    public void mouseReleased(java.awt.event.MouseEvent evt) {&#xa;        // Quando o bot&#xe3;o for solto, volta para a imagem inicial&#xa;        BotaoDoMeio.setIcon(BL_NaoApertado);&#xa;        inputs.put(&quot;I5&quot;, false);&#xa;        //Logica para parar o port&#xe3;o&#xa;        //if(timerPortao != null)&#xa;            //timerPortao.stop();&#xa;    }&#xa;});"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="BotaoDoMeio_Label">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Close (I5)"/>
       </Properties>
     </Component>
   </SubComponents>
