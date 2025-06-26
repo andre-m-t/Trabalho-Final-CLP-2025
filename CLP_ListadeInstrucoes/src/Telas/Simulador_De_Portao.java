@@ -345,9 +345,11 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
                 // Quando o botão for pressionado, muda para a imagem de pressionado
                 BotaoDeCima.setIcon(BL_Apertado);
                 inputs.put("I1", true);
+
                 // Cria o Timer para subir o portão
                 //timerPortao = new javax.swing.Timer(15, e -> subirPortao()); // Passa a função abaixarPortao
                 //timerPortao.start(); //Primeiramente sem logica
+
             }
 
             @Override
@@ -366,6 +368,7 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
                 // Quando o botão for pressionado, muda para a imagem de pressionado
                 BotaoDeBaixo.setIcon(BD_Apertado);
                 inputs.put("I2", true);
+
                 // Cria o Timer para descer o portão
                 //timerPortao = new javax.swing.Timer(15, e -> abaixarPortao()); // Passa a função abaixarPortao
                 //timerPortao.start(); //Primeiramente sem logica
@@ -514,6 +517,7 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
     }//GEN-LAST:event_Arquivar_BTActionPerformed
 
     private void PLC_StatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PLC_StatusActionPerformed
+       
         if(PLC_Status.getSelectedItem().toString() == "RUN"){
             //Bloqueia campo de codigo
             Codigo_Camp.setEditable(false);
@@ -542,7 +546,7 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
                 if (PLC_Status.getSelectedItem().toString().equals("RUN")) {
                     //inputs = InputActions.dummyRead(inputs);
                     inputs = InputActions.read(inputs);
-                    outputs = OutputActions.setAllFalse(outputs);
+                    outputs = OutputActions.read(outputs);
                     outputs = Interpreter.receiveLines(lineList, inputs, outputs, memoryVariables);
                     for(Map.Entry<String, MemoryVariable> variable : memoryVariables.entrySet()){
                         if(variable.getKey().charAt(0) == 'T' && variable.getValue().timerType.equals("ON") && variable.getValue().currentValue == true)
@@ -577,9 +581,11 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
         }
         if(PLC_Status.getSelectedItem().toString() == "PROGRAM"){
             Codigo_Camp.setEditable(true);
+            
         }
         if(PLC_Status.getSelectedItem().toString() == "STOP"){
             //Bloqueia Campo de codigo
+            
             Interpreter.setErro(false);
             Codigo_Camp.setEditable(false);
             //Botao Stop Clicado
@@ -590,7 +596,7 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
             }
             //updateMemoryVariables();
         }
-
+        PortaoLabel.repaint();
     }//GEN-LAST:event_PLC_StatusActionPerformed
 
     private void updateMode(){
@@ -608,7 +614,6 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
             subirPortao();
         if(outputs.get("Q6"))
             abaixarPortao();
-        
     }
     
     
