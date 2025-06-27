@@ -626,6 +626,7 @@ public class Simulador_De_Portao extends javax.swing.JFrame {
             Codigo_Camp.setEditable(true);
             //Libera Spinner
             jSpinner1.setEnabled(true);
+            outputs = OutputActions.setAllFalse(outputs);
             
         }
         if(PLC_Status.getSelectedItem().toString().equals("STOP")){
