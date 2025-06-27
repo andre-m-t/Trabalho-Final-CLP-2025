@@ -14,7 +14,7 @@ import java.util.Map;
 public class OutputActions {
     
     public static Map create(Map outputs) {
-        // Cria as 8 saídas
+        // Cria as 16 saídas
         Output Q1 = new Output("Q1", false);
         Output Q2 = new Output("Q2", false);
         Output Q3 = new Output("Q3", false);
@@ -23,6 +23,14 @@ public class OutputActions {
         Output Q6 = new Output("Q6", false);
         Output Q7 = new Output("Q7", false);
         Output Q8 = new Output("Q8", false);
+        Output Q9 = new Output("Q9", false);
+        Output Q10 = new Output("Q10", false);
+        Output Q11 = new Output("Q11", false);
+        Output Q12 = new Output("Q12", false);
+        Output Q13 = new Output("Q13", false);
+        Output Q14 = new Output("Q14", false);
+        Output Q15 = new Output("Q15", false);
+        Output Q16 = new Output("Q16", false);
         
         // Adiciona no hash
         outputs.put(Q1.id, Q1.currentValue);
@@ -33,6 +41,14 @@ public class OutputActions {
         outputs.put(Q6.id, Q6.currentValue);
         outputs.put(Q7.id, Q7.currentValue);
         outputs.put(Q8.id, Q8.currentValue);
+        outputs.put(Q9.id, Q9.currentValue);
+        outputs.put(Q10.id, Q10.currentValue);
+        outputs.put(Q11.id, Q11.currentValue);
+        outputs.put(Q12.id, Q12.currentValue);
+        outputs.put(Q13.id, Q13.currentValue);
+        outputs.put(Q14.id, Q14.currentValue);
+        outputs.put(Q15.id, Q15.currentValue);
+        outputs.put(Q16.id, Q16.currentValue);
         
         return outputs;
     }
@@ -51,6 +67,14 @@ public class OutputActions {
         outputs.put("Q6", false);
         outputs.put("Q7", false);
         outputs.put("Q8", false);
+        outputs.put("Q9", false);
+        outputs.put("Q10", false);
+        outputs.put("Q11", false);
+        outputs.put("Q12", false);
+        outputs.put("Q13", false);
+        outputs.put("Q14", false);
+        outputs.put("Q15", false);
+        outputs.put("Q16", false);
         
         return outputs;
     }
@@ -121,7 +145,7 @@ public class OutputActions {
     public static int convertValueWrite(Map<String, Boolean> outputs) {
         StringBuilder binaryString = new StringBuilder();
 
-        for (int i = 8; i >= 1; i--) {
+        for (int i = 16; i >= 1; i--) {
             binaryString.append(outputs.getOrDefault("Q" + i, false) ? '1' : '0');
         }
 
