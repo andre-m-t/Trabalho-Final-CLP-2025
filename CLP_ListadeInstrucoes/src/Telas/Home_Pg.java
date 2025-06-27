@@ -177,14 +177,70 @@ public final class Home_Pg extends javax.swing.JFrame {
 
 
         
-        Entrada_1.setIcon(inputsType.get("I1") == 0? inputs.get("I1")?icon2:icon1:inputsType.get("I1") == 1?inputs.get("I1")?icon4:icon3:inputsType.get("I1") == 2? inputs.get("I1")?icon6:icon5:icon1);
-        Entrada_2.setIcon(inputsType.get("I2") == 0? inputs.get("I2")?icon2:icon1:inputsType.get("I2") == 1?inputs.get("I2")?icon4:icon3:inputsType.get("I2") == 2? inputs.get("I2")?icon6:icon5:icon1);
-        Entrada_3.setIcon(inputsType.get("I3") == 0? inputs.get("I3")?icon2:icon1:inputsType.get("I3") == 1?inputs.get("I3")?icon4:icon3:inputsType.get("I3") == 2? inputs.get("I3")?icon6:icon5:icon1);
-        Entrada_4.setIcon(inputsType.get("I4") == 0? inputs.get("I4")?icon2:icon1:inputsType.get("I4") == 1?inputs.get("I4")?icon4:icon3:inputsType.get("I4") == 2? inputs.get("I4")?icon6:icon5:icon1);
-        Entrada_5.setIcon(inputsType.get("I5") == 0? inputs.get("I5")?icon2:icon1:inputsType.get("I5") == 1?inputs.get("I5")?icon4:icon3:inputsType.get("I5") == 2? inputs.get("I5")?icon6:icon5:icon1);
-        Entrada_6.setIcon(inputsType.get("I6") == 0? inputs.get("I6")?icon2:icon1:inputsType.get("I6") == 1?inputs.get("I6")?icon4:icon3:inputsType.get("I6") == 2? inputs.get("I6")?icon6:icon5:icon1);
-        Entrada_7.setIcon(inputsType.get("I7") == 0? inputs.get("I7")?icon2:icon1:inputsType.get("I7") == 1?inputs.get("I7")?icon4:icon3:inputsType.get("I7") == 2? inputs.get("I7")?icon6:icon5:icon1);
-        Entrada_8.setIcon(inputsType.get("I8") == 0? inputs.get("I8")?icon2:icon1:inputsType.get("I8") == 1?inputs.get("I8")?icon4:icon3:inputsType.get("I8") == 2? inputs.get("I8")?icon6:icon5:icon1);
+        Entrada_1.setIcon(inputsType.get("I1") == 0 ? inputs.get("I1") ? icon2 : icon1 :
+                 inputsType.get("I1") == 1 ? inputs.get("I1") ? icon4 : icon3 :
+                 inputsType.get("I1") == 2 ? inputs.get("I1") ? icon6 : icon5 : icon1);
+
+        Entrada_2.setIcon(inputsType.get("I2") == 0 ? inputs.get("I2") ? icon2 : icon1 :
+                         inputsType.get("I2") == 1 ? inputs.get("I2") ? icon4 : icon3 :
+                         inputsType.get("I2") == 2 ? inputs.get("I2") ? icon6 : icon5 : icon1);
+
+        Entrada_3.setIcon(inputsType.get("I3") == 0 ? inputs.get("I3") ? icon2 : icon1 :
+                         inputsType.get("I3") == 1 ? inputs.get("I3") ? icon4 : icon3 :
+                         inputsType.get("I3") == 2 ? inputs.get("I3") ? icon6 : icon5 : icon1);
+
+        Entrada_4.setIcon(inputsType.get("I4") == 0 ? inputs.get("I4") ? icon2 : icon1 :
+                         inputsType.get("I4") == 1 ? inputs.get("I4") ? icon4 : icon3 :
+                         inputsType.get("I4") == 2 ? inputs.get("I4") ? icon6 : icon5 : icon1);
+
+        Entrada_5.setIcon(inputsType.get("I5") == 0 ? inputs.get("I5") ? icon2 : icon1 :
+                         inputsType.get("I5") == 1 ? inputs.get("I5") ? icon4 : icon3 :
+                         inputsType.get("I5") == 2 ? inputs.get("I5") ? icon6 : icon5 : icon1);
+
+        Entrada_6.setIcon(inputsType.get("I6") == 0 ? inputs.get("I6") ? icon2 : icon1 :
+                         inputsType.get("I6") == 1 ? inputs.get("I6") ? icon4 : icon3 :
+                         inputsType.get("I6") == 2 ? inputs.get("I6") ? icon6 : icon5 : icon1);
+
+        Entrada_7.setIcon(inputsType.get("I7") == 0 ? inputs.get("I7") ? icon2 : icon1 :
+                         inputsType.get("I7") == 1 ? inputs.get("I7") ? icon4 : icon3 :
+                         inputsType.get("I7") == 2 ? inputs.get("I7") ? icon6 : icon5 : icon1);
+
+        Entrada_8.setIcon(inputsType.get("I8") == 0 ? inputs.get("I8") ? icon2 : icon1 :
+                         inputsType.get("I8") == 1 ? inputs.get("I8") ? icon4 : icon3 :
+                         inputsType.get("I8") == 2 ? inputs.get("I8") ? icon6 : icon5 : icon1);
+
+        Entrada_9.setIcon(inputsType.get("I9") == 0 ? inputs.get("I9") ? icon2 : icon1 :
+                         inputsType.get("I9") == 1 ? inputs.get("I9") ? icon4 : icon3 :
+                         inputsType.get("I9") == 2 ? inputs.get("I9") ? icon6 : icon5 : icon1);
+
+        Entrada_10.setIcon(inputsType.get("I10") == 0 ? inputs.get("I10") ? icon2 : icon1 :
+                          inputsType.get("I10") == 1 ? inputs.get("I10") ? icon4 : icon3 :
+                          inputsType.get("I10") == 2 ? inputs.get("I10") ? icon6 : icon5 : icon1);
+
+        Entrada_11.setIcon(inputsType.get("I11") == 0 ? inputs.get("I11") ? icon2 : icon1 :
+                          inputsType.get("I11") == 1 ? inputs.get("I11") ? icon4 : icon3 :
+                          inputsType.get("I11") == 2 ? inputs.get("I11") ? icon6 : icon5 : icon1);
+
+        Entrada_12.setIcon(inputsType.get("I12") == 0 ? inputs.get("I12") ? icon2 : icon1 :
+                          inputsType.get("I12") == 1 ? inputs.get("I12") ? icon4 : icon3 :
+                          inputsType.get("I12") == 2 ? inputs.get("I12") ? icon6 : icon5 : icon1);
+
+        Entrada_13.setIcon(inputsType.get("I13") == 0 ? inputs.get("I13") ? icon2 : icon1 :
+                          inputsType.get("I13") == 1 ? inputs.get("I13") ? icon4 : icon3 :
+                          inputsType.get("I13") == 2 ? inputs.get("I13") ? icon6 : icon5 : icon1);
+
+        Entrada_14.setIcon(inputsType.get("I14") == 0 ? inputs.get("I14") ? icon2 : icon1 :
+                          inputsType.get("I14") == 1 ? inputs.get("I14") ? icon4 : icon3 :
+                          inputsType.get("I14") == 2 ? inputs.get("I14") ? icon6 : icon5 : icon1);
+
+        Entrada_15.setIcon(inputsType.get("I15") == 0 ? inputs.get("I15") ? icon2 : icon1 :
+                          inputsType.get("I15") == 1 ? inputs.get("I15") ? icon4 : icon3 :
+                          inputsType.get("I15") == 2 ? inputs.get("I15") ? icon6 : icon5 : icon1);
+
+        Entrada_16.setIcon(inputsType.get("I16") == 0 ? inputs.get("I16") ? icon2 : icon1 :
+                          inputsType.get("I16") == 1 ? inputs.get("I16") ? icon4 : icon3 :
+                          inputsType.get("I16") == 2 ? inputs.get("I16") ? icon6 : icon5 : icon1);
+
         
         
         icon3 = new ImageIcon(getClass().getResource("/Assets/led_desligado.png"));
@@ -199,6 +255,14 @@ public final class Home_Pg extends javax.swing.JFrame {
         Saida_6.setIcon(outputs.get("Q6")?icon4:icon3);
         Saida_7.setIcon(outputs.get("Q7")?icon4:icon3);
         Saida_8.setIcon(outputs.get("Q8")?icon4:icon3);
+        Saida_9.setIcon(outputs.get("Q9") ? icon4 : icon3);
+        Saida_10.setIcon(outputs.get("Q10") ? icon4 : icon3);
+        Saida_11.setIcon(outputs.get("Q11") ? icon4 : icon3);
+        Saida_12.setIcon(outputs.get("Q12") ? icon4 : icon3);
+        Saida_13.setIcon(outputs.get("Q13") ? icon4 : icon3);
+        Saida_14.setIcon(outputs.get("Q14") ? icon4 : icon3);
+        Saida_15.setIcon(outputs.get("Q15") ? icon4 : icon3);
+        Saida_16.setIcon(outputs.get("Q16") ? icon4 : icon3);
     }
 
     // Atualiza o modo atual na tela
@@ -580,6 +644,46 @@ public final class Home_Pg extends javax.swing.JFrame {
         Variaveis_BT = new javax.swing.JButton();
         jSpinner1 = new javax.swing.JSpinner();
         Label_Delay = new javax.swing.JLabel();
+        Color_Camp = new javax.swing.JPanel();
+        Codigo_Camp = new javax.swing.JTextArea();
+        Image_Camp = new javax.swing.JLabel();
+        simulador_portao_BT = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        Saida_1 = new javax.swing.JLabel();
+        Saida_2 = new javax.swing.JLabel();
+        Saida_4 = new javax.swing.JLabel();
+        Saida_3 = new javax.swing.JLabel();
+        Saida_5 = new javax.swing.JLabel();
+        Saida_6 = new javax.swing.JLabel();
+        Saida_7 = new javax.swing.JLabel();
+        Saida_8 = new javax.swing.JLabel();
+        Label_Entradas = new javax.swing.JLabel();
+        Label_Saidas = new javax.swing.JLabel();
+        Entrada_5 = new javax.swing.JLabel();
+        Entrada_1 = new javax.swing.JLabel();
+        Entrada_6 = new javax.swing.JLabel();
+        Entrada_2 = new javax.swing.JLabel();
+        Entrada_8 = new javax.swing.JLabel();
+        Entrada_4 = new javax.swing.JLabel();
+        Entrada_7 = new javax.swing.JLabel();
+        Entrada_3 = new javax.swing.JLabel();
+        Entrada_9 = new javax.swing.JLabel();
+        Entrada_10 = new javax.swing.JLabel();
+        Entrada_11 = new javax.swing.JLabel();
+        Entrada_12 = new javax.swing.JLabel();
+        Entrada_13 = new javax.swing.JLabel();
+        Entrada_14 = new javax.swing.JLabel();
+        Entrada_15 = new javax.swing.JLabel();
+        Entrada_16 = new javax.swing.JLabel();
+        Saida_9 = new javax.swing.JLabel();
+        Saida_10 = new javax.swing.JLabel();
+        Saida_11 = new javax.swing.JLabel();
+        Saida_12 = new javax.swing.JLabel();
+        Saida_13 = new javax.swing.JLabel();
+        Saida_14 = new javax.swing.JLabel();
+        Saida_15 = new javax.swing.JLabel();
+        Saida_16 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         Temp_parada_1 = new javax.swing.JLabel();
         Temp_parada_2 = new javax.swing.JLabel();
@@ -661,30 +765,6 @@ public final class Home_Pg extends javax.swing.JFrame {
         label_18 = new javax.swing.JLabel();
         label_19 = new javax.swing.JLabel();
         label_20 = new javax.swing.JLabel();
-        Color_Camp = new javax.swing.JPanel();
-        Codigo_Camp = new javax.swing.JTextArea();
-        Image_Camp = new javax.swing.JLabel();
-        simulador_portao_BT = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        Saida_1 = new javax.swing.JLabel();
-        Saida_2 = new javax.swing.JLabel();
-        Saida_4 = new javax.swing.JLabel();
-        Saida_3 = new javax.swing.JLabel();
-        Saida_5 = new javax.swing.JLabel();
-        Saida_6 = new javax.swing.JLabel();
-        Saida_7 = new javax.swing.JLabel();
-        Saida_8 = new javax.swing.JLabel();
-        Label_Entradas = new javax.swing.JLabel();
-        Label_Saidas = new javax.swing.JLabel();
-        Entrada_5 = new javax.swing.JLabel();
-        Entrada_1 = new javax.swing.JLabel();
-        Entrada_6 = new javax.swing.JLabel();
-        Entrada_2 = new javax.swing.JLabel();
-        Entrada_8 = new javax.swing.JLabel();
-        Entrada_4 = new javax.swing.JLabel();
-        Entrada_7 = new javax.swing.JLabel();
-        Entrada_3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lista de Instruçoes CLP");
@@ -754,6 +834,406 @@ public final class Home_Pg extends javax.swing.JFrame {
         jSpinner1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         Label_Delay.setText("Tempo de Delay em ms:");
+
+        Color_Camp.setBackground(new java.awt.Color(0, 102, 204));
+        Color_Camp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Codigo_Camp.setColumns(20);
+        Codigo_Camp.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Codigo_Camp.setForeground(new java.awt.Color(255, 255, 255));
+        Codigo_Camp.setRows(5);
+        Codigo_Camp.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        Codigo_Camp.setDragEnabled(true);
+        Codigo_Camp.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        Codigo_Camp.setSelectionColor(new java.awt.Color(204, 204, 204));
+        Color_Camp.add(Codigo_Camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 350, 750));
+        Color_Camp.add(Image_Camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 6, 370, 750));
+
+        simulador_portao_BT.setText("Simulador De Portão");
+        simulador_portao_BT.setActionCommand("");
+        simulador_portao_BT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tela_Portao(evt);
+            }
+        });
+
+        jPanel1.setBackground(new java.awt.Color(142, 177, 199));
+
+        Saida_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
+
+        Saida_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
+
+        Saida_4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
+
+        Saida_3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
+
+        Saida_5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
+
+        Saida_6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
+
+        Saida_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
+
+        Saida_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
+
+        Label_Entradas.setFont(new java.awt.Font("Segoe UI Black", 2, 24)); // NOI18N
+        Label_Entradas.setText("Entradas");
+        Label_Entradas.setFocusable(false);
+        Label_Entradas.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        Label_Saidas.setFont(new java.awt.Font("Segoe UI Black", 2, 24)); // NOI18N
+        Label_Saidas.setText("Saidas");
+        Label_Saidas.setToolTipText("");
+        Label_Saidas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        Entrada_5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_5MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_5MouseReleased(evt);
+            }
+        });
+
+        Entrada_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_1MouseReleased(evt);
+            }
+        });
+
+        Entrada_6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_6MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_6MouseReleased(evt);
+            }
+        });
+
+        Entrada_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_2MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_2MouseReleased(evt);
+            }
+        });
+
+        Entrada_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_8MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_8MouseReleased(evt);
+            }
+        });
+
+        Entrada_4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_4MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_4MouseReleased(evt);
+            }
+        });
+
+        Entrada_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_7MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_7MouseReleased(evt);
+            }
+        });
+
+        Entrada_3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_3MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_3MouseReleased(evt);
+            }
+        });
+
+        Entrada_9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_9MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_9MouseReleased(evt);
+            }
+        });
+
+        Entrada_10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_10MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_10MouseReleased(evt);
+            }
+        });
+
+        Entrada_11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_11MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_11MouseReleased(evt);
+            }
+        });
+
+        Entrada_12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_12MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_12MouseReleased(evt);
+            }
+        });
+
+        Entrada_13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_13MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_13MouseReleased(evt);
+            }
+        });
+
+        Entrada_14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_14MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_14MouseReleased(evt);
+            }
+        });
+
+        Entrada_15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_15MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_15MouseReleased(evt);
+            }
+        });
+
+        Entrada_16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
+        Entrada_16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Entrada_16MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Entrada_16MouseReleased(evt);
+            }
+        });
+
+        Saida_9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
+
+        Saida_10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
+
+        Saida_11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
+
+        Saida_12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
+
+        Saida_13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
+
+        Saida_14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
+
+        Saida_15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
+
+        Saida_16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(Label_Entradas, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Label_Saidas, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Entrada_2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Entrada_3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Entrada_4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Entrada_5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Entrada_6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Entrada_7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Entrada_8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Entrada_1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Entrada_16, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Entrada_15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Entrada_14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Entrada_13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Entrada_12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Entrada_11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Entrada_10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Entrada_9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(Saida_6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(Saida_5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(Saida_4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Saida_8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Saida_7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(51, 51, 51))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(Saida_1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Saida_2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Saida_3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(57, 57, 57)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Saida_9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addComponent(Saida_13, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Saida_10, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Saida_11, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Saida_16, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Saida_14, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Saida_15, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Saida_12, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Saida_10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(156, 156, 156))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Label_Entradas, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Label_Saidas))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Saida_1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Saida_9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(13, 13, 13)
+                                .addComponent(Saida_2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Saida_3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(4, 4, 4)
+                                        .addComponent(Saida_11, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Saida_5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(61, 61, 61))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(Saida_12, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Saida_14, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(16, 16, 16)))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(Saida_4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(Saida_13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(Saida_15, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Saida_16, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Saida_6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(104, 104, 104)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Entrada_1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Entrada_9, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Entrada_2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Entrada_10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(6, 6, 6)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Entrada_3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Entrada_11, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(Entrada_4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                                        .addComponent(Entrada_5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(Entrada_12, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(Entrada_13, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 28, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Entrada_6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Entrada_14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(Saida_7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Entrada_7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Entrada_15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Saida_8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Entrada_8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Entrada_16, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
 
         jPanel2.setBackground(new java.awt.Color(8, 94, 131));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1018,242 +1498,27 @@ public final class Home_Pg extends javax.swing.JFrame {
         label_20.setText("10");
         jPanel2.add(label_20, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, 30, 30));
 
-        Color_Camp.setBackground(new java.awt.Color(0, 102, 204));
-        Color_Camp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Codigo_Camp.setColumns(20);
-        Codigo_Camp.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Codigo_Camp.setForeground(new java.awt.Color(255, 255, 255));
-        Codigo_Camp.setRows(5);
-        Codigo_Camp.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        Codigo_Camp.setDragEnabled(true);
-        Codigo_Camp.setSelectedTextColor(new java.awt.Color(0, 0, 0));
-        Codigo_Camp.setSelectionColor(new java.awt.Color(204, 204, 204));
-        Color_Camp.add(Codigo_Camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 350, 750));
-        Color_Camp.add(Image_Camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 6, 370, 750));
-
-        simulador_portao_BT.setText("Simulador De Portão");
-        simulador_portao_BT.setActionCommand("");
-        simulador_portao_BT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Tela_Portao(evt);
-            }
-        });
-
-        jPanel1.setBackground(new java.awt.Color(142, 177, 199));
-
-        Saida_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
-
-        Saida_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
-
-        Saida_4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
-
-        Saida_3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
-
-        Saida_5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
-
-        Saida_6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
-
-        Saida_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
-
-        Saida_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/led_desligado.png"))); // NOI18N
-
-        Label_Entradas.setFont(new java.awt.Font("Segoe UI Black", 2, 24)); // NOI18N
-        Label_Entradas.setText("Entradas");
-        Label_Entradas.setFocusable(false);
-        Label_Entradas.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-
-        Label_Saidas.setFont(new java.awt.Font("Segoe UI Black", 2, 24)); // NOI18N
-        Label_Saidas.setText("Saidas");
-        Label_Saidas.setToolTipText("");
-        Label_Saidas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        Entrada_5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
-        Entrada_5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                Entrada_5MousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Entrada_5MouseReleased(evt);
-            }
-        });
-
-        Entrada_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
-        Entrada_1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                Entrada_1MousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Entrada_1MouseReleased(evt);
-            }
-        });
-
-        Entrada_6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
-        Entrada_6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                Entrada_6MousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Entrada_6MouseReleased(evt);
-            }
-        });
-
-        Entrada_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
-        Entrada_2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                Entrada_2MousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Entrada_2MouseReleased(evt);
-            }
-        });
-
-        Entrada_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
-        Entrada_8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                Entrada_8MousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Entrada_8MouseReleased(evt);
-            }
-        });
-
-        Entrada_4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
-        Entrada_4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                Entrada_4MousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Entrada_4MouseReleased(evt);
-            }
-        });
-
-        Entrada_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
-        Entrada_7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                Entrada_7MousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Entrada_7MouseReleased(evt);
-            }
-        });
-
-        Entrada_3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/chave_aberta.png"))); // NOI18N
-        Entrada_3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                Entrada_3MousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Entrada_3MouseReleased(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Entrada_1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(Entrada_5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Entrada_2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(Entrada_6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Entrada_3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(Entrada_7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Entrada_4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(Entrada_8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(Label_Entradas, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Saida_4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Saida_3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Saida_1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Saida_2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Saida_8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Saida_7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Saida_5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Saida_6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(88, 88, 88))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Label_Saidas, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Label_Entradas, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Label_Saidas))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Saida_5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Saida_8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Saida_1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Entrada_5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Entrada_1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Entrada_6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Entrada_2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(29, 29, 29)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Entrada_7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Entrada_3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(26, 26, 26)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Entrada_8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Entrada_4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(Saida_6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Saida_2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Saida_3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Saida_7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(21, 21, 21)
-                                .addComponent(Saida_4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(80, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 1, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 425, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(45, 45, 45))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1264,9 +1529,7 @@ public final class Home_Pg extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(Color_Camp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -1292,10 +1555,10 @@ public final class Home_Pg extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Label_Delay))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 420, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Variaveis_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1320,13 +1583,10 @@ public final class Home_Pg extends javax.swing.JFrame {
                                 .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(Variaveis_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Color_Camp, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38))
+                .addGap(208, 208, 208))
         );
 
         pack();
@@ -1428,206 +1688,6 @@ public final class Home_Pg extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Sobre_BTActionPerformed
 
-    private void Entrada_1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_1MousePressed
-        if(evt.getButton() == 1){
-            if(inputsType.get("I1") == 0)
-                inputs.put("I1", !inputs.get("I1"));
-            if(inputsType.get("I1") == 1)
-                inputs.put("I1", true);
-            if(inputsType.get("I1") == 2)
-                inputs.put("I1", false);
-            updateScreen();
-        }else if(evt.getButton() == 3){
-            int val = inputsType.get("I1");
-            val++;
-            if(val>=3){
-                val = 0;
-            }
-            inputsType.put("I1", val);
-            if(val == 0 || val == 1){
-                inputs.put("I1", false);
-            }else{
-                inputs.put("I1", true);
-            }
-            updateScreen();
-        }
-    }//GEN-LAST:event_Entrada_1MousePressed
-
-    private void Entrada_2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_2MousePressed
-        if(evt.getButton() == 1){
-            if(inputsType.get("I2") == 0)
-                inputs.put("I2", !inputs.get("I2"));
-            if(inputsType.get("I2") == 1)
-                inputs.put("I2", true);
-            if(inputsType.get("I2") == 2)
-                inputs.put("I2", false);
-            updateScreen();
-        }else if(evt.getButton() == 3){
-            int val = inputsType.get("I2");
-            val++;
-            if(val>=3){
-                val = 0;
-            }
-            inputsType.put("I2", val);
-            if(val == 0 || val == 1){
-                inputs.put("I2", false);
-            }else{
-                inputs.put("I2", true);
-            }
-            updateScreen();
-        }
-    }//GEN-LAST:event_Entrada_2MousePressed
-
-    private void Entrada_3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_3MousePressed
-        if(evt.getButton() == 1){
-            if(inputsType.get("I3") == 0)
-                inputs.put("I3", !inputs.get("I3"));
-            if(inputsType.get("I3") == 1)
-                inputs.put("I3", true);
-            if(inputsType.get("I3") == 2)
-                inputs.put("I3", false);
-            updateScreen();
-        }else if(evt.getButton() == 3){
-            int val = inputsType.get("I3");
-            val++;
-            if(val>=3){
-                val = 0;
-            }
-            inputsType.put("I3", val);
-            if(val == 0 || val == 1){
-                inputs.put("I3", false);
-            }else{
-                inputs.put("I3", true);
-            }
-            updateScreen();
-        }
-    }//GEN-LAST:event_Entrada_3MousePressed
-
-    private void Entrada_4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_4MousePressed
-        if(evt.getButton() == 1){
-            if(inputsType.get("I4") == 0)
-                inputs.put("I4", !inputs.get("I4"));
-            if(inputsType.get("I4") == 1)
-                inputs.put("I4", true);
-            if(inputsType.get("I4") == 2)
-                inputs.put("I4", false);
-            updateScreen();
-        }else if(evt.getButton() == 3){
-            int val = inputsType.get("I4");
-            val++;
-            if(val>=3){
-                val = 0;
-            }
-            inputsType.put("I4", val);
-            if(val == 0 || val == 1){
-                inputs.put("I4", false);
-            }else{
-                inputs.put("I4", true);
-            }
-            updateScreen();
-        }
-    }//GEN-LAST:event_Entrada_4MousePressed
-
-    private void Entrada_5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_5MousePressed
-        if(evt.getButton() == 1){
-            if(inputsType.get("I5") == 0)
-                inputs.put("I5", !inputs.get("I5"));
-            if(inputsType.get("I5") == 1)
-                inputs.put("I5", true);
-            if(inputsType.get("I5") == 2)
-                inputs.put("I5", false);
-            updateScreen();
-        }else if(evt.getButton() == 3){
-            int val = inputsType.get("I5");
-            val++;
-            if(val>=3){
-                val = 0;
-            }
-            inputsType.put("I5", val);
-            if(val == 0 || val == 1){
-                inputs.put("I5", false);
-            }else{
-                inputs.put("I5", true);
-            }
-            updateScreen();
-        } 
-    }//GEN-LAST:event_Entrada_5MousePressed
-
-    private void Entrada_6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_6MousePressed
-        if(evt.getButton() == 1){
-            if(inputsType.get("I6") == 0)
-                inputs.put("I6", !inputs.get("I6"));
-            if(inputsType.get("I6") == 1)
-                inputs.put("I6", true);
-            if(inputsType.get("I6") == 2)
-                inputs.put("I6", false);
-            updateScreen();
-        }else if(evt.getButton() == 3){
-            int val = inputsType.get("I6");
-            val++;
-            if(val>=3){
-                val = 0;
-            }
-            inputsType.put("I6", val);
-            if(val == 0 || val == 1){
-                inputs.put("I6", false);
-            }else{
-                inputs.put("I6", true);
-            }
-            updateScreen();
-        }
-    }//GEN-LAST:event_Entrada_6MousePressed
-
-    private void Entrada_7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_7MousePressed
-        if(evt.getButton() == 1){
-            if(inputsType.get("I7") == 0)
-                inputs.put("I7", !inputs.get("I7"));
-            if(inputsType.get("I7") == 1)
-                inputs.put("I7", true);
-            if(inputsType.get("I7") == 2)
-                inputs.put("I7", false);
-            updateScreen();
-        }else if(evt.getButton() == 3){
-            int val = inputsType.get("I7");
-            val++;
-            if(val>=3){
-                val = 0;
-            }
-            inputsType.put("I7", val);
-            if(val == 0 || val == 1){
-                inputs.put("I7", false);
-            }else{
-                inputs.put("I7", true);
-            }
-            updateScreen();
-        }
-    }//GEN-LAST:event_Entrada_7MousePressed
-
-    private void Entrada_8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_8MousePressed
-        if(evt.getButton() == 1){
-            if(inputsType.get("I8") == 0)
-                inputs.put("I8", !inputs.get("I8"));
-            if(inputsType.get("I8") == 1)
-                inputs.put("I8", true);
-            if(inputsType.get("I8") == 2)
-                inputs.put("I8", false);
-            updateScreen();
-        }else if(evt.getButton() == 3){
-            int val = inputsType.get("I8");
-            val++;
-            if(val>=3){
-                val = 0;
-            }
-            inputsType.put("I8", val);
-            if(val == 0 || val == 1){
-                inputs.put("I8", false);
-            }else{
-                inputs.put("I8", true);
-            }
-            updateScreen();
-        }
-    }//GEN-LAST:event_Entrada_8MousePressed
-
     private void Editar_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Editar_BTActionPerformed
  if(Editar_BT.getItemAt(1) == Editar_BT.getSelectedItem().toString()){
             Editar_BT.setSelectedIndex(0);
@@ -1644,86 +1704,6 @@ public final class Home_Pg extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_Editar_BTActionPerformed
-
-    private void Entrada_1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_1MouseReleased
-        if(evt.getButton() == 1){
-            if(inputsType.get("I1") == 1)
-                inputs.put("I1", false);
-            if(inputsType.get("I1") == 2)
-                inputs.put("I1", true);
-            updateScreen();
-        }
-    }//GEN-LAST:event_Entrada_1MouseReleased
-
-    private void Entrada_2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_2MouseReleased
-       if(evt.getButton() == 1){
-            if(inputsType.get("I2") == 1)
-                inputs.put("I2", false);
-            if(inputsType.get("I2") == 2)
-                inputs.put("I2", true);
-            updateScreen();
-        }
-    }//GEN-LAST:event_Entrada_2MouseReleased
-
-    private void Entrada_3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_3MouseReleased
-        if(evt.getButton() == 1){
-            if(inputsType.get("I3") == 1)
-                inputs.put("I3", false);
-            if(inputsType.get("I3") == 2)
-                inputs.put("I3", true);
-            updateScreen();
-        }
-    }//GEN-LAST:event_Entrada_3MouseReleased
-
-    private void Entrada_4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_4MouseReleased
-        if(evt.getButton() == 1){
-            if(inputsType.get("I4") == 1)
-                inputs.put("I4", false);
-            if(inputsType.get("I4") == 2)
-                inputs.put("I4", true);
-            updateScreen();
-        }
-    }//GEN-LAST:event_Entrada_4MouseReleased
-
-    private void Entrada_5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_5MouseReleased
-        if(evt.getButton() == 1){
-            if(inputsType.get("I5") == 1)
-                inputs.put("I5", false);
-            if(inputsType.get("I5") == 2)
-                inputs.put("I5", true);
-            updateScreen();
-        }
-    }//GEN-LAST:event_Entrada_5MouseReleased
-
-    private void Entrada_6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_6MouseReleased
-        if(evt.getButton() == 1){
-            if(inputsType.get("I6") == 1)
-                inputs.put("I6", false);
-            if(inputsType.get("I6") == 2)
-                inputs.put("I6", true);
-            updateScreen();
-        }
-    }//GEN-LAST:event_Entrada_6MouseReleased
-
-    private void Entrada_7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_7MouseReleased
-        if(evt.getButton() == 1){
-            if(inputsType.get("I7") == 1)
-                inputs.put("I7", false);
-            if(inputsType.get("I7") == 2)
-                inputs.put("I7", true);
-            updateScreen();
-        }
-    }//GEN-LAST:event_Entrada_7MouseReleased
-
-    private void Entrada_8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_8MouseReleased
-        if(evt.getButton() == 1){
-            if(inputsType.get("I8") == 1)
-                inputs.put("I8", false);
-            if(inputsType.get("I8") == 2)
-                inputs.put("I8", true);
-            updateScreen();
-        }
-    }//GEN-LAST:event_Entrada_8MouseReleased
 
     private void Arquivar_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Arquivar_BTActionPerformed
         if (updating) return;
@@ -1802,6 +1782,583 @@ public final class Home_Pg extends javax.swing.JFrame {
 
         telaPortao.setVisible(true);
     }//GEN-LAST:event_Tela_Portao
+
+    private void Entrada_16MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_16MouseReleased
+        // TODO add your handling code here:
+        if(evt.getButton() == 1){
+            if(inputsType.get("I16") == 1)
+            inputs.put("I16", false);
+            if(inputsType.get("I16") == 2)
+            inputs.put("I16", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_16MouseReleased
+
+    private void Entrada_16MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_16MousePressed
+        // TODO add your handling code here:
+        if(evt.getButton() == 1){
+            if(inputsType.get("I16") == 0)
+            inputs.put("I16", !inputs.get("I16"));
+            if(inputsType.get("I16") == 1)
+            inputs.put("I16", true);
+            if(inputsType.get("I16") == 2)
+            inputs.put("I16", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I16");
+            val++;
+            if(val >= 3){
+                val = 0;
+            }
+            inputsType.put("I16", val);
+            if(val == 0 || val == 1){
+                inputs.put("I16", false);
+            }else{
+                inputs.put("I16", true);
+            }
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_16MousePressed
+
+    private void Entrada_15MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_15MouseReleased
+        // TODO add your handling code here:
+        if(evt.getButton() == 1){
+            if(inputsType.get("I15") == 1)
+            inputs.put("I15", false);
+            if(inputsType.get("I15") == 2)
+            inputs.put("I15", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_15MouseReleased
+
+    private void Entrada_15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_15MousePressed
+        // TODO add your handling code here:
+        if(evt.getButton() == 1){
+            if(inputsType.get("I15") == 0)
+            inputs.put("I15", !inputs.get("I15"));
+            if(inputsType.get("I15") == 1)
+            inputs.put("I15", true);
+            if(inputsType.get("I15") == 2)
+            inputs.put("I15", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I15");
+            val++;
+            if(val >= 3){
+                val = 0;
+            }
+            inputsType.put("I15", val);
+            if(val == 0 || val == 1){
+                inputs.put("I15", false);
+            }else{
+                inputs.put("I15", true);
+            }
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_15MousePressed
+
+    private void Entrada_14MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_14MouseReleased
+        // TODO add your handling code here:
+        if(evt.getButton() == 1){
+            if(inputsType.get("I14") == 1)
+            inputs.put("I14", false);
+            if(inputsType.get("I14") == 2)
+            inputs.put("I14", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_14MouseReleased
+
+    private void Entrada_14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_14MousePressed
+        // TODO add your handling code here:
+        if(evt.getButton() == 1){
+            if(inputsType.get("I14") == 0)
+            inputs.put("I14", !inputs.get("I14"));
+            if(inputsType.get("I14") == 1)
+            inputs.put("I14", true);
+            if(inputsType.get("I14") == 2)
+            inputs.put("I14", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I14");
+            val++;
+            if(val >= 3){
+                val = 0;
+            }
+            inputsType.put("I14", val);
+            if(val == 0 || val == 1){
+                inputs.put("I14", false);
+            }else{
+                inputs.put("I14", true);
+            }
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_14MousePressed
+
+    private void Entrada_13MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_13MouseReleased
+        // TODO add your handling code here:
+        if(evt.getButton() == 1){
+            if(inputsType.get("I13") == 1)
+            inputs.put("I13", false);
+            if(inputsType.get("I13") == 2)
+            inputs.put("I13", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_13MouseReleased
+
+    private void Entrada_13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_13MousePressed
+        // TODO add your handling code here:
+        if(evt.getButton() == 1){
+            if(inputsType.get("I13") == 0)
+            inputs.put("I13", !inputs.get("I13"));
+            if(inputsType.get("I13") == 1)
+            inputs.put("I13", true);
+            if(inputsType.get("I13") == 2)
+            inputs.put("I13", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I13");
+            val++;
+            if(val >= 3){
+                val = 0;
+            }
+            inputsType.put("I13", val);
+            if(val == 0 || val == 1){
+                inputs.put("I13", false);
+            }else{
+                inputs.put("I13", true);
+            }
+            updateScreen();
+        }
+
+    }//GEN-LAST:event_Entrada_13MousePressed
+
+    private void Entrada_12MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_12MouseReleased
+        // TODO add your handling code here:
+        if(evt.getButton() == 1){
+            if(inputsType.get("I12") == 1)
+            inputs.put("I12", false);
+            if(inputsType.get("I12") == 2)
+            inputs.put("I12", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_12MouseReleased
+
+    private void Entrada_12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_12MousePressed
+        // TODO add your handling code here:
+        if(evt.getButton() == 1){
+            if(inputsType.get("I12") == 0)
+            inputs.put("I12", !inputs.get("I12"));
+            if(inputsType.get("I12") == 1)
+            inputs.put("I12", true);
+            if(inputsType.get("I12") == 2)
+            inputs.put("I12", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I12");
+            val++;
+            if(val >= 3){
+                val = 0;
+            }
+            inputsType.put("I12", val);
+            if(val == 0 || val == 1){
+                inputs.put("I12", false);
+            }else{
+                inputs.put("I12", true);
+            }
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_12MousePressed
+
+    private void Entrada_11MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_11MouseReleased
+        // TODO add your handling code here:
+        if(evt.getButton() == 1){
+            if(inputsType.get("I11") == 1)
+            inputs.put("I11", false);
+            if(inputsType.get("I11") == 2)
+            inputs.put("I11", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_11MouseReleased
+
+    private void Entrada_11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_11MousePressed
+        // TODO add your handling code here:
+        if(evt.getButton() == 1){
+            if(inputsType.get("I11") == 0)
+            inputs.put("I11", !inputs.get("I11"));
+            if(inputsType.get("I11") == 1)
+            inputs.put("I11", true);
+            if(inputsType.get("I11") == 2)
+            inputs.put("I11", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I11");
+            val++;
+            if(val >= 3){
+                val = 0;
+            }
+            inputsType.put("I11", val);
+            if(val == 0 || val == 1){
+                inputs.put("I11", false);
+            }else{
+                inputs.put("I11", true);
+            }
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_11MousePressed
+
+    private void Entrada_10MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_10MouseReleased
+        // TODO add your handling code here:
+        if(evt.getButton() == 1){
+            if(inputsType.get("I10") == 1)
+            inputs.put("I10", false);
+            if(inputsType.get("I10") == 2)
+            inputs.put("I10", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_10MouseReleased
+
+    private void Entrada_10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_10MousePressed
+        // TODO add your handling code here:
+        if(evt.getButton() == 1){
+            if(inputsType.get("I10") == 0)
+            inputs.put("I10", !inputs.get("I10"));
+            if(inputsType.get("I10") == 1)
+            inputs.put("I10", true);
+            if(inputsType.get("I10") == 2)
+            inputs.put("I10", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I10");
+            val++;
+            if(val >= 3){
+                val = 0;
+            }
+            inputsType.put("I10", val);
+            if(val == 0 || val == 1){
+                inputs.put("I10", false);
+            }else{
+                inputs.put("I10", true);
+            }
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_10MousePressed
+
+    private void Entrada_9MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_9MouseReleased
+        // TODO add your handling code here:
+        if(evt.getButton() == 1){
+            if(inputsType.get("I9") == 1)
+            inputs.put("I9", false);
+            if(inputsType.get("I9") == 2)
+            inputs.put("I9", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_9MouseReleased
+
+    private void Entrada_9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_9MousePressed
+        // TODO add your handling code here:
+        if(evt.getButton() == 1){
+            if(inputsType.get("I9") == 0)
+            inputs.put("I9", !inputs.get("I9"));
+            if(inputsType.get("I9") == 1)
+            inputs.put("I9", true);
+            if(inputsType.get("I9") == 2)
+            inputs.put("I9", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I9");
+            val++;
+            if(val >= 3){
+                val = 0;
+            }
+            inputsType.put("I9", val);
+            if(val == 0 || val == 1){
+                inputs.put("I9", false);
+            }else{
+                inputs.put("I9", true);
+            }
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_9MousePressed
+
+    private void Entrada_3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_3MouseReleased
+        if(evt.getButton() == 1){
+            if(inputsType.get("I3") == 1)
+            inputs.put("I3", false);
+            if(inputsType.get("I3") == 2)
+            inputs.put("I3", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_3MouseReleased
+
+    private void Entrada_3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_3MousePressed
+        if(evt.getButton() == 1){
+            if(inputsType.get("I3") == 0)
+            inputs.put("I3", !inputs.get("I3"));
+            if(inputsType.get("I3") == 1)
+            inputs.put("I3", true);
+            if(inputsType.get("I3") == 2)
+            inputs.put("I3", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I3");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I3", val);
+            if(val == 0 || val == 1){
+                inputs.put("I3", false);
+            }else{
+                inputs.put("I3", true);
+            }
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_3MousePressed
+
+    private void Entrada_7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_7MouseReleased
+        if(evt.getButton() == 1){
+            if(inputsType.get("I7") == 1)
+            inputs.put("I7", false);
+            if(inputsType.get("I7") == 2)
+            inputs.put("I7", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_7MouseReleased
+
+    private void Entrada_7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_7MousePressed
+        if(evt.getButton() == 1){
+            if(inputsType.get("I7") == 0)
+            inputs.put("I7", !inputs.get("I7"));
+            if(inputsType.get("I7") == 1)
+            inputs.put("I7", true);
+            if(inputsType.get("I7") == 2)
+            inputs.put("I7", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I7");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I7", val);
+            if(val == 0 || val == 1){
+                inputs.put("I7", false);
+            }else{
+                inputs.put("I7", true);
+            }
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_7MousePressed
+
+    private void Entrada_4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_4MouseReleased
+        if(evt.getButton() == 1){
+            if(inputsType.get("I4") == 1)
+            inputs.put("I4", false);
+            if(inputsType.get("I4") == 2)
+            inputs.put("I4", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_4MouseReleased
+
+    private void Entrada_4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_4MousePressed
+        if(evt.getButton() == 1){
+            if(inputsType.get("I4") == 0)
+            inputs.put("I4", !inputs.get("I4"));
+            if(inputsType.get("I4") == 1)
+            inputs.put("I4", true);
+            if(inputsType.get("I4") == 2)
+            inputs.put("I4", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I4");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I4", val);
+            if(val == 0 || val == 1){
+                inputs.put("I4", false);
+            }else{
+                inputs.put("I4", true);
+            }
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_4MousePressed
+
+    private void Entrada_8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_8MouseReleased
+        if(evt.getButton() == 1){
+            if(inputsType.get("I8") == 1)
+            inputs.put("I8", false);
+            if(inputsType.get("I8") == 2)
+            inputs.put("I8", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_8MouseReleased
+
+    private void Entrada_8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_8MousePressed
+        if(evt.getButton() == 1){
+            if(inputsType.get("I8") == 0)
+            inputs.put("I8", !inputs.get("I8"));
+            if(inputsType.get("I8") == 1)
+            inputs.put("I8", true);
+            if(inputsType.get("I8") == 2)
+            inputs.put("I8", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I8");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I8", val);
+            if(val == 0 || val == 1){
+                inputs.put("I8", false);
+            }else{
+                inputs.put("I8", true);
+            }
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_8MousePressed
+
+    private void Entrada_2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_2MouseReleased
+        if(evt.getButton() == 1){
+            if(inputsType.get("I2") == 1)
+            inputs.put("I2", false);
+            if(inputsType.get("I2") == 2)
+            inputs.put("I2", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_2MouseReleased
+
+    private void Entrada_2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_2MousePressed
+        if(evt.getButton() == 1){
+            if(inputsType.get("I2") == 0)
+            inputs.put("I2", !inputs.get("I2"));
+            if(inputsType.get("I2") == 1)
+            inputs.put("I2", true);
+            if(inputsType.get("I2") == 2)
+            inputs.put("I2", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I2");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I2", val);
+            if(val == 0 || val == 1){
+                inputs.put("I2", false);
+            }else{
+                inputs.put("I2", true);
+            }
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_2MousePressed
+
+    private void Entrada_6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_6MouseReleased
+        if(evt.getButton() == 1){
+            if(inputsType.get("I6") == 1)
+            inputs.put("I6", false);
+            if(inputsType.get("I6") == 2)
+            inputs.put("I6", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_6MouseReleased
+
+    private void Entrada_6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_6MousePressed
+        if(evt.getButton() == 1){
+            if(inputsType.get("I6") == 0)
+            inputs.put("I6", !inputs.get("I6"));
+            if(inputsType.get("I6") == 1)
+            inputs.put("I6", true);
+            if(inputsType.get("I6") == 2)
+            inputs.put("I6", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I6");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I6", val);
+            if(val == 0 || val == 1){
+                inputs.put("I6", false);
+            }else{
+                inputs.put("I6", true);
+            }
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_6MousePressed
+
+    private void Entrada_1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_1MouseReleased
+        if(evt.getButton() == 1){
+            if(inputsType.get("I1") == 1)
+            inputs.put("I1", false);
+            if(inputsType.get("I1") == 2)
+            inputs.put("I1", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_1MouseReleased
+
+    private void Entrada_1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_1MousePressed
+        if(evt.getButton() == 1){
+            if(inputsType.get("I1") == 0)
+            inputs.put("I1", !inputs.get("I1"));
+            if(inputsType.get("I1") == 1)
+            inputs.put("I1", true);
+            if(inputsType.get("I1") == 2)
+            inputs.put("I1", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I1");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I1", val);
+            if(val == 0 || val == 1){
+                inputs.put("I1", false);
+            }else{
+                inputs.put("I1", true);
+            }
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_1MousePressed
+
+    private void Entrada_5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_5MouseReleased
+        if(evt.getButton() == 1){
+            if(inputsType.get("I5") == 1)
+            inputs.put("I5", false);
+            if(inputsType.get("I5") == 2)
+            inputs.put("I5", true);
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_5MouseReleased
+
+    private void Entrada_5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada_5MousePressed
+        if(evt.getButton() == 1){
+            if(inputsType.get("I5") == 0)
+            inputs.put("I5", !inputs.get("I5"));
+            if(inputsType.get("I5") == 1)
+            inputs.put("I5", true);
+            if(inputsType.get("I5") == 2)
+            inputs.put("I5", false);
+            updateScreen();
+        }else if(evt.getButton() == 3){
+            int val = inputsType.get("I5");
+            val++;
+            if(val>=3){
+                val = 0;
+            }
+            inputsType.put("I5", val);
+            if(val == 0 || val == 1){
+                inputs.put("I5", false);
+            }else{
+                inputs.put("I5", true);
+            }
+            updateScreen();
+        }
+    }//GEN-LAST:event_Entrada_5MousePressed
     
     private void setaCores(){
         Simulacoes.setBackground(Colors.firstColor(color));
@@ -1915,6 +2472,13 @@ public final class Home_Pg extends javax.swing.JFrame {
     private javax.swing.JLabel Contagem_parada_9;
     private javax.swing.JComboBox<String> Editar_BT;
     private javax.swing.JLabel Entrada_1;
+    private javax.swing.JLabel Entrada_10;
+    private javax.swing.JLabel Entrada_11;
+    private javax.swing.JLabel Entrada_12;
+    private javax.swing.JLabel Entrada_13;
+    private javax.swing.JLabel Entrada_14;
+    private javax.swing.JLabel Entrada_15;
+    private javax.swing.JLabel Entrada_16;
     private javax.swing.JLabel Entrada_2;
     private javax.swing.JLabel Entrada_3;
     private javax.swing.JLabel Entrada_4;
@@ -1922,6 +2486,7 @@ public final class Home_Pg extends javax.swing.JFrame {
     private javax.swing.JLabel Entrada_6;
     private javax.swing.JLabel Entrada_7;
     private javax.swing.JLabel Entrada_8;
+    private javax.swing.JLabel Entrada_9;
     private javax.swing.JButton Help_BT;
     private javax.swing.JLabel Image_Camp;
     private javax.swing.JLabel Label_Delay;
@@ -1930,6 +2495,13 @@ public final class Home_Pg extends javax.swing.JFrame {
     private javax.swing.JButton Pause_BT;
     private javax.swing.JButton Run_BT;
     private javax.swing.JLabel Saida_1;
+    private javax.swing.JLabel Saida_10;
+    private javax.swing.JLabel Saida_11;
+    private javax.swing.JLabel Saida_12;
+    private javax.swing.JLabel Saida_13;
+    private javax.swing.JLabel Saida_14;
+    private javax.swing.JLabel Saida_15;
+    private javax.swing.JLabel Saida_16;
     private javax.swing.JLabel Saida_2;
     private javax.swing.JLabel Saida_3;
     private javax.swing.JLabel Saida_4;
@@ -1937,6 +2509,7 @@ public final class Home_Pg extends javax.swing.JFrame {
     private javax.swing.JLabel Saida_6;
     private javax.swing.JLabel Saida_7;
     private javax.swing.JLabel Saida_8;
+    private javax.swing.JLabel Saida_9;
     private javax.swing.JComboBox<String> Simulacoes;
     private javax.swing.JButton Sobre_BT;
     private javax.swing.JLabel Temp_atual_1;
